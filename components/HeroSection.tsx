@@ -4,14 +4,14 @@ import { displayTitle, primaryButton, secondaryButton } from "./styles";
 export function HeroSection() {
   return (
     <section
-      className="relative isolate min-h-[42rem] overflow-hidden bg-[#1f1f1f] text-white sm:min-h-[45rem] md:min-h-[48rem] lg:min-h-svh"
+      className="bg-page-texture relative isolate min-h-[42rem] overflow-hidden text-white sm:min-h-[45rem] md:min-h-[48rem] lg:min-h-svh"
       aria-labelledby="hero-title"
     >
       <div
         className="absolute inset-0 -z-10"
         style={{
-          background:
-            "linear-gradient(180deg, rgba(31,31,31,0) 45%, #1f1f1f 84%), radial-gradient(circle at 70% 50%, rgba(255,100,24,0.2), transparent 28%)",
+          backgroundImage:
+            "linear-gradient(180deg, rgba(31,31,31,0) 45%, #1f1f1f 84%)",
         }}
         aria-hidden="true"
       />

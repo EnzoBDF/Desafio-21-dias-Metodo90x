@@ -1,5 +1,6 @@
 import { ChallengeCarousel } from "@/components/ChallengeCarousel";
 import { FadeInSection } from "@/components/FadeInSection";
+import { FloatingWhatsAppButton } from "@/components/FloatingWhatsAppButton";
 import { HeroSection } from "@/components/HeroSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { IncludedFeatures } from "@/components/IncludedFeatures";
@@ -8,7 +9,7 @@ import { PricingSection } from "@/components/PricingSection";
 
 export default function Home() {
   return (
-    <main className="w-full overflow-hidden bg-[#1f1f1f] text-white">
+    <main className="bg-page-texture w-full overflow-hidden text-white">
       <FadeInSection>
         <HeroSection />
       </FadeInSection>
@@ -27,6 +28,7 @@ export default function Home() {
       <FadeInSection delay={80}>
         <PricingSection />
       </FadeInSection>
+      <FloatingWhatsAppButton />
     </main>
   );
 }

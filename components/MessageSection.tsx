@@ -1,10 +1,10 @@
 import { Icon } from "./Icon";
-import { displayTitle, sectionContainer } from "./styles";
+import { displayTitle, glow, sectionContainer } from "./styles";
 
 export function MessageSection() {
   return (
     <section
-      className="bg-[#1f1f1f] py-12 text-white md:py-20"
+      className="bg-page-texture py-12 text-white md:py-20"
       aria-labelledby="message-title"
     >
       <div className={sectionContainer}>
@@ -44,12 +44,12 @@ export function MessageSection() {
 
         <div
           id="video"
-          className="mx-auto mt-8 grid aspect-video w-full max-w-[45rem] place-items-center overflow-hidden rounded-sm border border-white/10 bg-[radial-gradient(circle_at_center,rgba(255,100,24,0.38),rgba(255,100,24,0.05)_38%,rgba(0,0,0,0.8)_75%)] shadow-2xl"
+          className={`bg-panel-texture mx-auto mt-8 grid aspect-video w-full max-w-[45rem] place-items-center overflow-hidden rounded-sm border border-white/10 ${glow.panel}`}
           role="region"
           aria-label="Vídeo do Desafio 21 Dias"
         >
           <button
-            className="grid size-[4.625rem] place-items-center rounded-full border-2 border-[#ff6418] bg-[#1f1f1f]/90 text-[#ff6418] shadow-[0_0_1.375rem_rgba(255,100,24,0.45)] transition duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6418]"
+            className={`grid size-[4.625rem] place-items-center rounded-full border-2 border-[#ff6418] bg-[#1f1f1f]/90 text-[#ff6418] ${glow.orangeHalo} transition duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6418]`}
             type="button"
             aria-label="Reproduzir vídeo"
           >

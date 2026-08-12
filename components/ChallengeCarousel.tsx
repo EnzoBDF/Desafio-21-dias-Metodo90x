@@ -53,7 +53,7 @@ export function ChallengeCarousel() {
 
   return (
     <section
-      className="bg-[#1f1f1f] py-12 text-white md:py-20"
+      className="bg-page-texture py-12 text-white md:py-20"
       aria-labelledby="challenges-title"
     >
       <div className={sectionContainer}>

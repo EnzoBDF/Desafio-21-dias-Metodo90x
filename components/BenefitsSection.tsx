@@ -27,7 +27,7 @@ const benefits = [
 export function BenefitsSection() {
   return (
     <section
-      className="min-h-svh bg-[#1f1f1f] py-16 text-white md:min-h-0 md:py-20"
+      className="bg-page-texture min-h-svh py-16 text-white md:min-h-0 md:py-20"
       aria-label="Benefícios do Desafio 21 Dias"
     >
       <div

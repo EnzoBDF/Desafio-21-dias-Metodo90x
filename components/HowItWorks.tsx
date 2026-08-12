@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { displayTitle } from "./styles";
+import { displayTitle, glow } from "./styles";
 import { StepCard } from "./StepCard";
 
 const steps = [
@@ -91,7 +91,7 @@ export function HowItWorks() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-svh overflow-hidden bg-[#421f15] pb-0 pt-6 text-white before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_10%_66%,rgba(31,31,31,0.9),transparent_42%),linear-gradient(180deg,#6a2711_0%,#4a2117_48%,#1f1f1f_100%)] md:py-10"
+      className="bg-warm-texture relative min-h-svh overflow-hidden pb-0 pt-6 text-white md:py-10"
       aria-labelledby="how-title"
     >
       <div className="relative mx-auto w-full">
@@ -113,7 +113,7 @@ export function HowItWorks() {
             aria-hidden="true"
           >
             <span
-              className="block h-full origin-top bg-[#ff6418] shadow-[0_0_0.875rem_rgba(255,100,24,0.9)] motion-reduce:scale-y-100"
+              className={`block h-full origin-top bg-[#ff6418] ${glow.orangeLine} motion-reduce:scale-y-100`}
               style={{ transform: `scaleY(${progress})` }}
             />
           </div>

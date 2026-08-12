@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "./Icon";
 import {
   displayTitle,
+  glow,
   primaryButton,
   sectionContainer,
   sectionTitle,
@@ -25,6 +27,7 @@ function clamp(value: number) {
 export function PricingSection() {
   const lineRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [showLogo, setShowLogo] = useState(false);
   const isLineComplete = progress >= 0.995;
 
   useEffect(() => {
@@ -75,10 +78,24 @@ export function PricingSection() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isLineComplete) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      setShowLogo(true);
+    }, 650);
+
+    return () => {
+      window.clearTimeout(timeout);
+    };
+  }, [isLineComplete]);
+
   return (
     <section
       id="pricing"
-      className="relative overflow-hidden bg-[#1f1f1f] py-12 text-white before:absolute before:inset-x-0 before:bottom-0 before:h-[72%] before:bg-[radial-gradient(circle_at_50%_45%,rgba(255,100,24,0.24),transparent_44%)] md:py-20"
+      className="bg-page-texture relative overflow-hidden py-12 text-white md:py-20"
       aria-labelledby="pricing-title"
     >
       <div
@@ -95,7 +112,7 @@ export function PricingSection() {
             aria-hidden="true"
           >
             <span
-              className="block h-full origin-top bg-[#ff6418] shadow-[0_0_0.875rem_rgba(255,100,24,0.9)] motion-reduce:scale-y-100"
+              className={`block h-full origin-top bg-[#ff6418] ${glow.orangeLine} motion-reduce:scale-y-100`}
               style={{ transform: `scaleY(${progress})` }}
             />
           </div>
@@ -111,14 +128,28 @@ export function PricingSection() {
           </h2>
 
           <div
-            className="relative z-10 mt-8 grid size-[8.25rem] place-items-center rounded-full border-[0.1875rem] border-[#ff6418] bg-[#1f1f1f] text-white shadow-[0_0_1.35rem_rgba(255,100,24,0.82),0_0_0_0.375rem_rgba(0,0,0,0.55)] transition-[opacity,transform] duration-300 ease-out motion-reduce:scale-100 motion-reduce:opacity-100"
+            className={`relative z-10 mt-8 grid size-[8.25rem] place-items-center overflow-hidden rounded-full border-[0.1875rem] border-[#ff6418] bg-[#1f1f1f] text-white ${glow.orangeRing} transition-[opacity,transform] duration-300 ease-out motion-reduce:scale-100 motion-reduce:opacity-100`}
             style={{
               opacity: isLineComplete ? 1 : 0,
               transform: `scale(${isLineComplete ? 1 : 0.72})`,
             }}
             aria-hidden="true"
           >
-            <Icon name="check" className="h-16 w-16 stroke-[2.4]" />
+            <Icon
+              name="check"
+              className={`absolute h-16 w-16 stroke-[2.4] transition-[opacity,transform] duration-300 ease-out ${
+                showLogo ? "scale-75 opacity-0" : "scale-100 opacity-100"
+              }`}
+            />
+            <Image
+              className={`object-contain p-3 transition-[opacity,transform] duration-300 ease-out ${
+                showLogo ? "scale-100 opacity-100" : "scale-90 opacity-0"
+              }`}
+              src="/images/Desafio21Logo.png"
+              alt=""
+              fill
+              sizes="8.25rem"
+            />
           </div>
         </div>
 

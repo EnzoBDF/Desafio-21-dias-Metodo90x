@@ -1,4 +1,4 @@
-import { displayTitle } from "./styles";
+import { displayTitle, glow } from "./styles";
 
 type StepCardProps = {
   number: string;
@@ -38,7 +38,7 @@ export function StepCard({
 
   return (
     <article
-      className={`relative z-10 flex min-h-24 max-w-[35rem] items-center bg-white py-4 text-left text-black shadow-xl motion-reduce:translate-y-0 motion-reduce:opacity-100 ${classes.article}`}
+      className={`relative z-10 flex min-h-24 max-w-[35rem] items-center bg-white py-4 text-left text-black ${glow.darkCard} motion-reduce:translate-y-0 motion-reduce:opacity-100 ${classes.article}`}
       style={{
         width: "calc(100% - 3.5rem)",
         opacity: revealAmount,
@@ -46,7 +46,7 @@ export function StepCard({
       }}
     >
       <span
-        className={`${displayTitle} absolute top-1/2 grid size-14 -translate-y-1/2 place-items-center rounded-full border-3 border-[#ff6418] bg-[#1f1f1f] text-[clamp(1.45rem,6vw,1.8rem)] leading-none text-white shadow-[0_0_0.85rem_rgba(0,0,0,0.38),0_0_0.95rem_rgba(255,100,24,0.65)] motion-reduce:scale-100 motion-reduce:opacity-100 ${classes.number}`}
+        className={`${displayTitle} absolute top-1/2 grid size-14 -translate-y-1/2 place-items-center rounded-full border-3 border-[#ff6418] bg-[#1f1f1f] text-[clamp(1.45rem,6vw,1.8rem)] leading-none text-white ${glow.orangeRing} motion-reduce:scale-100 motion-reduce:opacity-100 ${classes.number}`}
         style={{
           opacity: revealAmount,
           transform: `translateY(-50%) scale(${0.55 + revealAmount * 0.45})`,

@@ -49,7 +49,7 @@ export function ChallengeCard({
           {description}
         </p>
         <a
-          className={`${primaryButton} mt-auto min-h-[3.25rem] min-w-0 text-[clamp(0.92rem,3.9vw,1rem)]`}
+          className={`${primaryButton} mt-4 min-h-[3.25rem] min-w-0 text-[clamp(0.92rem,3.9vw,1rem)]`}
           href="#pricing"
         >
           EU ESCOLHO ESTE DESAFIO!
