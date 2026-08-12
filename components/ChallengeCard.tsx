@@ -5,6 +5,8 @@ type ChallengeCardProps = {
   title: string;
   subtitle: string;
   description: string;
+  imageSrc: string;
+  imageAlt: string;
   isActive: boolean;
 };
 
@@ -12,6 +14,8 @@ export function ChallengeCard({
   title,
   subtitle,
   description,
+  imageSrc,
+  imageAlt,
   isActive,
 }: ChallengeCardProps) {
   return (
@@ -25,8 +29,8 @@ export function ChallengeCard({
       <div className="relative aspect-[0.94] overflow-hidden bg-[#111]">
         <Image
           className="object-cover object-[50%_0]"
-          src="/images/ela-voltou.webp"
-          alt=""
+          src={imageSrc}
+          alt={imageAlt}
           fill
           sizes="(max-width: 48rem) 76vw, 18.5rem"
         />

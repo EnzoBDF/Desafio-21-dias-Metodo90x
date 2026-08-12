@@ -4,13 +4,34 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChallengeCard } from "./ChallengeCard";
 import { sectionContainer, sectionTitle } from "./styles";
 
-const challenges = Array.from({ length: 3 }, (_, index) => ({
-  id: index + 1,
-  title: "ELA VOLTOU",
-  subtitle: "O renascimento da mulher 30+",
-  description:
-    "Para a mulher que ficou parada e quer voltar a olhar no espelho e enxergar a mulher forte que existe nela.",
-}));
+const challenges = [
+  {
+    id: 1,
+    title: "BUMBUM NA NUCA",
+    subtitle: "Glúteos em destaque",
+    description: "Para focar em firmeza, formato e evolução dos glúteos durante os 21 dias.",
+    imageSrc: "/images/Bumbum.png",
+    imageAlt: "Desafio Bumbum",
+  },
+  {
+    id: 2,
+    title: "PERNAS DE CAVALONA",
+    subtitle: "Pernas mais densas e torneadas",
+    description:
+      "Para quem quer construir pernas e glúteos com treino direcionado e constância.",
+    imageSrc: "/images/Cvalona.png",
+    imageAlt: "Desafio Cavalona",
+  },
+  {
+    id: 3,
+    title: "ELA VOLTOU",
+    subtitle: "O renascimento da mulher 30+",
+    description:
+      "Para voltar a se olhar com confiança e reencontrar sua melhor versão.",
+    imageSrc: "/images/ela-voltou.webp",
+    imageAlt: "Desafio Ela Voltou",
+  },
+];
 
 export function ChallengeCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
