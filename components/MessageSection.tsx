@@ -1,5 +1,6 @@
 import { Icon } from "./Icon";
 import { displayTitle, glow, sectionContainer } from "./styles";
+import { TrackedButton } from "./TrackedActions";
 
 export function MessageSection() {
   return (
@@ -48,13 +49,17 @@ export function MessageSection() {
           role="region"
           aria-label="Vídeo do Desafio 21 Dias"
         >
-          <button
+          <TrackedButton
             className={`grid size-[4.625rem] place-items-center rounded-full border-2 border-[#ff6418] bg-[#1f1f1f]/90 text-[#ff6418] ${glow.orangeHalo} transition duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6418]`}
             type="button"
             aria-label="Reproduzir vídeo"
+            eventName="video_play_clicked"
+            eventProperties={{
+              location: "message_section",
+            }}
           >
             <Icon name="play" className="h-8 w-8" />
-          </button>
+          </TrackedButton>
         </div>
       </div>
     </section>

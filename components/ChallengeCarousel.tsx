@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChallengeCard } from "./ChallengeCard";
 import { sectionContainer, sectionTitle } from "./styles";
+import { trackEvent } from "@/lib/analytics";
 
 const challenges = [
   {
@@ -36,6 +37,17 @@ const challenges = [
 export function ChallengeCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+
+  const focusChallenge = useCallback((index: number, interaction: string) => {
+    const challenge = challenges[index];
+
+    setActiveIndex(index);
+    trackEvent("challenge_card_focused", {
+      challenge_id: challenge.id,
+      challenge_title: challenge.title,
+      interaction,
+    });
+  }, []);
 
   const updateActiveCard = useCallback(() => {
     const track = trackRef.current;
@@ -101,9 +113,9 @@ export function ChallengeCarousel() {
             className="snap-center"
             data-card
             key={challenge.id}
-            onFocus={() => setActiveIndex(index)}
+            onFocus={() => focusChallenge(index, "focus")}
             onMouseEnter={() => setActiveIndex(index)}
-            onPointerDown={() => setActiveIndex(index)}
+            onPointerDown={() => focusChallenge(index, "pointer")}
           >
             <ChallengeCard {...challenge} isActive={activeIndex === index} />
           </div>

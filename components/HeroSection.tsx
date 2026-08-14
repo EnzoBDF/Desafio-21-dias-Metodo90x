@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { displayTitle, primaryButton, secondaryButton } from "./styles";
+import { TrackedLink } from "./TrackedActions";
 
 export function HeroSection() {
   return (
@@ -52,7 +53,6 @@ export function HeroSection() {
           className={`${displayTitle} mt-4 flex max-w-[22rem] flex-col text-[clamp(1.1rem,5.3vw,1.45rem)] leading-[1.04] text-[#ff6418] md:max-w-[32rem] md:text-[clamp(1.45rem,3vw,1.75rem)]`}
         >
           <span>E ela só está esperando você decidir voltar</span>
-
         </p>
 
         <p className="mt-4 max-w-[22rem] text-center text-[clamp(0.82rem,3.5vw,0.95rem)] font-semibold leading-[1.8] text-white/95 md:max-w-[30rem] md:text-base lg:text-left">
@@ -63,12 +63,28 @@ export function HeroSection() {
         </p>
 
         <div className="mt-8 flex w-full max-w-[22.5rem] flex-col gap-3.5 md:max-w-none md:flex-row md:justify-center lg:justify-start">
-          <a className={primaryButton} href="#pricing">
+          <TrackedLink
+            className={primaryButton}
+            href="#pricing"
+            eventName="hero_cta_clicked"
+            eventProperties={{
+              cta: "start_21_days",
+              destination: "pricing",
+            }}
+          >
             QUERO COMEÇAR MEUS 21 DIAS
-          </a>
-          <a className={secondaryButton} href="#video">
+          </TrackedLink>
+          <TrackedLink
+            className={secondaryButton}
+            href="#video"
+            eventName="hero_cta_clicked"
+            eventProperties={{
+              cta: "watch_video",
+              destination: "video",
+            }}
+          >
             ASSISTIR AO VÍDEO
-          </a>
+          </TrackedLink>
         </div>
       </div>
     </section>

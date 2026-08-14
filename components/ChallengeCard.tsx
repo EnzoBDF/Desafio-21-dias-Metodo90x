@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { displayTitle, glow, primaryButton } from "./styles";
+import { TrackedLink } from "./TrackedActions";
 
 type ChallengeCardProps = {
+  id: number;
   title: string;
   subtitle: string;
   description: string;
@@ -11,6 +13,7 @@ type ChallengeCardProps = {
 };
 
 export function ChallengeCard({
+  id,
   title,
   subtitle,
   description,
@@ -52,12 +55,18 @@ export function ChallengeCard({
         <p className="mt-2.5 text-[clamp(0.88rem,3.7vw,0.95rem)] leading-[1.38] text-white/92">
           {description}
         </p>
-        <a
+        <TrackedLink
           className={`${primaryButton} mt-4 min-h-[3.25rem] min-w-0 text-[clamp(0.92rem,3.9vw,1rem)]`}
           href="#pricing"
+          eventName="challenge_cta_clicked"
+          eventProperties={{
+            challenge_id: id,
+            challenge_title: title,
+            destination: "pricing",
+          }}
         >
           EU ESCOLHO ESTE DESAFIO!
-        </a>
+        </TrackedLink>
       </div>
     </article>
   );

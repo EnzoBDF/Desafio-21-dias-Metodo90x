@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { Icon } from "./Icon";
 import {
   displayTitle,
@@ -10,6 +11,7 @@ import {
   sectionContainer,
   sectionTitle,
 } from "./styles";
+import { TrackedLink } from "./TrackedActions";
 
 const items = [
   "Avaliação inicial",
@@ -85,6 +87,9 @@ export function PricingSection() {
 
     const timeout = window.setTimeout(() => {
       setShowLogo(true);
+      trackEvent("pricing_animation_completed", {
+        location: "pricing_section",
+      });
     }, 650);
 
     return () => {
@@ -187,9 +192,17 @@ export function PricingSection() {
           ))}
         </ul>
 
-        <a className={`${primaryButton} mt-8 max-w-[18rem]`} href="#hero-title">
+        <TrackedLink
+          className={`${primaryButton} mt-8 max-w-[18rem]`}
+          href="#hero-title"
+          eventName="pricing_cta_clicked"
+          eventProperties={{
+            cta: "choose_start",
+            price: "99,90",
+          }}
+        >
           EU ESCOLHI COMEÇAR!
-        </a>
+        </TrackedLink>
       </div>
     </section>
   );
