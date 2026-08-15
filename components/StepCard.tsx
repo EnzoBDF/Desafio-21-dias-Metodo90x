@@ -12,12 +12,14 @@ type StepCardProps = {
 
 const alignment = {
   right: {
-    article: "mr-auto rounded-l-none rounded-r-lg pl-5 pr-16",
-    number: "-right-6",
+    article:
+      "mr-auto rounded-l-none rounded-r-lg pl-5 pr-16 lg:ml-[calc(50%_+_2.5rem)] lg:mr-0 lg:rounded-lg lg:pl-7 lg:pr-8",
+    number: "-right-6 lg:-left-[4.5rem] lg:right-auto",
   },
   left: {
-    article: "ml-auto rounded-l-lg rounded-r-none pl-16 pr-5",
-    number: "-left-6",
+    article:
+      "ml-auto rounded-l-lg rounded-r-none pl-16 pr-5 lg:ml-0 lg:mr-[calc(50%_+_2.5rem)] lg:rounded-lg lg:pl-8 lg:pr-7",
+    number: "-left-6 lg:-right-[4.5rem] lg:left-auto",
   },
 };
 
@@ -38,9 +40,8 @@ export function StepCard({
 
   return (
     <article
-      className={`relative z-10 flex min-h-24 max-w-[35rem] items-center bg-white py-4 text-left text-black ${glow.darkCard} motion-reduce:translate-y-0 motion-reduce:opacity-100 ${classes.article}`}
+      className={`relative z-10 flex min-h-24 w-[calc(100%_-_3.5rem)] max-w-[35rem] items-center bg-white py-4 text-left text-black lg:min-h-28 lg:w-[min(31rem,calc(50%_-_3rem))] ${glow.darkCard} motion-reduce:translate-y-0 motion-reduce:opacity-100 ${classes.article}`}
       style={{
-        width: "calc(100% - 3.5rem)",
         opacity: revealAmount,
         transform: `translateY(${(1 - revealAmount) * 1}rem)`,
       }}
@@ -56,11 +57,11 @@ export function StepCard({
       </span>
       <div className="min-w-0">
         <h3
-          className={`${displayTitle} text-[clamp(0.98rem,4.35vw,1.22rem)] leading-none`}
+          className={`${displayTitle} text-[clamp(0.98rem,4.35vw,1.22rem)] leading-none lg:text-[1.45rem]`}
         >
           {title}
         </h3>
-        <p className="mt-2 text-[clamp(0.9rem,3.7vw,1rem)] font-semibold leading-[1.25]">
+        <p className="mt-2 text-[clamp(0.9rem,3.7vw,1rem)] font-semibold leading-[1.25] lg:text-[1.05rem]">
           {description}
         </p>
       </div>

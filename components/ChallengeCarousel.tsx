@@ -86,13 +86,13 @@ export function ChallengeCarousel() {
 
   return (
     <section
-      className="bg-page-texture py-12 text-white md:py-20"
+      className="bg-page-texture py-12 text-white md:py-20 lg:py-24"
       aria-labelledby="challenges-title"
     >
       <div className={sectionContainer}>
         <h2
           id="challenges-title"
-          className={`${sectionTitle} max-w-[16rem] text-[clamp(2.25rem,9vw,3.2rem)] leading-[1.02] md:max-w-[28rem]`}
+          className={`${sectionTitle} max-w-[16rem] text-[clamp(2.25rem,9vw,3.2rem)] leading-[1.02] md:max-w-[28rem] lg:max-w-[34rem] lg:text-[4.25rem]`}
         >
           <span className="text-white">
             3 <b className="text-[#ff6418]">DESAFIOS</b>
@@ -104,7 +104,7 @@ export function ChallengeCarousel() {
 
       <div
         ref={trackRef}
-        className="scrollbar-none mt-8 flex snap-x snap-mandatory items-center gap-4 overflow-x-auto px-6 pb-5 pt-4 md:mx-auto md:max-w-6xl md:justify-center md:overflow-visible md:px-8"
+        className="scrollbar-none mt-8 flex snap-x snap-mandatory items-center gap-4 overflow-x-auto px-6 pb-5 pt-4 md:mx-auto md:max-w-6xl md:justify-center md:overflow-visible md:px-8 lg:mt-12 lg:max-w-7xl lg:gap-8"
         aria-label="Escolha seu desafio"
         onScroll={updateActiveCard}
       >

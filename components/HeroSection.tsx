@@ -5,7 +5,7 @@ import { TrackedLink } from "./TrackedActions";
 export function HeroSection() {
   return (
     <section
-      className="bg-page-texture relative isolate min-h-[42rem] overflow-hidden text-white sm:min-h-[45rem] md:min-h-[48rem] lg:min-h-svh"
+      className="bg-page-texture relative isolate min-h-[42rem] overflow-hidden text-white sm:min-h-[45rem] md:min-h-[48rem] lg:min-h-svh xl:min-h-[52rem]"
       aria-labelledby="hero-title"
     >
       <div
@@ -18,7 +18,7 @@ export function HeroSection() {
       />
 
       <div
-        className="absolute inset-x-0 top-0 -z-20 mx-auto h-[33rem] w-full max-w-[54rem] overflow-hidden bg-[#111] sm:h-[35rem] md:h-[40rem] lg:h-full"
+        className="absolute inset-x-0 top-0 -z-20 mx-auto h-[33rem] w-full max-w-[54rem] overflow-hidden bg-[#111] sm:h-[35rem] md:h-[40rem] lg:h-full lg:max-w-none"
         aria-hidden="true"
       >
         <Image
@@ -33,10 +33,10 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04)_34%,rgba(0,0,0,0.36)_68%,#1f1f1f_96%)]" />
       </div>
 
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center px-6 pt-[clamp(17rem,54svh,22rem)] text-center sm:px-8 md:px-10 lg:items-start lg:pt-[42svh] lg:text-left">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center px-6 pt-[clamp(17rem,54svh,22rem)] text-center sm:px-8 md:px-10 lg:items-start lg:pt-[36svh] lg:text-left xl:pt-[34svh]">
         <h1
           id="hero-title"
-          className={`${displayTitle} flex max-w-[23rem] flex-col items-center overflow-hidden text-[clamp(2.15rem,10vw,2.75rem)] leading-[0.88] text-[#ff6418] md:max-w-[38rem] md:text-[clamp(3rem,6vw,3.75rem)] lg:items-start`}
+          className={`${displayTitle} flex max-w-[23rem] flex-col items-center overflow-hidden text-[clamp(2.15rem,10vw,2.75rem)] leading-[0.88] text-[#ff6418] md:max-w-[38rem] md:text-[clamp(3rem,6vw,3.75rem)] lg:items-start lg:text-[clamp(3.6rem,5vw,5.5rem)] xl:max-w-[48rem]`}
         >
           <span className="block origin-center scale-x-[0.84] whitespace-nowrap text-white">
             VOCÊ NÃO PERDEU A
@@ -50,7 +50,7 @@ export function HeroSection() {
         </h1>
 
         <p
-          className={`${displayTitle} mt-4 flex max-w-[22rem] flex-col text-[clamp(1.1rem,5.3vw,1.45rem)] leading-[1.04] text-[#ff6418] md:max-w-[32rem] md:text-[clamp(1.45rem,3vw,1.75rem)]`}
+          className={`${displayTitle} mt-4 flex max-w-[22rem] flex-col text-[clamp(1.1rem,5.3vw,1.45rem)] leading-[1.04] text-[#ff6418] md:max-w-[32rem] md:text-[clamp(1.45rem,3vw,1.75rem)] lg:max-w-[42rem] lg:text-[clamp(1.6rem,2.2vw,2.2rem)]`}
         >
           <span>E ela só está esperando você decidir voltar</span>
         </p>

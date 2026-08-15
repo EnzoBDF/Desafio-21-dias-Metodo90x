@@ -5,13 +5,13 @@ import { TrackedButton } from "./TrackedActions";
 export function MessageSection() {
   return (
     <section
-      className="bg-page-texture py-12 text-white md:py-20"
+      className="bg-page-texture py-12 text-white md:py-20 lg:py-24"
       aria-labelledby="message-title"
     >
       <div className={sectionContainer}>
         <h2
           id="message-title"
-          className={`${displayTitle} mx-auto flex max-w-[21rem] flex-col items-center text-center text-[clamp(2rem,8.5vw,3.15rem)] text-[#ff6418] md:max-w-[39rem]`}
+          className={`${displayTitle} mx-auto flex max-w-[21rem] flex-col items-center text-center text-[clamp(2rem,8.5vw,3.15rem)] text-[#ff6418] md:max-w-[39rem] lg:max-w-[56rem] lg:text-[4.6rem]`}
         >
           <span className="text-white">VOCÊ NÃO PERDEU</span>
           <span className="text-white">
@@ -23,7 +23,7 @@ export function MessageSection() {
           <span>FEMINILIDADE</span>
         </h2>
 
-        <p className="mx-auto mt-9 max-w-[19rem] text-center text-[clamp(1rem,4vw,1.18rem)] leading-[2.1] text-white/95 md:max-w-[35rem]">
+        <p className="mx-auto mt-9 max-w-[19rem] text-center text-[clamp(1rem,4vw,1.18rem)] leading-[2.1] text-white/95 md:max-w-[35rem] lg:max-w-[46rem] lg:text-xl">
           Você apenas passou tempo demais cuidando de tudo e de todos, e acabou
           deixando você mesma para depois.
         </p>
@@ -35,7 +35,7 @@ export function MessageSection() {
             CONHEÇA O DESAFIO 21
           </p>
           <h2
-            className={`${displayTitle} mx-auto flex max-w-[20rem] flex-col text-[clamp(2rem,8vw,3.1rem)] text-white md:max-w-[36rem]`}
+            className={`${displayTitle} mx-auto flex max-w-[20rem] flex-col text-[clamp(2rem,8vw,3.1rem)] text-white md:max-w-[36rem] lg:max-w-[42rem] lg:text-[4rem]`}
           >
             <span>ASSISTA E</span>
             <span>DESCUBRA COMO</span>
@@ -45,7 +45,7 @@ export function MessageSection() {
 
         <div
           id="video"
-          className={`bg-panel-texture mx-auto mt-8 grid aspect-video w-full max-w-[45rem] place-items-center overflow-hidden rounded-sm border border-white/10 ${glow.panel}`}
+          className={`bg-panel-texture mx-auto mt-8 grid aspect-video w-full max-w-[45rem] place-items-center overflow-hidden rounded-sm border border-white/10 lg:mt-12 lg:max-w-[58rem] ${glow.panel}`}
           role="region"
           aria-label="Vídeo do Desafio 21 Dias"
         >

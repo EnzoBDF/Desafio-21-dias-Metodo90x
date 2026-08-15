@@ -100,11 +100,11 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="bg-page-texture relative overflow-hidden py-12 text-white md:py-20"
+      className="bg-page-texture relative overflow-hidden py-12 text-white md:py-20 lg:py-24"
       aria-labelledby="pricing-title"
     >
       <div
-        className={`${sectionContainer} relative flex flex-col items-center text-center`}
+        className={`${sectionContainer} relative flex flex-col items-center text-center lg:max-w-5xl`}
       >
         <div className="relative flex w-full flex-col items-center">
           <div
@@ -124,7 +124,7 @@ export function PricingSection() {
 
           <h2
             id="pricing-title"
-            className={`${sectionTitle} relative z-10 items-start text-left text-[clamp(2.24rem,9vw,4rem)] md:items-center md:text-center`}
+            className={`${sectionTitle} relative z-10 items-start text-left text-[clamp(2.24rem,9vw,4rem)] md:items-center md:text-center lg:text-[4.5rem]`}
           >
             <span className="text-white">SUA JORNADA</span>
             <span className="text-white">
@@ -133,7 +133,7 @@ export function PricingSection() {
           </h2>
 
           <div
-            className={`relative z-10 mt-8 grid size-[8.25rem] place-items-center overflow-hidden rounded-full border-[0.1875rem] border-[#ff6418] bg-[#1f1f1f] text-white ${glow.orangeRing} transition-[opacity,transform] duration-300 ease-out motion-reduce:scale-100 motion-reduce:opacity-100`}
+            className={`relative z-10 mt-8 grid size-[8.25rem] place-items-center overflow-hidden rounded-full border-[0.1875rem] border-[#ff6418] bg-[#1f1f1f] text-white lg:mt-10 lg:size-[9.5rem] ${glow.orangeRing} transition-[opacity,transform] duration-300 ease-out motion-reduce:scale-100 motion-reduce:opacity-100`}
             style={{
               opacity: isLineComplete ? 1 : 0,
               transform: `scale(${isLineComplete ? 1 : 0.72})`,
@@ -153,13 +153,13 @@ export function PricingSection() {
               src="/images/Desafio21Logo.png"
               alt=""
               fill
-              sizes="8.25rem"
+              sizes="(min-width: 64rem) 9.5rem, 8.25rem"
             />
           </div>
         </div>
 
         <p
-          className={`${displayTitle} mt-10 text-[clamp(1.8rem,8vw,2.2rem)] leading-none`}
+          className={`${displayTitle} mt-10 text-[clamp(1.8rem,8vw,2.2rem)] leading-none lg:text-[2.8rem]`}
         >
           DESAFIO <span className="text-[#ff6418]">21 DIAS</span>
         </p>
@@ -178,7 +178,7 @@ export function PricingSection() {
         </p>
 
         <ul
-          className="mt-8 grid gap-3.5 text-left text-[clamp(0.95rem,3.8vw,1rem)] leading-none text-white/95"
+          className="mt-8 grid gap-3.5 text-left text-[clamp(0.95rem,3.8vw,1rem)] leading-none text-white/95 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-5 lg:text-lg"
           aria-label="Benefícios inclusos"
         >
           {items.map((item) => (
