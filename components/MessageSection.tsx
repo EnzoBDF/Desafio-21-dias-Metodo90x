@@ -1,6 +1,5 @@
-import { Icon } from "./Icon";
 import { displayTitle, glow, sectionContainer } from "./styles";
-import { TrackedButton } from "./TrackedActions";
+import { TrackedVideo } from "./TrackedActions";
 
 export function MessageSection() {
   return (
@@ -13,19 +12,18 @@ export function MessageSection() {
           id="message-title"
           className={`${displayTitle} mx-auto flex max-w-[21rem] flex-col items-center text-center text-[clamp(2rem,8.5vw,3.15rem)] text-[#ff6418] md:max-w-[39rem] lg:max-w-[56rem] lg:text-[4.6rem]`}
         >
-          <span className="text-white">VOCÊ NÃO PERDEU</span>
+          <span className="text-white">ESCOLHA UM DESAFIO</span>
           <span className="text-white">
-            SUA <b className="text-[#ff6418]">FORÇA</b>, SUA
+            E <b className="text-[#ff6418]">CONQUISTE</b> SUA
           </span>
           <span>
-            <b>BELEZA</b> OU SUA
+            <b>MELHOR VERSÃO</b> 
           </span>
-          <span>FEMINILIDADE</span>
+          
         </h2>
 
         <p className="mx-auto mt-9 max-w-[19rem] text-center text-[clamp(1rem,4vw,1.18rem)] leading-[2.1] text-white/95 md:max-w-[35rem] lg:max-w-[46rem] lg:text-xl">
-          Você apenas passou tempo demais cuidando de tudo e de todos, e acabou
-          deixando você mesma para depois.
+          Chegou o seu momento, seja sua maior prioridade e dê o primeiro passo para transformar seu corpo, com o Desafio 21 Dias.
         </p>
 
         <div className="mt-9 text-center">
@@ -45,21 +43,29 @@ export function MessageSection() {
 
         <div
           id="video"
-          className={`bg-panel-texture mx-auto mt-8 grid aspect-video w-full max-w-[45rem] place-items-center overflow-hidden rounded-sm border border-white/10 lg:mt-12 lg:max-w-[58rem] ${glow.panel}`}
+          className={`bg-panel-texture mx-auto mt-8 grid aspect-[9/16] w-full max-w-[22rem] place-items-center overflow-hidden rounded-sm border border-white/10 md:max-w-[26rem] lg:mt-12 lg:max-w-[28rem] ${glow.panel}`}
           role="region"
           aria-label="Vídeo do Desafio 21 Dias"
         >
-          <TrackedButton
-            className={`grid size-[4.625rem] place-items-center rounded-full border-2 border-[#ff6418] bg-[#1f1f1f]/90 text-[#ff6418] ${glow.orangeHalo} transition duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6418]`}
-            type="button"
-            aria-label="Reproduzir vídeo"
+          <TrackedVideo
+            className="h-full w-full object-cover"
+            controls
+            playsInline
+            poster="/capavideo.jpeg"
+            preload="metadata"
+            aria-label="Vídeo do Desafio 21 Dias"
             eventName="video_play_clicked"
             eventProperties={{
               location: "message_section",
+              video: "whatsapp_video_2026_08_14",
             }}
           >
-            <Icon name="play" className="h-8 w-8" />
-          </TrackedButton>
+            <source
+              src="/WhatsApp%20Video%202026-08-14%20at%2009.03.34.mp4"
+              type="video/mp4"
+            />
+            Seu navegador não suporta a reprodução deste vídeo.
+          </TrackedVideo>
         </div>
       </div>
     </section>

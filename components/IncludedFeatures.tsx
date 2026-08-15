@@ -3,27 +3,55 @@ import { displayTitle, glow, sectionContainer } from "./styles";
 
 const features = [
   {
-    icon: "app" as const,
+    icon: "analysis",
+    title: "Avaliação Inicial",
+    description:
+      "Receba uma avaliação completa para entender seu corpo e definir metas realistas",
+  },
+  {
+    icon: "target",
+    title: "Estratégia Alimentar Personalizada",
+    description: "Receba uma dieta adaptada ao seu objetivo e estilo de vida",
+  },
+  {
+    icon: "app",
     title: "Aplicativo de treinos",
     description:
-      "Gerencie e acesse seu treino de maneira prática e centralizada",
+      "Gerencie e acesse seu treino personalizado de maneira prática e centralizada",
   },
-  {
-    icon: "analysis" as const,
-    title: "Análise Inicial",
-    description: "Receba uma análise para compreender seu estágio atual",
-  },
-  {
-    icon: "training" as const,
-    title: "Treinos Personalizados",
-    description: "Seja em casa ou na academia, você recebe um treino exclusivo",
-  },
-];
 
-const columns = Array.from({ length: 2 }, (_, index) => ({
-  id: index + 1,
-  features,
-}));
+  {
+    icon: "training",
+    title: "Acompanhamento individualizado",
+    description:
+      "Receba orientação e suporte personalizado pelo WhatsApp da equipe durante sua jornada",
+  },
+  {
+    icon: "shield",
+    title: "Grupo Exclusivo",
+    description:
+      "Grupo exclusivo no WhatsApp para suporte, motivação e troca de experiências com outros participantes",
+  },
+  {
+    icon: "heart",
+    title: "Lives Semanais",
+    description:
+      "Lives sobre treinos, dicas de emagrecimento, hipertrofia e saúde com especialistas convidados",
+  },
+] as const;
+
+const featuresPerColumn = 3;
+
+const columns = Array.from(
+  { length: Math.ceil(features.length / featuresPerColumn) },
+  (_, index) => ({
+    id: index + 1,
+    features: features.slice(
+      index * featuresPerColumn,
+      index * featuresPerColumn + featuresPerColumn,
+    ),
+  }),
+);
 
 export function IncludedFeatures() {
   return (

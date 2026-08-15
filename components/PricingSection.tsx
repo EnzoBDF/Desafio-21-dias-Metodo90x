@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { CHECKOUT_URL } from "@/lib/links";
 import { Icon } from "./Icon";
 import {
   displayTitle,
@@ -165,8 +166,18 @@ export function PricingSection() {
         </p>
 
         <p
-          className={`${displayTitle} mt-4 flex items-baseline justify-center text-white`}
-          aria-label="Preço 99 reais e 90 centavos"
+          className={`${displayTitle} mt-6 text-[clamp(1.35rem,5.4vw,1.85rem)] leading-none text-white/85 lg:text-[2.15rem]`}
+        >
+          De{" "}
+          <span className="text-[1.12em] text-white/65 line-through decoration-[#ff6418] decoration-2">
+            R$ 199,90
+          </span>{" "}
+          por apenas
+        </p>
+
+        <p
+          className={`${displayTitle} mt-2 flex items-baseline justify-center text-white`}
+          aria-label="Preço promocional 99 reais e 90 centavos, de 199 reais e 90 centavos"
         >
           <span className="sr-only">R$</span>
           <span className="text-[clamp(4.4rem,20vw,5.25rem)] leading-none">
@@ -194,11 +205,13 @@ export function PricingSection() {
 
         <TrackedLink
           className={`${primaryButton} mt-8 max-w-[18rem]`}
-          href="#hero-title"
+          href={CHECKOUT_URL}
           eventName="pricing_cta_clicked"
           eventProperties={{
             cta: "choose_start",
+            destination: "checkout",
             price: "99,90",
+            original_price: "199,90",
           }}
         >
           EU ESCOLHI COMEÇAR!

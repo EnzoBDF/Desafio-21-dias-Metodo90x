@@ -5,6 +5,8 @@ import type {
   ButtonHTMLAttributes,
   MouseEvent,
   ReactNode,
+  SyntheticEvent,
+  VideoHTMLAttributes,
 } from "react";
 import { trackEvent } from "@/lib/analytics";
 
@@ -24,6 +26,9 @@ type TrackedLinkProps = TrackedActionProps &
 
 type TrackedButtonProps = TrackedActionProps &
   ButtonHTMLAttributes<HTMLButtonElement>;
+
+type TrackedVideoProps = Omit<TrackedActionProps, "children"> &
+  VideoHTMLAttributes<HTMLVideoElement>;
 
 function captureClick(
   eventName: string,
@@ -69,5 +74,22 @@ export function TrackedButton({
     >
       {children}
     </button>
+  );
+}
+
+export function TrackedVideo({
+  eventName,
+  eventProperties,
+  onPlay,
+  ...props
+}: TrackedVideoProps) {
+  return (
+    <video
+      {...props}
+      onPlay={(event: SyntheticEvent<HTMLVideoElement>) => {
+        captureClick(eventName, eventProperties);
+        onPlay?.(event);
+      }}
+    />
   );
 }

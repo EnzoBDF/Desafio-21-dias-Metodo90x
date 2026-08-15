@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CHECKOUT_URL } from "@/lib/links";
 import { displayTitle, primaryButton, secondaryButton } from "./styles";
 import { TrackedLink } from "./TrackedActions";
 
@@ -39,7 +40,7 @@ export function HeroSection() {
           className={`${displayTitle} flex max-w-[23rem] flex-col items-center overflow-hidden text-[clamp(2.15rem,10vw,2.75rem)] leading-[0.88] text-[#ff6418] md:max-w-[38rem] md:text-[clamp(3rem,6vw,3.75rem)] lg:items-start lg:text-[clamp(3.6rem,5vw,5.5rem)] xl:max-w-[48rem]`}
         >
           <span className="block origin-center scale-x-[0.84] whitespace-nowrap text-white">
-            VOCÊ NÃO PERDEU A
+            A MELHOR VERSÃO DA
           </span>
           <span className="block origin-center scale-x-[0.84] whitespace-nowrap">
             MULHER QUE EXISTE
@@ -52,7 +53,7 @@ export function HeroSection() {
         <p
           className={`${displayTitle} mt-4 flex max-w-[22rem] flex-col text-[clamp(1.1rem,5.3vw,1.45rem)] leading-[1.04] text-[#ff6418] md:max-w-[32rem] md:text-[clamp(1.45rem,3vw,1.75rem)] lg:max-w-[42rem] lg:text-[clamp(1.6rem,2.2vw,2.2rem)]`}
         >
-          <span>E ela só está esperando você decidir voltar</span>
+          <span>Está só esperando você começar!</span>
         </p>
 
         <p className="mt-4 max-w-[22rem] text-center text-[clamp(0.82rem,3.5vw,0.95rem)] font-semibold leading-[1.8] text-white/95 md:max-w-[30rem] md:text-base lg:text-left">
@@ -65,11 +66,11 @@ export function HeroSection() {
         <div className="mt-8 flex w-full max-w-[22.5rem] flex-col gap-3.5 md:max-w-none md:flex-row md:justify-center lg:justify-start">
           <TrackedLink
             className={primaryButton}
-            href="#pricing"
+            href={CHECKOUT_URL}
             eventName="hero_cta_clicked"
             eventProperties={{
               cta: "start_21_days",
-              destination: "pricing",
+              destination: "checkout",
             }}
           >
             QUERO COMEÇAR MEUS 21 DIAS

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CHECKOUT_URL } from "@/lib/links";
 import { displayTitle, glow, primaryButton } from "./styles";
 import { TrackedLink } from "./TrackedActions";
 
@@ -57,12 +58,12 @@ export function ChallengeCard({
         </p>
         <TrackedLink
           className={`${primaryButton} mt-4 min-h-[3.25rem] min-w-0 text-[clamp(0.92rem,3.9vw,1rem)]`}
-          href="#pricing"
+          href={CHECKOUT_URL}
           eventName="challenge_cta_clicked"
           eventProperties={{
             challenge_id: id,
             challenge_title: title,
-            destination: "pricing",
+            destination: "checkout",
           }}
         >
           EU ESCOLHO ESTE DESAFIO!
