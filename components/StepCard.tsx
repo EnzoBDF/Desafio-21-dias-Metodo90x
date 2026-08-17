@@ -5,9 +5,6 @@ type StepCardProps = {
   title: string;
   description: string;
   align: "left" | "right";
-  lineProgress?: number;
-  progressStart?: number;
-  progressEnd?: number;
 };
 
 const alignment = {
@@ -28,30 +25,15 @@ export function StepCard({
   title,
   description,
   align,
-  lineProgress = 1,
-  progressStart = 0,
-  progressEnd = 1,
 }: StepCardProps) {
   const classes = alignment[align];
-  const revealAmount = Math.min(
-    1,
-    Math.max(0, (lineProgress - progressStart) / (progressEnd - progressStart)),
-  );
 
   return (
     <article
-      className={`relative z-10 flex min-h-24 w-[calc(100%_-_3.5rem)] max-w-[35rem] items-center bg-white py-4 text-left text-black lg:min-h-28 lg:w-[min(31rem,calc(50%_-_3rem))] ${glow.darkCard} motion-reduce:translate-y-0 motion-reduce:opacity-100 ${classes.article}`}
-      style={{
-        opacity: revealAmount,
-        transform: `translateY(${(1 - revealAmount) * 1}rem)`,
-      }}
+      className={`relative z-10 flex min-h-24 w-[calc(100%_-_3.5rem)] max-w-[35rem] items-center bg-white py-4 text-left text-black lg:min-h-28 lg:w-[min(31rem,calc(50%_-_3rem))] ${glow.darkCard} ${classes.article}`}
     >
       <span
-        className={`${displayTitle} absolute top-1/2 grid size-14 -translate-y-1/2 place-items-center rounded-full border-3 border-[#ff6418] bg-[#1f1f1f] text-[clamp(1.45rem,6vw,1.8rem)] leading-none text-white ${glow.orangeRing} motion-reduce:scale-100 motion-reduce:opacity-100 ${classes.number}`}
-        style={{
-          opacity: revealAmount,
-          transform: `translateY(-50%) scale(${0.55 + revealAmount * 0.45})`,
-        }}
+        className={`${displayTitle} absolute top-1/2 grid size-14 -translate-y-1/2 place-items-center rounded-full border-3 border-[#ff6418] bg-[#1f1f1f] text-[clamp(1.45rem,6vw,1.8rem)] leading-none text-white ${glow.orangeRing} ${classes.number}`}
       >
         {number}
       </span>

@@ -17,8 +17,23 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+.challenge-card-highlight {
+  transition:
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out,
+    border-color 300ms ease-out,
+    opacity 300ms ease-out !important;
+}
+
 html {
-  scroll-behavior: smooth;
   background: var(--background);
 }
 

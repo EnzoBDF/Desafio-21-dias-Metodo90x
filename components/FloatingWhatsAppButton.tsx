@@ -6,7 +6,7 @@ const WHATSAPP_URL =
 export function FloatingWhatsAppButton() {
   return (
     <TrackedLink
-      className="fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full bg-[#25d366] text-white shadow-[0_0_1rem_rgba(37,211,102,0.55),0_0.75rem_1.5rem_rgba(0,0,0,0.42)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#2be371] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25d366] md:bottom-7 md:right-7 md:size-16"
+      className="fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full bg-[#25d366] text-white shadow-[0_0_1rem_rgba(37,211,102,0.55),0_0.75rem_1.5rem_rgba(0,0,0,0.42)] hover:bg-[#2be371] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25d366] md:bottom-7 md:right-7 md:size-16"
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"

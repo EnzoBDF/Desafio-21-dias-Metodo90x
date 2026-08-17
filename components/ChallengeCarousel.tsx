@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { ChallengeCard } from "./ChallengeCard";
 import { sectionContainer, sectionTitle } from "./styles";
-import { trackEvent } from "@/lib/analytics";
 
 const challenges = [
   {
@@ -62,13 +62,16 @@ export function ChallengeCarousel() {
     const visibleRight = Math.min(trackRect.right, window.innerWidth);
     const trackCenter = visibleLeft + (visibleRight - visibleLeft) / 2;
 
-    const closestIndex = cards.reduce((closest, card, index) => {
-      const rect = card.getBoundingClientRect();
-      const cardCenter = rect.left + rect.width / 2;
-      const distance = Math.abs(cardCenter - trackCenter);
+    const closestIndex = cards.reduce(
+      (closest, card, index) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(cardCenter - trackCenter);
 
-      return distance < closest.distance ? { distance, index } : closest;
-    }, { distance: Number.POSITIVE_INFINITY, index: 0 }).index;
+        return distance < closest.distance ? { distance, index } : closest;
+      },
+      { distance: Number.POSITIVE_INFINITY, index: 0 },
+    ).index;
 
     setActiveIndex(closestIndex);
   }, []);
@@ -104,13 +107,12 @@ export function ChallengeCarousel() {
 
       <div
         ref={trackRef}
-        className="scrollbar-none mt-8 flex snap-x snap-mandatory items-center gap-4 overflow-x-auto px-6 pb-5 pt-4 md:mx-auto md:max-w-6xl md:justify-center md:overflow-visible md:px-8 lg:mt-12 lg:max-w-7xl lg:gap-8"
+        className="scrollbar-none mt-8 flex items-center gap-4 overflow-x-auto px-6 pb-5 pt-4 md:mx-auto md:max-w-6xl md:justify-center md:overflow-visible md:px-8 lg:mt-12 lg:max-w-7xl lg:gap-8"
         aria-label="Escolha seu desafio"
         onScroll={updateActiveCard}
       >
         {challenges.map((challenge, index) => (
           <div
-            className="snap-center"
             data-card
             key={challenge.id}
             onFocus={() => focusChallenge(index, "focus")}

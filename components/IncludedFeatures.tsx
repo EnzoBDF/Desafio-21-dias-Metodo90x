@@ -70,12 +70,12 @@ export function IncludedFeatures() {
       </div>
 
       <div
-        className="scrollbar-none relative z-10 mt-16 flex snap-x snap-mandatory gap-[clamp(0.75rem,4vw,1.5rem)] overflow-x-auto px-[calc((100%_-_min(76vw,22rem))_/_2)] pb-3 pt-7 md:mx-auto md:max-w-6xl lg:mt-20 lg:justify-center lg:gap-10 lg:overflow-visible lg:px-10 lg:pb-0"
+        className="scrollbar-none relative z-10 mt-16 flex gap-[clamp(0.75rem,4vw,1.5rem)] overflow-x-auto px-[calc((100%_-_min(76vw,22rem))_/_2)] pb-3 pt-7 md:mx-auto md:max-w-6xl lg:mt-20 lg:justify-center lg:gap-10 lg:overflow-visible lg:px-10 lg:pb-0"
         aria-label="Itens inclusos"
       >
         {columns.map((column) => (
           <div
-            className="grid w-[76vw] max-w-[22rem] shrink-0 snap-center gap-12 md:w-[22rem] lg:w-[24rem] lg:max-w-[24rem] lg:gap-14"
+            className="grid w-[76vw] max-w-[22rem] shrink-0 gap-12 md:w-[22rem] lg:w-[24rem] lg:max-w-[24rem] lg:gap-14"
             key={column.id}
           >
             {column.features.map((feature) => (

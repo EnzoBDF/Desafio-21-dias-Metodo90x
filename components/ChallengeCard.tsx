@@ -24,7 +24,7 @@ export function ChallengeCard({
 }: ChallengeCardProps) {
   return (
     <article
-      className={`w-[76vw] min-w-[17rem] max-w-[18.5rem] flex-[0_0_76vw] overflow-hidden rounded-xl border bg-black transition-[transform,box-shadow,border-color,opacity] duration-300 ease-out md:flex-[0_0_18.5rem] lg:max-w-[21rem] lg:flex-[0_0_21rem] xl:max-w-[22rem] xl:flex-[0_0_22rem] ${
+      className={`challenge-card-highlight w-[76vw] min-w-[17rem] max-w-[18.5rem] flex-[0_0_76vw] overflow-hidden rounded-xl border bg-black md:flex-[0_0_18.5rem] lg:max-w-[21rem] lg:flex-[0_0_21rem] xl:max-w-[22rem] xl:flex-[0_0_22rem] ${
         isActive
           ? `relative z-10 scale-100 border-[#ff6418]/80 opacity-100 ${glow.orangeCard}`
           : `scale-[0.9] border-transparent opacity-80 ${glow.whiteCard}`

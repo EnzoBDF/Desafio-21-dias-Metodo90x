@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import { displayTitle, glow } from "./styles";
 import { StepCard } from "./StepCard";
 
@@ -31,66 +28,9 @@ const steps = [
   },
 ];
 
-function clamp(value: number) {
-  return Math.min(1, Math.max(0, value));
-}
-
 export function HowItWorks() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    let frame = 0;
-    let isComplete = false;
-
-    const updateProgress = () => {
-      if (isComplete) {
-        return;
-      }
-
-      const timeline = timelineRef.current;
-
-      if (!timeline) {
-        return;
-      }
-
-      const rect = timeline.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const start = viewportHeight * 0.98;
-      const end = viewportHeight * 0.18;
-      const nextProgress = clamp((start - rect.top) / (rect.height + start - end));
-
-      if (nextProgress >= 1) {
-        isComplete = true;
-        setProgress(1);
-        window.removeEventListener("scroll", requestUpdate);
-        window.removeEventListener("resize", requestUpdate);
-        return;
-      }
-
-      setProgress(nextProgress);
-    };
-
-    const requestUpdate = () => {
-      window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(updateProgress);
-    };
-
-    requestUpdate();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-    };
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       className="bg-warm-texture relative min-h-svh overflow-hidden pb-0 pt-6 text-white md:py-10 lg:py-24"
       aria-labelledby="how-title"
     >
@@ -105,7 +45,6 @@ export function HowItWorks() {
         </h2>
 
         <div
-          ref={timelineRef}
           className="relative mx-auto mt-14 flex min-h-[calc(100svh-11rem)] w-full flex-col justify-between gap-8 pb-0 pt-4 md:max-w-[54rem] lg:mt-20 lg:min-h-[46rem] lg:max-w-6xl lg:gap-12"
         >
           <div
@@ -113,19 +52,12 @@ export function HowItWorks() {
             aria-hidden="true"
           >
             <span
-              className={`block h-full origin-top bg-[#ff6418] ${glow.orangeLine} motion-reduce:scale-y-100`}
-              style={{ transform: `scaleY(${progress})` }}
+              className={`block h-full bg-[#ff6418] ${glow.orangeLine}`}
             />
           </div>
 
-          {steps.map((step, index) => (
-            <StepCard
-              key={step.number}
-              {...step}
-              lineProgress={progress}
-              progressStart={(index + 0.12) / steps.length}
-              progressEnd={(index + 0.4) / steps.length}
-            />
+          {steps.map((step) => (
+            <StepCard key={step.number} {...step} />
           ))}
         </div>
       </div>
