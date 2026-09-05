@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CHECKOUT_URL } from "@/lib/links";
 import { TrackedLink } from "./TrackedActions";
 import { displayTitle, glow, primaryButton, sectionContainer } from "./styles";
@@ -9,45 +9,23 @@ import { displayTitle, glow, primaryButton, sectionContainer } from "./styles";
 const communityPhotos = [
   {
     id: 1,
-    imageSrc: "",
-    alt: "Comunidade Bumbum na Nuca",
-    title: "Mesmo objetivo",
-    description: "Mulheres treinando juntas por glúteos mais fortes e definidos.",
+    imageSrc: "/Comunidade/Comunidade1.jpeg",
+    alt: "Comunidade Método 90X",
   },
   {
     id: 2,
-    imageSrc: "",
-    alt: "Comunidade Bumbum na Nuca",
-    title: "Foco nos glúteos",
-    description: "Trocas diárias para manter intensidade e constância.",
+    imageSrc: "/Comunidade/Comunidade2.jpeg",
+    alt: "Comunidade Método 90X",
   },
   {
     id: 3,
-    imageSrc: "",
-    alt: "Comunidade Bumbum na Nuca",
-    title: "Cada série conta",
-    description: "Um passo por treino rumo a mais firmeza e volume.",
+    imageSrc: "/Comunidade/Comunidade3.jpeg",
+    alt: "Comunidade Método 90X",
   },
   {
     id: 4,
-    imageSrc: "",
-    alt: "Comunidade Bumbum na Nuca",
-    title: "Execução com direção",
-    description: "Casa ou academia, o glúteo continua no centro da missão.",
-  },
-  {
-    id: 5,
-    imageSrc: "",
-    alt: "Comunidade Bumbum na Nuca",
-    title: "Evolução visível",
-    description: "Treino, alimentação e suporte trabalhando pelo mesmo objetivo.",
-  },
-  {
-    id: 6,
-    imageSrc: "",
-    alt: "Comunidade Bumbum na Nuca",
-    title: "Suporte de verdade",
-    description: "Você não precisa descobrir sozinha como treinar seus glúteos.",
+    imageSrc: "/Comunidade/Comunidade4.jpeg",
+    alt: "Comunidade Método 90X",
   },
 ];
 
@@ -55,10 +33,6 @@ export function CommunityPhotosSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const resumeTimerRef = useRef<number | null>(null);
   const [isInteracting, setIsInteracting] = useState(false);
-  const sliderItems = useMemo(
-    () => [...communityPhotos, ...communityPhotos.map((item) => ({ ...item }))],
-    [],
-  );
 
   const pauseSlideshow = () => {
     if (resumeTimerRef.current !== null) {
@@ -95,7 +69,7 @@ export function CommunityPhotosSection() {
 
     const slides = track.querySelectorAll<HTMLElement>("[data-slide]");
 
-    if (slides.length <= communityPhotos.length) {
+    if (slides.length < 2) {
       return;
     }
 
@@ -103,18 +77,22 @@ export function CommunityPhotosSection() {
     let previousTime = performance.now();
     let position = track.scrollLeft;
     const pixelsPerSecond = 14;
-    const loopDistance =
-      slides[communityPhotos.length].offsetLeft - slides[0].offsetLeft;
+    let direction = position >= track.scrollWidth - track.clientWidth - 1 ? -1 : 1;
 
     const animate = (time: number) => {
       const elapsed = Math.min(time - previousTime, 50);
       previousTime = time;
 
       if (!isInteracting && track.scrollWidth > track.clientWidth) {
-        position += (pixelsPerSecond * elapsed) / 1000;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        position += direction * (pixelsPerSecond * elapsed) / 1000;
 
-        if (position >= loopDistance) {
-          position -= loopDistance;
+        if (position >= maxScroll) {
+          position = maxScroll;
+          direction = -1;
+        } else if (position <= 0) {
+          position = 0;
+          direction = 1;
         }
 
         track.scrollLeft = position;
@@ -163,40 +141,19 @@ export function CommunityPhotosSection() {
           resumeSlideshow();
         }}
       >
-        {sliderItems.map((photo, index) => (
+        {communityPhotos.map((photo) => (
           <article
             data-slide
             className={`relative aspect-[4/5] w-[72vw] min-w-[16rem] max-w-[20rem] shrink-0 snap-center overflow-hidden rounded-xl bg-[#111] md:w-[20rem] ${glow.whiteCard}`}
-            key={`${photo.id}-${index}`}
+            key={photo.id}
           >
-            {photo.imageSrc ? (
-              <Image
-                className="object-cover"
-                src={photo.imageSrc}
-                alt={photo.alt}
-                fill
-                sizes="(max-width: 48rem) 72vw, 20rem"
-              />
-            ) : (
-              <div className="grid h-full w-full place-items-center bg-[radial-gradient(circle_at_50%_30%,rgba(255,100,24,0.16),transparent_36%),linear-gradient(135deg,#111_0%,#242424_52%,#090909_100%)]">
-                <span
-                  className={`${displayTitle} px-8 pb-20 text-center text-[clamp(1.35rem,6vw,1.95rem)] leading-none text-white/84`}
-                >
-                  COMUNIDADE MÉTODO 90X
-                </span>
-              </div>
-            )}
-            <div className="absolute inset-x-0 bottom-0 flex min-h-32 flex-col justify-end bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.86)_58%,#050505_100%)] px-5 pb-5 pt-14 text-left">
-              <h3
-                className={`${displayTitle} text-[clamp(1.35rem,5.6vw,1.75rem)] leading-none text-[#ff6418]`}
-              >
-                {photo.title}
-              </h3>
-              <p className="mt-2 text-sm font-semibold leading-[1.24] text-white/92">
-                {photo.description}
-              </p>
-            </div>
-            <div className="absolute inset-x-0 bottom-0 h-1 bg-[#ff6418]" />
+            <Image
+              className="object-cover"
+              src={photo.imageSrc}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 48rem) 72vw, 20rem"
+            />
           </article>
         ))}
       </div>
