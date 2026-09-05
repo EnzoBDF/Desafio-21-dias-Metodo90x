@@ -5,22 +5,22 @@ const benefits = [
   {
     icon: "calendar" as const,
     title: "21 DIAS",
-    description: "Para começar com direção",
+    description: "Com foco total em glúteos",
   },
   {
     icon: "target" as const,
-    title: "3 MISSÕES",
-    description: "Para objetivos diferentes",
+    title: "1 OBJETIVO",
+    description: "Mais firmeza, volume e definição",
   },
   {
     icon: "shield" as const,
     title: "1 MÉTODO",
-    description: "Com acompanhamento",
+    description: "Treino, alimentação e acompanhamento",
   },
   {
     icon: "heart" as const,
-    title: "VOCÊ",
-    description: "Como prioridade novamente",
+    title: "SEU GLÚTEO",
+    description: "No centro de cada treino",
   },
 ];
 
@@ -28,7 +28,7 @@ export function BenefitsSection() {
   return (
     <section
       className="bg-page-texture min-h-svh py-16 text-white md:min-h-0 md:py-20"
-      aria-label="Benefícios do Desafio 21 Dias"
+      aria-label="Benefícios do desafio Bumbum na Nuca"
     >
       <div
         className={`${sectionContainer} grid gap-12 text-center sm:gap-14 md:grid-cols-4 md:items-start md:gap-7`}

@@ -1,106 +1,238 @@
+"use client";
+
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { Icon } from "./Icon";
 import { displayTitle, glow, sectionContainer } from "./styles";
 
 const features = [
   {
-    icon: "analysis",
-    title: "Avaliação Inicial",
-    description:
-      "Receba uma avaliação completa para entender seu corpo e definir metas realistas",
-  },
-  {
-    icon: "target",
-    title: "Estratégia Alimentar Personalizada",
-    description: "Receba uma dieta adaptada ao seu objetivo e estilo de vida",
-  },
-  {
     icon: "app",
-    title: "Aplicativo de treinos",
+    title: "Treinos com foco em glúteos",
     description:
-      "Gerencie e acesse seu treino personalizado de maneira prática e centralizada",
+      "Acesse pelo aplicativo uma rotina planejada para casa ou academia",
   },
-
+  {
+    icon: "analysis",
+    title: "Avaliação dos glúteos",
+    description:
+      "Entenda seu ponto de partida e o que precisa evoluir nos próximos 21 dias",
+  },
   {
     icon: "training",
     title: "Acompanhamento individualizado",
     description:
-      "Receba orientação e suporte personalizado pelo WhatsApp da equipe durante sua jornada",
+      "Ajuste execução, intensidade e constância com o suporte da equipe",
+  },
+  {
+    icon: "target",
+    title: "Estratégia para ganhar volume",
+    description: "Alimentação alinhada ao objetivo de construir e definir os glúteos",
   },
   {
     icon: "shield",
     title: "Grupo Exclusivo",
     description:
-      "Grupo exclusivo no WhatsApp para suporte, motivação e troca de experiências com outros participantes",
+      "Treine ao lado de mulheres com o mesmo objetivo: glúteos em destaque",
   },
   {
     icon: "heart",
-    title: "Lives Semanais",
+    title: "Lives sobre glúteos",
     description:
-      "Lives sobre treinos, dicas de emagrecimento, hipertrofia e saúde com especialistas convidados",
+      "Aprenda sobre ativação, hipertrofia, recuperação e os erros que travam seus resultados",
   },
 ] as const;
 
-const featuresPerColumn = 3;
-
-const columns = Array.from(
-  { length: Math.ceil(features.length / featuresPerColumn) },
-  (_, index) => ({
-    id: index + 1,
-    features: features.slice(
-      index * featuresPerColumn,
-      index * featuresPerColumn + featuresPerColumn,
-    ),
-  }),
-);
-
 export function IncludedFeatures() {
-  return (
-    <section
-      className="bg-warm-texture-reverse relative isolate overflow-hidden pb-20 pt-12 text-white md:py-20 lg:py-24"
-      aria-labelledby="included-title"
-    >
-      <div className={`${sectionContainer} relative z-10`}>
-        <h2
-          id="included-title"
-          className={`${displayTitle} mx-auto flex max-w-[17rem] flex-col items-center text-center text-[clamp(2rem,8vw,2.7rem)] leading-[0.98] text-[#ff6418] md:max-w-[28rem] md:text-[clamp(2.8rem,5.4vw,3.5rem)] lg:max-w-[34rem] lg:text-[4.1rem]`}
-        >
-          <span className="text-white">NO DESAFIO 21</span>
-          <span>VOCÊ RECEBE</span>
-        </h2>
-      </div>
+  const sectionRef = useRef<HTMLElement>(null);
+  const [progress, setProgress] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const activeIndex = Math.min(features.length - 1, Math.round(progress));
+  const stackTop = 24 + (progress / (features.length - 1)) * 44;
 
-      <div
-        className="scrollbar-none relative z-10 mt-16 flex gap-[clamp(0.75rem,4vw,1.5rem)] overflow-x-auto px-[calc((100%_-_min(76vw,22rem))_/_2)] pb-3 pt-7 md:mx-auto md:max-w-6xl lg:mt-20 lg:justify-center lg:gap-10 lg:overflow-visible lg:px-10 lg:pb-0"
-        aria-label="Itens inclusos"
+  useEffect(() => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotionPreference = () => setReduceMotion(motionQuery.matches);
+
+    updateMotionPreference();
+    motionQuery.addEventListener("change", updateMotionPreference);
+
+    return () => motionQuery.removeEventListener("change", updateMotionPreference);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      return;
+    }
+
+    let frame = 0;
+
+    const updateProgress = () => {
+      frame = 0;
+      const section = sectionRef.current;
+
+      if (!section) {
+        return;
+      }
+
+      const rect = section.getBoundingClientRect();
+      const scrollableDistance = section.offsetHeight - window.innerHeight;
+      const traveledDistance = Math.min(
+        Math.max(-rect.top, 0),
+        scrollableDistance,
+      );
+
+      setProgress(
+        scrollableDistance > 0
+          ? Math.min(
+              features.length - 1,
+              (traveledDistance / scrollableDistance) * (features.length - 0.65),
+            )
+          : 0,
+      );
+    };
+
+    const requestUpdate = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(updateProgress);
+      }
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
+  }, [reduceMotion]);
+
+  if (reduceMotion) {
+    return (
+      <section
+        className="bg-warm-texture-reverse py-16 text-white"
+        aria-labelledby="included-title"
       >
-        {columns.map((column) => (
-          <div
-            className="grid w-[76vw] max-w-[22rem] shrink-0 gap-12 md:w-[22rem] lg:w-[24rem] lg:max-w-[24rem] lg:gap-14"
-            key={column.id}
-          >
-            {column.features.map((feature) => (
-              <article
-                className={`relative grid min-h-24 w-full place-items-center rounded-lg border-b-2 border-[#ff6418] bg-white px-5 pb-4 pt-7 text-center text-[#070707] lg:min-h-28 lg:px-7 lg:pb-5 lg:pt-8 ${glow.darkCard}`}
-                key={`${column.id}-${feature.title}`}
-              >
-                <span className="absolute left-1/2 top-0 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-[#ff6418]">
-                  <Icon name={feature.icon} className="h-7 w-7" />
-                </span>
-                <div>
-                  <h3
-                    className={`${displayTitle} text-[clamp(1.25rem,5.2vw,1.55rem)] leading-none text-[#ff6418]`}
-                  >
-                    {feature.title}
-                  </h3>
-                  <p className="mt-2 text-[clamp(0.82rem,3.5vw,0.93rem)] font-bold leading-[1.12]">
-                    {feature.description}
-                  </p>
-                </div>
-              </article>
+        <div className={sectionContainer}>
+          <IncludedTitle />
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature) => (
+              <FeatureCard key={feature.title} feature={feature} />
             ))}
           </div>
-        ))}
+          <p className="mt-7 text-center text-xs font-bold uppercase tracking-[0.24em] text-white/60">
+            E muito mais
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section
+      ref={sectionRef}
+      data-no-section-reveal
+      className="bg-warm-texture-reverse relative isolate h-[360svh] text-white"
+      aria-labelledby="included-title"
+    >
+      <div className="sticky top-0 flex h-svh flex-col overflow-hidden py-8 md:py-12">
+        <div className={`${sectionContainer} shrink-0`}>
+          <IncludedTitle />
+          <p className="mt-3 text-center text-sm font-semibold text-white/65">
+            Role para conhecer todos os itens
+          </p>
+        </div>
+
+        <div
+          className="relative mx-auto mt-5 min-h-0 w-full max-w-2xl flex-1 overflow-hidden px-6"
+          aria-hidden="true"
+        >
+          {features.map((feature, index) => {
+            const distance = Math.abs(index - progress);
+            const offset = (index - progress) * 12.5;
+            const scale = Math.max(0.78, 1 - distance * 0.11);
+            const opacity = Math.max(0.08, 1 - distance * 0.52);
+
+            return (
+              <div
+                className="absolute left-1/2 top-[var(--stack-top)] w-[calc(100%_-_3rem)] max-w-[24rem] md:top-1/2"
+                key={feature.title}
+                style={{
+                  "--stack-top": `${stackTop}%`,
+                  opacity,
+                  transform: `translate(-50%, calc(-50% + ${offset}rem)) scale(${scale})`,
+                  zIndex: features.length - Math.round(distance),
+                } as CSSProperties}
+              >
+                <FeatureCard feature={feature} />
+                {index === features.length - 1 ? (
+                  <p className="mt-4 text-center text-xs font-bold uppercase tracking-[0.24em] text-white/60">
+                    E muito mais
+                  </p>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className={`${sectionContainer} shrink-0 text-center`}>
+          <p className={`${displayTitle} text-xl text-white`} aria-live="polite">
+            <span className="text-[#ff6418]">{activeIndex + 1}</span>
+            <span className="text-white/45"> / {features.length}</span>
+          </p>
+          <div className="mx-auto mt-3 flex max-w-48 gap-1.5" aria-hidden="true">
+            {features.map((feature, index) => (
+              <span
+                className={`h-1 flex-1 rounded-full ${
+                  index <= activeIndex ? "bg-[#ff6418]" : "bg-white/18"
+                }`}
+                key={feature.title}
+              />
+            ))}
+          </div>
+        </div>
       </div>
+
+      <ul className="sr-only">
+        {features.map((feature) => (
+          <li key={feature.title}>
+            {feature.title}: {feature.description}
+          </li>
+        ))}
+      </ul>
     </section>
+  );
+}
+
+function IncludedTitle() {
+  return (
+    <h2
+      id="included-title"
+      className={`${displayTitle} mx-auto flex max-w-[17rem] flex-col items-center text-center text-[clamp(1.8rem,7.5vw,2.7rem)] leading-[1.1] text-[#ff6418] md:max-w-[28rem] md:text-[clamp(2.8rem,5.4vw,3.5rem)] lg:max-w-[34rem] lg:text-[4.1rem]`}
+    >
+      <span className="text-white">NO DESAFIO 21 - BUMBUM NA NUCA</span>
+      <span>VOCÊ VAI RECEBER</span>
+    </h2>
+  );
+}
+
+function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
+  return (
+    <article
+      className={`bg-panel-texture relative grid min-h-40 w-full place-items-center rounded-xl border border-white/10 border-b-2 border-b-[#ff6418] px-5 pb-5 pt-9 text-center text-white ${glow.darkCard}`}
+    >
+      <span className="bg-panel-texture absolute left-1/2 top-0 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[#ff6418]/60 text-[#ff6418]">
+        <Icon name={feature.icon} className="size-7" />
+      </span>
+      <div>
+        <h3 className={`${displayTitle} text-xl leading-[1.05] text-[#ff6418]`}>
+          {feature.title}
+        </h3>
+        <p className="mx-auto mt-3 max-w-[20rem] text-sm font-semibold leading-[1.4] text-white/85">
+          {feature.description}
+        </p>
+      </div>
+    </article>
   );
 }

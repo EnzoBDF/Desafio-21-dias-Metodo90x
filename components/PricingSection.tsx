@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { CHECKOUT_URL } from "@/lib/links";
-import { Icon } from "./Icon";
 import {
   displayTitle,
   glow,
@@ -8,22 +7,24 @@ import {
   sectionContainer,
   sectionTitle,
 } from "./styles";
+import { Icon } from "./Icon";
 import { TrackedLink } from "./TrackedActions";
 
 const items = [
-  "Avaliação inicial",
+  "Avaliação dos glúteos",
   "Suporte pelo Whatsapp",
-  "Casa ou academia",
-  "Aplicativos de treino",
-  "Lives e conteúdos",
-  "Grupo exclusivo",
+  "Treinos de glúteos em casa ou na academia",
+  "Treinos organizados no aplicativo",
+  "Lives sobre hipertrofia de glúteos",
+  "Grupo com o mesmo objetivo",
+  "E-book exclusivo Bumbum na Nuca",
 ];
 
 export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="bg-page-texture relative overflow-hidden py-12 text-white md:py-20 lg:py-24"
+      className="bg-page-texture relative z-20 overflow-hidden py-12 text-white md:py-20 lg:py-24"
       aria-labelledby="pricing-title"
     >
       <div
@@ -31,11 +32,7 @@ export function PricingSection() {
       >
         <div className="relative flex w-full flex-col items-center">
           <div
-            className="absolute left-1/2 z-0 w-0.5 -translate-x-1/2 overflow-hidden"
-            style={{
-              top: "-3rem",
-              height: "calc(100% - 4.125rem + 3rem)",
-            }}
+            className="absolute bottom-[4.125rem] left-1/2 top-[7.5rem] z-0 w-0.5 -translate-x-1/2 overflow-hidden md:top-[9rem] lg:bottom-[4.75rem]"
             aria-hidden="true"
           >
             <span
@@ -45,9 +42,9 @@ export function PricingSection() {
 
           <h2
             id="pricing-title"
-            className={`${sectionTitle} relative z-10 items-start text-left text-[clamp(2.24rem,9vw,4rem)] md:items-center md:text-center lg:text-[4.5rem]`}
+            className={`${sectionTitle} relative z-10 items-center text-center text-[clamp(2.24rem,9vw,4rem)] lg:text-[4.5rem]`}
           >
-            <span className="text-white">SUA JORNADA</span>
+            <span className="text-white">SEU BUMBUM DOS SONHOS</span>
             <span className="text-white">
               COMEÇA <b className="text-[#ff6418]">AQUI</b>
             </span>
@@ -70,7 +67,7 @@ export function PricingSection() {
         <p
           className={`${displayTitle} mt-10 text-[clamp(1.8rem,8vw,2.2rem)] leading-none lg:text-[2.8rem]`}
         >
-          DESAFIO <span className="text-[#ff6418]">21 DIAS</span>
+          BUMBUM <span className="text-[#ff6418]">NA NUCA</span>
         </p>
 
         <p
@@ -87,7 +84,9 @@ export function PricingSection() {
           className={`${displayTitle} mt-2 flex items-baseline justify-center text-white`}
           aria-label="Preço promocional 99 reais e 90 centavos, de 199 reais e 90 centavos"
         >
-          <span className="sr-only">R$</span>
+          <span className="mr-2 text-[clamp(1.4rem,6vw,2rem)] leading-none text-white/80">
+            R$
+          </span>
           <span className="text-[clamp(4.4rem,20vw,5.25rem)] leading-none">
             99
           </span>
@@ -97,15 +96,20 @@ export function PricingSection() {
         </p>
 
         <ul
-          className="mt-8 grid gap-3.5 text-left text-[clamp(0.95rem,3.8vw,1rem)] leading-none text-white/95 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-5 lg:text-lg"
+          className="mx-auto mt-8 grid w-fit max-w-[22rem] gap-4 text-left text-[clamp(0.95rem,3.8vw,1rem)] leading-[1.15] text-white/95 lg:max-w-[28rem] lg:gap-5 lg:text-lg"
           aria-label="Benefícios inclusos"
         >
           {items.map((item) => (
-            <li className="flex items-center gap-3" key={item}>
-              <Icon
-                name="check"
-                className="size-[1.125rem] stroke-[#ff6418] stroke-[2.5]"
-              />
+            <li
+              className="grid w-full grid-cols-[1.25rem_minmax(0,1fr)] items-center gap-3"
+              key={item}
+            >
+              <span
+                className={`${displayTitle} text-center text-2xl leading-none text-[#ff6418]`}
+                aria-hidden="true"
+              >
+                +
+              </span>
               <span>{item}</span>
             </li>
           ))}
@@ -122,8 +126,17 @@ export function PricingSection() {
             original_price: "199,90",
           }}
         >
-          EU ESCOLHI COMEÇAR!
+          QUERO MEU BUMBUM NA NUCA
         </TrackedLink>
+
+        <p className="mx-auto mt-4 flex w-full max-w-[18rem] items-center justify-center gap-1.5 text-center text-sm font-semibold leading-snug text-white/70">
+          <Icon name="shield" className="size-4 shrink-0 text-[#ff6418]" />
+          <span>Checkout seguro pela Hotmart</span>
+        </p>
+
+        <p className="mx-auto mt-1.5 w-full max-w-[18rem] text-center text-sm font-semibold leading-snug text-white/70">
+          Garantia de 7 dias. Sem risco para você.
+        </p>
       </div>
     </section>
   );

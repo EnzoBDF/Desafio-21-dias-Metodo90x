@@ -1,23 +1,23 @@
 import { TrackedLink } from "./TrackedActions";
 
 const WHATSAPP_URL =
-  "https://wa.me/5548992112149?text=Ol%C3%A1%21%20Conheci%20o%20Desafio%2021%20Dias%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
+  "https://wa.me/5548992112149?text=Ol%C3%A1%21%20Conheci%20o%20Bumbum%20na%20Nuca%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20o%20desafio.";
 
 export function FloatingWhatsAppButton() {
   return (
     <TrackedLink
-      className="fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full bg-[#25d366] text-white shadow-[0_0_1rem_rgba(37,211,102,0.55),0_0.75rem_1.5rem_rgba(0,0,0,0.42)] hover:bg-[#2be371] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25d366] md:bottom-7 md:right-7 md:size-16"
+      className="fixed bottom-4 right-4 z-10 grid size-12 place-items-center rounded-full bg-[#25d366] text-white shadow-[0_0_1rem_rgba(37,211,102,0.55),0_0.75rem_1.5rem_rgba(0,0,0,0.42)] hover:bg-[#2be371] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25d366] md:bottom-7 md:right-7 md:size-16"
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Entrar em contato pelo WhatsApp"
+      aria-label="Tirar dúvidas sobre o Bumbum na Nuca pelo WhatsApp"
       eventName="whatsapp_floating_clicked"
       eventProperties={{
         location: "floating_button",
       }}
     >
       <svg
-        className="size-8 md:size-9"
+        className="size-7 md:size-9"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

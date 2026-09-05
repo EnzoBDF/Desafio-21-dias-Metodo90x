@@ -8,53 +8,67 @@ type ChallengeCardProps = {
   title: string;
   subtitle: string;
   description: string;
+  cardTitle: string;
+  cardSubtitle: string;
+  cardDescription: string;
   imageSrc: string;
   imageAlt: string;
+  detailHref: string;
   isActive: boolean;
 };
 
 export function ChallengeCard({
   id,
   title,
-  subtitle,
-  description,
+  cardTitle,
+  cardSubtitle,
+  cardDescription,
   imageSrc,
   imageAlt,
   isActive,
 }: ChallengeCardProps) {
   return (
     <article
-      className={`challenge-card-highlight w-[76vw] min-w-[17rem] max-w-[18.5rem] flex-[0_0_76vw] overflow-hidden rounded-xl border bg-black md:flex-[0_0_18.5rem] lg:max-w-[21rem] lg:flex-[0_0_21rem] xl:max-w-[22rem] xl:flex-[0_0_22rem] ${
+      className={`challenge-card-highlight w-full overflow-hidden rounded-xl border bg-black ${
         isActive
-          ? `relative z-10 scale-100 border-[#ff6418]/80 opacity-100 ${glow.orangeCard}`
+          ? `challenge-card-pulse relative z-10 scale-100 border-[#ff6418]/80 opacity-100 ${glow.orangeCard}`
           : `scale-[0.9] border-transparent opacity-80 ${glow.whiteCard}`
       }`}
     >
       <div className="relative aspect-[0.94] overflow-hidden bg-[#111] lg:aspect-[0.9]">
         <Image
-          className="object-cover object-[50%_0]"
+          className="object-cover object-[50%_20%]"
           src={imageSrc}
           alt={imageAlt}
           fill
-          sizes="(max-width: 48rem) 76vw, 18.5rem"
+          sizes="(max-width: 48rem) calc(100vw - 2.5rem), 42rem"
         />
-        <div className="absolute inset-0 bg-black/10" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_45%,rgba(0,0,0,0.72)_82%,#000_100%)]" />
+        <div className="absolute inset-0 bg-black/5" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_48%,rgba(0,0,0,0.24)_70%,rgba(0,0,0,0.74)_100%)]" />
       </div>
 
-      <div className="flex min-h-[13.75rem] flex-col px-7 pb-7 pt-1 lg:min-h-[14.75rem] lg:px-8 lg:pb-8">
+      <div className="flex flex-col px-7 pb-7 pt-3 lg:px-8 lg:pb-8 lg:pt-4">
         <h3
           className={`${displayTitle} text-[clamp(1.9rem,8vw,2.2rem)] leading-none text-white lg:text-[2.45rem]`}
         >
-          {title}
+          {cardTitle}
         </h3>
         <strong
           className={`${displayTitle} mt-1 block text-[clamp(1.05rem,4.7vw,1.18rem)] leading-none text-[#ff6418] lg:text-[1.32rem]`}
         >
-          {subtitle}
+          {cardSubtitle}
         </strong>
         <p className="mt-2.5 text-[clamp(0.88rem,3.7vw,0.95rem)] leading-[1.38] text-white/92 lg:text-base">
-          {description}
+          {cardDescription}
+        </p>
+        <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.78rem] font-semibold uppercase leading-[1.35] text-white/75 lg:text-sm">
+          <span>Treinos adaptados</span>
+          <span className="text-[#ff6418]" aria-hidden="true">•</span>
+          <span>Casa ou academia</span>
+          <span className="text-[#ff6418]" aria-hidden="true">•</span>
+          <span>Suporte diário</span>
+          <span className="text-[#ff6418]" aria-hidden="true">•</span>
+          <span>Resultados visíveis</span>
         </p>
         <TrackedLink
           className={`${primaryButton} mt-4 min-h-[3.25rem] min-w-0 text-[clamp(0.92rem,3.9vw,1rem)]`}
@@ -66,7 +80,7 @@ export function ChallengeCard({
             destination: "checkout",
           }}
         >
-          EU ESCOLHO ESTE DESAFIO!
+          QUERO MEU BUMBUM NA NUCA
         </TrackedLink>
       </div>
     </article>

@@ -1,5 +1,6 @@
-import { displayTitle, glow, sectionContainer } from "./styles";
-import { TrackedVideo } from "./TrackedActions";
+import { CHECKOUT_URL } from "@/lib/links";
+import { displayTitle, glow, primaryButton, sectionContainer } from "./styles";
+import { TrackedLink, TrackedVideo } from "./TrackedActions";
 
 export function MessageSection() {
   return (
@@ -10,34 +11,31 @@ export function MessageSection() {
       <div className={sectionContainer}>
         <h2
           id="message-title"
-          className={`${displayTitle} mx-auto flex max-w-[21rem] flex-col items-center text-center text-[clamp(2rem,8.5vw,3.15rem)] text-[#ff6418] md:max-w-[39rem] lg:max-w-[56rem] lg:text-[4.6rem]`}
+          className={`${displayTitle} mx-auto flex max-w-[21rem] flex-col items-center text-center text-[clamp(2.15rem,8.8vw,3.3rem)] leading-[1.02] text-white md:max-w-[39rem] lg:max-w-[52rem] lg:text-[4.6rem]`}
         >
-          <span className="text-white">ESCOLHA UM DESAFIO</span>
-          <span className="text-white">
-            E <b className="text-[#ff6418]">CONQUISTE</b> SUA
-          </span>
+          <span>PARE DE TREINAR</span>
           <span>
-            <b>MELHOR VERSÃO</b> 
+            GLÚTEOS <b className="text-[#ff6418]">SEM DIREÇÃO</b>
           </span>
-          
         </h2>
 
-        <p className="mx-auto mt-9 max-w-[19rem] text-center text-[clamp(1rem,4vw,1.18rem)] leading-[2.1] text-white/95 md:max-w-[35rem] lg:max-w-[46rem] lg:text-xl">
-          Chegou o seu momento, seja sua maior prioridade e dê o primeiro passo para transformar seu corpo, com o Desafio 21 Dias.
+        <p className="mx-auto mt-6 max-w-[21rem] text-center text-[clamp(0.98rem,4vw,1.12rem)] font-medium leading-[1.75] text-white/90 md:max-w-[38rem] lg:text-lg">
+          Siga um plano estruturado, com treinos alinhados ao seu nível,
+          progressão e suporte especializado durante 21 dias.
         </p>
 
-        <div className="mt-9 text-center">
+        <div className="mt-12 text-center">
           <p
             className={`${displayTitle} mb-4 text-base leading-none tracking-[0.18em] text-[#ff6418]`}
           >
-            CONHEÇA O DESAFIO 21
+            CONHEÇA O BUMBUM NA NUCA
           </p>
           <h2
             className={`${displayTitle} mx-auto flex max-w-[20rem] flex-col text-[clamp(2rem,8vw,3.1rem)] text-white md:max-w-[36rem] lg:max-w-[42rem] lg:text-[4rem]`}
           >
             <span>ASSISTA E</span>
-            <span>DESCUBRA COMO</span>
-            <span>COMEÇAR</span>
+            <span className="my-2">DESCUBRA COMO SEU</span>
+            <span>GLÚTEO VAI EVOLUIR</span>
           </h2>
         </div>
 
@@ -45,7 +43,7 @@ export function MessageSection() {
           id="video"
           className={`bg-panel-texture mx-auto mt-8 grid aspect-[9/16] w-full max-w-[22rem] place-items-center overflow-hidden rounded-sm border border-white/10 md:max-w-[26rem] lg:mt-12 lg:max-w-[28rem] ${glow.panel}`}
           role="region"
-          aria-label="Vídeo do Desafio 21 Dias"
+          aria-label="Vídeo do desafio Bumbum na Nuca"
         >
           <TrackedVideo
             className="h-full w-full object-cover"
@@ -53,7 +51,7 @@ export function MessageSection() {
             playsInline
             poster="/capavideo.jpeg"
             preload="metadata"
-            aria-label="Vídeo do Desafio 21 Dias"
+            aria-label="Vídeo do desafio Bumbum na Nuca"
             eventName="video_play_clicked"
             eventProperties={{
               location: "message_section",
@@ -66,6 +64,20 @@ export function MessageSection() {
             />
             Seu navegador não suporta a reprodução deste vídeo.
           </TrackedVideo>
+        </div>
+
+        <div className="mt-7 flex justify-center md:mt-9">
+          <TrackedLink
+            className={`${primaryButton} max-w-[20rem]`}
+            href={CHECKOUT_URL}
+            eventName="video_cta_clicked"
+            eventProperties={{
+              cta: "start_after_video",
+              destination: "checkout",
+            }}
+          >
+            QUERO COMEÇAR AGORA
+          </TrackedLink>
         </div>
       </div>
     </section>

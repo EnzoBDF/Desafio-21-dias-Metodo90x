@@ -2,37 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { challenges } from "@/lib/challenges";
 import { ChallengeCard } from "./ChallengeCard";
 import { sectionContainer, sectionTitle } from "./styles";
-
-const challenges = [
-  {
-    id: 1,
-    title: "BUMBUM NA NUCA",
-    subtitle: "Glúteos em destaque",
-    description: "Para focar em firmeza, formato e evolução dos glúteos durante os 21 dias.",
-    imageSrc: "/images/Bumbum.png",
-    imageAlt: "Desafio Bumbum",
-  },
-  {
-    id: 2,
-    title: "PERNAS DE CAVALONA",
-    subtitle: "Pernas mais densas e torneadas",
-    description:
-      "Para quem quer construir pernas e glúteos com treino direcionado e constância.",
-    imageSrc: "/images/Cvalona.png",
-    imageAlt: "Desafio Cavalona",
-  },
-  {
-    id: 3,
-    title: "ELA VOLTOU",
-    subtitle: "O renascimento da mulher 30+",
-    description:
-      "Para voltar a se olhar com confiança e reencontrar sua melhor versão.",
-    imageSrc: "/images/ela-voltou.webp",
-    imageAlt: "Desafio Ela Voltou",
-  },
-];
 
 export function ChallengeCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -98,21 +70,22 @@ export function ChallengeCarousel() {
           className={`${sectionTitle} max-w-[16rem] text-[clamp(2.25rem,9vw,3.2rem)] leading-[1.02] md:max-w-[28rem] lg:max-w-[34rem] lg:text-[4.25rem]`}
         >
           <span className="text-white">
-            3 <b className="text-[#ff6418]">DESAFIOS</b>
+            1 <b className="text-[#ff6418]">OBJETIVO</b>
           </span>
-          <span className="text-white">3 MOMENTOS</span>
-          <span>DIFERENTES</span>
+          <span className="text-white my-2">GLÚTEOS NO FOCO</span>
+          <span>DO INÍCIO AO FIM</span>
         </h2>
       </div>
 
       <div
         ref={trackRef}
-        className="scrollbar-none mt-8 flex items-center gap-4 overflow-x-auto px-6 pb-5 pt-4 md:mx-auto md:max-w-6xl md:justify-center md:overflow-visible md:px-8 lg:mt-12 lg:max-w-7xl lg:gap-8"
-        aria-label="Escolha seu desafio"
+        className="scrollbar-none mx-auto mt-8 flex w-full max-w-3xl items-center justify-center overflow-visible px-5 pb-5 pt-4 sm:px-6 md:px-8 lg:mt-12"
+        aria-label="Conheça o desafio Bumbum na Nuca"
         onScroll={updateActiveCard}
       >
         {challenges.map((challenge, index) => (
           <div
+            className="w-full max-w-[42rem] shrink-0"
             data-card
             key={challenge.id}
             onFocus={() => focusChallenge(index, "focus")}

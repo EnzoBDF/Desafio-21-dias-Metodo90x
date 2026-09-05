@@ -22,8 +22,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Desafio 21 Dias",
-  description: "Landing page do Desafio 21 Dias.",
+  title: "Bumbum na Nuca | Desafio 21 Dias",
+  description:
+    "21 dias de treinos com foco em glúteos, estratégia alimentar e acompanhamento para buscar mais firmeza, volume e definição.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
