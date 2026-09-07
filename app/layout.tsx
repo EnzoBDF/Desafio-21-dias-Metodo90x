@@ -22,9 +22,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bumbum na Nuca | Desafio 21 Dias",
+  title: "Bumbum 90X - Treino de Glúteos - Treino, suporte, nutrição!",
   description:
-    "21 dias de treinos com foco em glúteos, estratégia alimentar e acompanhamento para buscar mais firmeza, volume e definição.",
+    "21 dias de treinos com foco em glúteos, estratégia alimentar e acompanhamento para buscar mais firmeza, volume e definição. Tenha o bumbum que você sempre sonhou com o Desafio 21! Treinos, suporte e nutrição para resultados incríveis.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
