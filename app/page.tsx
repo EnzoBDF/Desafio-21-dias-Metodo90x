@@ -9,6 +9,7 @@ import { MessageSection } from "@/components/MessageSection";
 import { PricingSection } from "@/components/PricingSection";
 import { SectionRevealController } from "@/components/SectionRevealController";
 import { SocialProofSlider } from "@/components/SocialProofSlider";
+import { ValueComparisonSection } from "@/components/ValueComparisonSection";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <CommunityPhotosSection />
       <IncludedFeatures />
       <HowItWorks />
+      <ValueComparisonSection />
       <PricingSection />
       <FaqSection />
       <FloatingWhatsAppButton />

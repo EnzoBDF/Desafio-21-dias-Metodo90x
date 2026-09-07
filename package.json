@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:game": "node scripts/verify-mondra.mjs",
+    "build:game": "node scripts/build-mondra-site.mjs"
   },
   "dependencies": {
     "next": "16.3.0",

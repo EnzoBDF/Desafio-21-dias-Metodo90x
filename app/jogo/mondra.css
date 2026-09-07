@@ -1,0 +1,295 @@
+.mondra {
+  --m-bg: #101b1b;
+  --m-panel: #172626;
+  --m-line: #30403c;
+  --m-text: #f0f0dd;
+  --m-muted: #9aaea2;
+  --m-accent: #c4e6a2;
+  background: var(--m-bg);
+  color: var(--m-text);
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-poppins), "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color-scheme: dark;
+  overflow-x: clip;
+}
+.mondra * { box-sizing: border-box; }
+.mondra button, .mondra a { -webkit-tap-highlight-color: transparent; }
+.mondra button { font: inherit; cursor: pointer; }
+.mondra button:disabled { cursor: not-allowed; opacity: .4; }
+.mondra button:focus-visible, .mondra a:focus-visible { outline: 2px solid var(--m-accent); outline-offset: 5px; }
+.mondra button:not(:disabled):hover { filter: brightness(1.15); }
+.mondra h1, .mondra h2, .mondra h3, .mondra p { margin: 0; }
+.mondra-header { height: 86px; border-bottom: 1px solid #293632; padding: 0 max(32px, calc((100vw - 1376px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.mondra-brand { color: var(--m-text); text-decoration: none; display: flex; align-items: center; font-size: 32px; font-weight: 700; letter-spacing: -1.6px; }
+.mondra-brand-icon { color: #172b23; background: var(--m-accent); width: 39px; height: 39px; display: grid; place-items: center; border-radius: 12px 12px 12px 2px; margin-right: 11px; }
+.mondra-brand-dot { color: var(--m-accent); }
+.mondra-edition { font-family: var(--font-geist-mono), monospace; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; color: #8c9e91; border-left: 1px solid var(--m-line); margin-left: 27px; padding-left: 27px; max-width: 240px; }
+.mondra-status { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--m-muted); }
+.mondra-status i, .mondra-live-dot { width: 6px; height: 6px; background: #a7d996; border-radius: 100%; display: inline-block; flex-shrink: 0; }
+.mondra-main { max-width: 1440px; padding: 38px 32px 18px; margin: 0 auto; }
+.mondra-heading { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 29px; }
+.mondra-eyebrow { font-family: var(--font-geist-mono), monospace; font-size: 11px; font-weight: 500; letter-spacing: 1.6px; color: #b4c7a9; display: flex; align-items: center; gap: 8px; }
+.mondra-heading .mondra-eyebrow span { width: 15px; height: 1px; background: var(--m-accent); }
+.mondra-heading h1 { font-size: clamp(28px, 3.2vw, 43px); line-height: 1.25; font-weight: 500; letter-spacing: -1.7px; margin: 7px 0 9px; display: flex; align-items: center; gap: 14px; }
+.mondra-heading h1 > span { font-family: var(--font-geist-mono), monospace; font-size: 13px; letter-spacing: 0; color: var(--m-accent); border: 1px solid #49573c; border-radius: 4px; padding: 3px 6px; align-self: flex-start; margin-top: 9px; }
+.mondra-heading p { font-size: 14px; color: var(--m-muted); }
+.mondra-help { color: #c1ccbd; display: flex; align-items: center; gap: 9px; background: transparent; border: 0; font-size: 13px !important; }
+.mondra-help > span { border: 1px solid #728474; width: 18px; height: 18px; line-height: 17px; border-radius: 100%; font-size: 12px; }
+.mondra-nav { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--m-line); margin-bottom: 22px; }
+.mondra-tabs { display: flex; gap: 27px; }
+.mondra-tabs > button { background: transparent; border: 0; border-bottom: 2px solid transparent; color: var(--m-muted); display: flex; align-items: center; gap: 10px; padding: 11px 0 17px; font-size: 13px; }
+.mondra-tabs > button.active { color: var(--m-accent); border-bottom-color: var(--m-accent); }
+.mondra-count { font-family: var(--font-geist-mono), monospace; font-size: 11px; background: #23312b; border: 1px solid #38483b; color: #b5c4ad; border-radius: 4px; padding: 1px 5px; }
+.mondra-tools { display: flex; align-items: center; gap: 10px; padding-bottom: 9px; }
+.mondra-icon-button { background: transparent; border: 0; color: #b4c3b7; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 5px; }
+.mondra-game-layout { display: grid; grid-template-columns: minmax(0, 1fr) 268px; gap: 24px; align-items: start; }
+.mondra-stage { border: 1px solid #4a5b43; border-radius: 12px; overflow: hidden; background: #182725; box-shadow: 0 12px 45px #0002; }
+.mondra-scene { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: #81b372; isolation: isolate; }
+.mondra-world, .mondra-world canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.mondra-world canvas { cursor: crosshair; }
+.mondra-location { position: absolute; top: 18px; left: 18px; display: flex; align-items: center; gap: 10px; padding: 10px 16px 10px 10px; border-radius: 7px; border: 1px solid #e4e7be5c; background: #153e32e8; box-shadow: 0 3px 0 #13342744; pointer-events: none; }
+.mondra-location-icon { display: grid; place-items: center; color: #d1e5ad; width: 31px; height: 31px; border-right: 1px solid #89a18a5c; padding-right: 10px; }
+.mondra-location b { display: block; font-size: 12px; font-weight: 600; color: #f3f0d6; }
+.mondra-location div > span { display: block; color: #b1c9a9; font-size: 10px; margin-top: 1px; }
+.mondra-weather { position: absolute; top: 21px; right: 19px; display: flex; align-items: center; gap: 7px; color: #ffefbc; font-size: 11px; background: #194b37cc; border: 1px solid #c4db9e50; padding: 7px 11px; border-radius: 20px; pointer-events: none; }
+.mondra-map-caption { position: absolute; bottom: 13px; left: 16px; display: flex; align-items: center; gap: 8px; font-size: 9px; letter-spacing: 1.2px; font-family: var(--font-geist-mono), monospace; color: #eef7d2; text-shadow: 0 1px 3px #163d24; pointer-events: none; }
+.mondra-map-caption .mondra-live-dot { background: #f5efb2; width: 5px; height: 5px; }
+.mondra-interact { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); border: 1px solid #c5d8a97a; border-radius: 8px; background: #152f29f5; color: #f5efd8; display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 12px !important; white-space: nowrap; box-shadow: 0 5px 25px #13271944; }
+.mondra-message { display: flex; align-items: center; min-height: 72px; padding: 16px 20px; gap: 14px; background: #1c2d28; border-top: 1px solid #83955a66; }
+.mondra-message-icon { color: #b9d994; align-self: flex-start; padding-top: 1px; }
+.mondra-message p { font-size: 12px; line-height: 1.8; color: #d5dfc9; flex: 1; }
+.mondra-message-dots { color: #9aae82; font-size: 26px; line-height: 1; }
+.mondra-controls { min-height: 53px; display: flex; align-items: center; gap: 22px; padding: 12px 18px; font-size: 10px; color: #98aa9a; border-top: 1px solid #334135; background: #172522; }
+.mondra-controls > div { display: flex; align-items: center; gap: 8px; }
+.mondra-key-group { display: inline-flex; gap: 3px; }
+.mondra kbd { display: inline-grid; place-items: center; min-width: 21px; height: 21px; border: 1px solid #65755b; border-bottom-width: 2px; border-radius: 4px; font-size: 10px; color: #d1ddbd; font-family: var(--font-geist-mono), monospace; background: #304132; }
+.mondra-click-hint { margin-left: auto; }
+.mondra-sidebar { display: flex; flex-direction: column; gap: 17px; }
+.mondra-companion-card { background: #1a2b27; border: 1px solid #3b4b3c; padding: 19px 20px 17px; border-radius: 11px; }
+.mondra-card-heading { display: flex; align-items: center; justify-content: space-between; }
+.mondra-card-heading .mondra-eyebrow { font-size: 10px; letter-spacing: 1.4px; color: #a9b7a1; }
+.mondra-companion-art { height: 172px; position: relative; display: grid; place-items: center; margin: 7px 0 1px; background: radial-gradient(ellipse, #55734830, transparent 67%); }
+.mondra-sprite { display: inline-block; width: 160px; height: 160px; flex-shrink: 0; background-image: url('/game/creatures.png'); background-size: 300% 200%; background-repeat: no-repeat; image-rendering: pixelated; }
+.mondra-companion-art .mondra-sprite { position: relative; width: 180px; height: 180px; z-index: 1; filter: drop-shadow(0 8px 0 #091e2240); }
+.mondra-orbit { position: absolute; border: 1px solid #8baf652b; border-radius: 50%; width: 143px; height: 143px; }
+.mondra-orbit-two { width: 112px; height: 112px; border-style: dashed; }
+.mondra-art-spark { position: absolute; top: 29px; right: 22px; color: #bdd695; font-size: 16px; }
+.mondra-art-no { position: absolute; bottom: 8px; left: 0; font-family: var(--font-geist-mono), monospace; font-size: 9px; color: #899d80; letter-spacing: 1px; }
+.mondra-companion-name { display: flex; align-items: center; justify-content: space-between; }
+.mondra-companion-name h2 { font-size: 23px; font-weight: 500; letter-spacing: -.7px; }
+.mondra-companion-name > span { color: #c4d2b5; font-family: var(--font-geist-mono), monospace; font-size: 11px; background: #31422c; border-radius: 4px; padding: 3px 7px; }
+.mondra-type { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; margin: 6px 0 15px; background: #7293531c; padding: 2px 7px; border: 1px solid #90a97733; border-radius: 4px; }
+.mondra-health-track { height: 6px; border-radius: 10px; background: #0e211c; overflow: hidden; }
+.mondra-health-track > span { display: block; background: #b1d992; height: 100%; border-radius: inherit; transition: width 500ms ease !important; }
+.mondra-health > span { display: flex; justify-content: space-between; color: #aab99c; font-family: var(--font-geist-mono), monospace; font-size: 10px; margin-top: 7px; }
+.mondra-health b { font-weight: 400; color: #c1cfb2; }
+.mondra-exp { margin-top: 13px; height: 3px; border-radius: 5px; background: #0e211c; overflow: hidden; }
+.mondra-exp > span { height: 100%; display: block; background: #86b0ad; }
+.mondra-exp-label { display: flex; justify-content: space-between; color: #89a7a0; font-family: var(--font-geist-mono), monospace; font-size: 9px; margin-top: 5px; }
+.mondra-outline { display: flex; align-items: center; gap: 9px; border: 1px solid #586748; border-radius: 6px; background: transparent; color: #c8d6b7; width: 100%; font-size: 11px !important; padding: 10px 12px; margin-top: 20px; }
+.mondra-outline > span { margin-left: auto; color: #9cae8f; }
+.mondra-quest { position: relative; padding: 20px; border: 1px solid #3d4938; border-radius: 10px; background: linear-gradient(130deg, #2d3525, #222d23); }
+.mondra-quest-icon { position: absolute; top: 16px; right: 15px; color: #d8d99c; }
+.mondra-quest .mondra-eyebrow { font-size: 9px; color: #b7be8e; letter-spacing: 1.2px; }
+.mondra-quest h3 { font-size: 15px; font-weight: 500; color: #ede9cd; margin: 13px 0 7px; }
+.mondra-quest p { font-size: 11px; color: #b8bea4; line-height: 1.85; }
+.mondra-quest-progress { height: 4px; background: #0e201c; border-radius: 4px; margin-top: 19px; overflow: hidden; }
+.mondra-quest-progress > span { height: 100%; background: #c5cf8d; display: block; }
+.mondra-quest-bottom { display: flex; justify-content: space-between; font-size: 9px; color: #b7c09d; margin-top: 8px; }
+.mondra-quest-bottom b { color: #d0d8b6; font-family: var(--font-geist-mono), monospace; font-size: 10px; }
+.mondra-pocket { display: flex; border: 1px solid #334338; border-radius: 9px; padding: 15px 0; }
+.mondra-pocket > div { flex: 1; display: grid; grid-template-columns: 22px auto; grid-template-rows: auto auto; gap: 0 9px; align-items: center; padding-left: 18px; }
+.mondra-pocket > div + div { border-left: 1px solid #334338; }
+.mondra-pocket b { color: #e5e7cf; font-family: var(--font-geist-mono), monospace; font-size: 16px; font-weight: 400; }
+.mondra-pocket div > span:first-child { grid-row: span 2; }
+.mondra-pocket div > span:last-child { font-size: 9px; color: #9cae9a; }
+.mondra-orb { width: 21px; height: 21px; display: inline-block; flex-shrink: 0; border-radius: 50%; border: 2px solid #d8e5ba; background: linear-gradient(#a5c877 44%, #2b4536 45%, #2b4536 55%, #f0ebd0 56%); box-shadow: inset -3px -2px 0 #173f3033; position: relative; }
+.mondra-orb::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 6px; height: 6px; background: #f0ebd0; border: 1px solid #3c5d3d; border-radius: 50%; }
+.mondra-potion { color: #a6c7c0; display: grid; place-items: center; }
+.mondra-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; padding: 0 2px; gap: 15px; color: #829582; font-size: 10px; }
+.mondra-footer > span { display: flex; align-items: center; gap: 8px; }
+.mondra-footer > span:last-child { font-family: var(--font-geist-mono), monospace; font-size: 9px; letter-spacing: 1.3px; }
+.mondra-footer i { width: 3px; height: 3px; border-radius: 100%; background: #6d826b; margin: 0 4px; }
+.mondra-loading, .mondra-asset-error { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 14px; align-items: center; justify-content: center; background: #243d2b; color: #d1e9b3; }
+.mondra-asset-error { z-index: 9; }
+.mondra-asset-error button { background: #c5e3a2; color: #1c3728; padding: 9px 14px; border: 0; border-radius: 5px; }
+.mondra-touch-controls { display: none; }
+.mondra-battle { position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 47%, #78a77a66, transparent 38%), linear-gradient(#447464 0%, #83ae84 48%, #aac68e 49%, #7da779 100%); overflow: hidden; }
+.mondra-battle::before { content: ""; position: absolute; left: -10%; right: -10%; top: 22%; height: 30%; background: #346f5240; border-radius: 50% 50% 0 0; transform: rotate(-4deg); }
+.mondra-battle-heading { position: absolute; left: 24px; right: 24px; top: 24px; display: flex; align-items: center; justify-content: space-between; }
+.mondra-battle-heading .mondra-eyebrow { color: #e2efcb; font-size: 10px; }
+.mondra-battle-tag { font-family: var(--font-geist-mono), monospace; letter-spacing: 1px; font-size: 9px; color: #ecf2d8; border: 1px solid #cce5ac70; background: #2b524766; border-radius: 5px; padding: 5px 8px; }
+.mondra-foe-stats, .mondra-player-stats { position: absolute; z-index: 4; padding: 16px 20px; border: 1px solid #c9d6a375; background: #203e32ed; color: #eef2d6; width: 31%; min-width: 175px; border-radius: 8px; box-shadow: 0 4px 0 #263f3340; }
+.mondra-foe-stats { top: 18%; left: 7%; }
+.mondra-player-stats { right: 5%; bottom: 8%; }
+.mondra-foe-stats > div:first-child, .mondra-player-stats > div:first-child { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.mondra-foe-stats h3, .mondra-player-stats h3 { font-size: 18px; font-weight: 500; }
+.mondra-foe-stats > div > span, .mondra-player-stats > div > span { font-family: var(--font-geist-mono), monospace; font-size: 10px; color: #bbd1ab; }
+.mondra-player-stats .mondra-health { margin-top: 14px; }
+.mondra-foe-stats .mondra-type { margin: 5px 0 11px; }
+.mondra-battle-field { position: absolute; inset: 0; }
+.mondra-platform { position: absolute; border-radius: 50%; background: #567e5280; border: 5px solid #b7cb8940; box-shadow: 0 6px 0 #547b4a55; }
+.mondra-platform-foe { width: 29%; height: 9%; right: 11%; top: 52%; }
+.mondra-platform-player { width: 34%; height: 12%; left: 10%; bottom: 9%; }
+.mondra-foe { position: absolute; width: 31%; height: auto; aspect-ratio: 1; right: 10%; top: 16%; filter: drop-shadow(0 9px 2px #234b3433); animation: mondra-bob 2.4s ease-in-out infinite !important; }
+.mondra-player { position: absolute; width: 39%; height: auto; aspect-ratio: 1; left: 7%; bottom: 4%; filter: drop-shadow(0 9px 2px #234b3433); animation: mondra-bob 2.8s ease-in-out infinite !important; }
+.mondra-battle-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; padding: 15px; border-top: 1px solid #394c39; }
+.mondra-battle-actions > button { border: 1px solid #59684b; color: #d9e3c5; background: #293a2d; border-radius: 6px; padding: 11px 12px; display: flex; align-items: center; gap: 9px; text-align: left; font-size: 12px; }
+.mondra-battle-actions small { display: block; font-family: var(--font-geist-mono), monospace; font-size: 8px; letter-spacing: .5px; margin-top: 4px; color: #b0bda0; }
+.mondra-battle-actions .mondra-special-action { background: #354c30; border-color: #7b965b; }
+.mondra-battle-actions .mondra-continue { grid-column: 1 / -1; justify-content: center; background: #c4e6a2; color: #1d382b; border: 0; padding: 14px; font-weight: 500; }
+.mondra-attack-flash { position: absolute; left: 64%; top: 31%; filter: drop-shadow(0 0 22px currentColor); animation: mondra-flash 650ms ease-out both !important; }
+.mondra .mondra-thrown-orb { position: absolute; width: 32px; height: 32px; left: 72%; top: 45%; animation: mondra-capture 1.65s ease-in-out both !important; z-index: 5; }
+.mondra .mondra-hit { animation: mondra-hit 400ms steps(2) 2 !important; }
+.mondra .mondra-lunge { animation: mondra-lunge 450ms ease-in-out !important; }
+.mondra .mondra-captured { opacity: 0; }
+.mondra-heal-effect { position: absolute; bottom: 25%; left: 25%; color: #f0ffcf; display: flex; gap: 6px; font-size: 26px; animation: mondra-rise 1s ease-out both !important; }
+.mondra-win-label { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); padding: 12px 25px; border: 1px solid #e0f3b7; background: #244e36e8; color: #f1f4c9; border-radius: 7px; font-size: 19px; font-weight: 600; letter-spacing: 2px; white-space: nowrap; z-index: 6; }
+.mondra .mondra-idle { animation: mondra-bob 3s ease-in-out infinite !important; }
+.mondra-modal { background: #182a24; color: #ecf0d9; border: 1px solid #65764f; border-radius: 15px; max-width: 720px; width: calc(100% - 32px); padding: 0; max-height: min(86vh, 850px); margin: auto; box-shadow: 0 30px 100px #0007; font-family: var(--font-poppins), "Segoe UI", sans-serif; }
+.mondra-modal::backdrop { background: #081811b8; backdrop-filter: blur(5px); }
+.mondra-modal-content { padding: 30px; }
+.mondra-modal-content > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 24px; }
+.mondra-modal h2 { font-size: 27px; line-height: 1.4; font-weight: 500; letter-spacing: -.7px; margin: 8px 0; }
+.mondra-modal header p { font-size: 13px; color: #a8b9a0; }
+.mondra-journal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.mondra-journal-grid article { border: 1px solid #3f563b; border-radius: 8px; background: #23392b; padding: 14px; }
+.mondra-journal-top { display: flex; justify-content: space-between; color: #acc195; font-family: var(--font-geist-mono), monospace; font-size: 10px; }
+.mondra-journal-grid .mondra-sprite { width: 100%; height: auto; aspect-ratio: 1; }
+.mondra-journal-grid h3 { font-size: 17px; font-weight: 500; }
+.mondra-journal-grid .mondra-type { margin-bottom: 7px; }
+.mondra-journal-grid p { font-size: 11px; line-height: 1.8; color: #bdc9b0; }
+.mondra-journal-grid .undiscovered .mondra-sprite { filter: brightness(0) opacity(.4); }
+.mondra-journal-grid .undiscovered { background: #1c3026; border-style: dashed; }
+.mondra-team-list { display: grid; gap: 12px; }
+.mondra-team-list > button { display: flex; align-items: center; gap: 14px; width: 100%; background: #213a2b; border: 1px solid #405e3d; border-radius: 9px; padding: 8px 17px 8px 5px; text-align: left; color: #d9e8c7; }
+.mondra-team-list > button.selected { border-color: #b7d694; background: #2e482f; }
+.mondra-team-list .mondra-sprite { width: 95px; height: 95px; }
+.mondra-team-list > button > div { flex: 1; }
+.mondra-team-list h3 { font-size: 17px; font-weight: 500; display: flex; justify-content: space-between; margin-bottom: 10px; }
+.mondra-team-list h3 small { font-size: 10px; color: #b1c99c; }
+.mondra-bag-list article { display: flex; align-items: center; gap: 20px; padding: 22px 0; border-bottom: 1px solid #3e523b; }
+.mondra-bag-list article > .mondra-orb { width: 35px; height: 35px; }
+.mondra-bag-list article > .mondra-potion { width: 35px; flex-shrink: 0; }
+.mondra-bag-list article > div { flex: 1; }
+.mondra-bag-list h3 { font-size: 16px; font-weight: 500; }
+.mondra-bag-list h3 b { font-family: var(--font-geist-mono), monospace; color: #bbdba0; font-size: 12px; margin-left: 7px; }
+.mondra-bag-list p { color: #aec1a3; font-size: 12px; margin-top: 6px; }
+.mondra-bag-list article > button { background: #c4e6a2; color: #24442f; border: 0; border-radius: 6px; padding: 9px 17px; }
+.mondra-modal .mondra-modal-note { display: flex; align-items: center; gap: 10px; padding: 15px; margin-top: 20px; color: #b4c8a5; background: #2c412d; border-radius: 7px; font-size: 12px; line-height: 1.9; }
+.mondra-modal-note svg { flex-shrink: 0; }
+.mondra-help-content ol { list-style: none; padding: 0; display: grid; gap: 24px; }
+.mondra-help-content li { display: flex; align-items: flex-start; gap: 15px; }
+.mondra-help-content li > span { background: #334e30; color: #c0dda1; font-family: var(--font-geist-mono), monospace; padding: 5px 8px; border-radius: 4px; }
+.mondra-help-content h3 { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+.mondra-help-content li p { font-size: 13px; color: #b2c0a7; line-height: 1.9; }
+.mondra-reset { border: 0; border-bottom: 1px solid #8b7a59; color: #ceb994; background: transparent; margin-top: 24px; font-size: 12px !important; padding: 5px 0; }
+@keyframes mondra-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes mondra-hit { 0%, 100% { opacity: 1; } 30%, 70% { opacity: .2; filter: brightness(2); transform: translateX(9px); } }
+@keyframes mondra-lunge { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(35px,-16px); } }
+@keyframes mondra-flash { 0% { transform: scale(.2); opacity: 0; } 40% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+@keyframes mondra-capture { 0% { transform: translate(-300px,180px) rotate(-180deg) scale(.7); } 35% { transform: translate(0,-70px) rotate(180deg); } 55% { transform: translate(0,20px); } 65% { transform: translate(-6px,20px) rotate(-15deg); } 75% { transform: translate(6px,20px) rotate(15deg); } 85%, 100% { transform: translate(0,20px); } }
+@keyframes mondra-rise { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-55px); } }
+@media (min-width: 1600px) { .mondra-main { padding-top: 46px; } }
+@media (max-width: 1150px) {
+  .mondra-game-layout { grid-template-columns: minmax(0, 1fr) 240px; gap: 18px; }
+  .mondra-main { padding: 30px 24px 18px; }
+  .mondra-header { padding: 0 24px; }
+  .mondra-companion-card { padding: 16px; }
+  .mondra-companion-art { height: 145px; }
+  .mondra-companion-art .mondra-sprite { width: 160px; height: 160px; }
+  .mondra-controls { gap: 13px; flex-wrap: wrap; }
+  .mondra-click-hint { display: none; }
+  .mondra-battle-actions { grid-template-columns: repeat(2, 1fr); }
+  .mondra-foe-stats, .mondra-player-stats { padding: 12px; min-width: 155px; }
+}
+@media (max-width: 850px) {
+  .mondra-edition { display: none; }
+  .mondra-game-layout { grid-template-columns: 1fr; }
+  .mondra-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  .mondra-companion-card { grid-row: span 2; }
+  .mondra-companion-art { height: 130px; }
+  .mondra-companion-card .mondra-type { margin-bottom: 10px; }
+  .mondra-companion-card .mondra-outline { margin-top: 14px; }
+  .mondra-pocket { padding: 12px 0; }
+  .mondra-touch-controls { display: flex; align-items: center; justify-content: space-between; padding: 16px 35px; background: #1b2c25; border: 1px solid #3e5339; border-radius: 10px; margin-top: 18px; touch-action: none; }
+  .mondra-dpad { display: grid; grid-template-columns: repeat(3, 42px); grid-template-rows: repeat(2, 39px); gap: 4px; }
+  .mondra-dpad button { background: #30452f; border: 1px solid #5c7350; border-radius: 6px; color: #d0e5b6; display: grid; place-items: center; touch-action: none; }
+  .mondra-dir-up { grid-column: 2; }.mondra-dir-up svg { transform: rotate(-90deg); }
+  .mondra-dir-left { grid-column: 1; grid-row: 2; }.mondra-dir-left svg { transform: rotate(180deg); }
+  .mondra-dir-down { grid-column: 2; grid-row: 2; }.mondra-dir-down svg { transform: rotate(90deg); }
+  .mondra-dir-right { grid-column: 3; grid-row: 2; }
+  .mondra-touch-interact { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; width: 72px; height: 72px; background: #bad99b; color: #25422b; border: 0; border-bottom: 4px solid #74945b; border-radius: 50%; font-size: 20px !important; }
+  .mondra-touch-interact span { font-size: 10px; }
+  .mondra-footer { margin-top: 20px; }
+}
+@media (max-width: 560px) {
+  .mondra-header { height: 70px; padding: 0 18px; }
+  .mondra-brand { font-size: 28px; }
+  .mondra-brand-icon { width: 33px; height: 33px; }
+  .mondra-status { font-size: 9px; gap: 6px; }
+  .mondra-main { padding: 24px 14px 18px; }
+  .mondra-heading { margin-bottom: 23px; align-items: flex-start; }
+  .mondra-heading h1 { font-size: 30px; letter-spacing: -1.2px; gap: 10px; }
+  .mondra-heading h1 > span { margin-top: 5px; font-size: 11px; }
+  .mondra-heading p { font-size: 11px; max-width: 240px; }
+  .mondra-heading .mondra-eyebrow { font-size: 8px; letter-spacing: 1.2px; }
+  .mondra-help { font-size: 0 !important; margin-top: 28px; padding: 7px; }
+  .mondra-help > span { font-size: 12px; }
+  .mondra-nav { margin-bottom: 14px; gap: 5px; }
+  .mondra-tabs { gap: 15px; flex: 1; }
+  .mondra-tabs > button { font-size: 10px; gap: 6px; padding-bottom: 14px; }
+  .mondra-tabs > button > svg { width: 16px; height: 16px; }
+  .mondra-tabs > button .mondra-live-dot { display: none; }
+  .mondra-count { font-size: 9px; padding: 0 3px; }
+  .mondra-tools { gap: 0; }
+  .mondra-tools .mondra-icon-button { width: 25px; }
+  .mondra-tools .mondra-icon-button svg { width: 15px; }
+  .mondra-tabs > button:nth-child(2) { font-size: 0; gap: 5px; }
+  .mondra-tabs > button:nth-child(2)::after { content: "Diário"; font-size: 10px; order: 0; }
+  .mondra-tabs > button:nth-child(2) .mondra-count { order: 1; }
+  .mondra-stage { border-radius: 9px; }
+  .mondra-location { top: 9px; left: 9px; padding: 6px 9px 6px 6px; gap: 6px; }
+  .mondra-location-icon { width: 24px; height: 24px; padding-right: 6px; }
+  .mondra-location b { font-size: 9px; }.mondra-location div > span { font-size: 8px; }
+  .mondra-weather { top: 10px; right: 9px; padding: 5px 7px; }.mondra-weather span { display: none; }
+  .mondra-interact { padding: 6px 9px; gap: 7px; font-size: 10px !important; bottom: 22px; }
+  .mondra-map-caption { font-size: 7px; bottom: 7px; left: 10px; }
+  .mondra-message { padding: 12px; min-height: 74px; gap: 10px; }
+  .mondra-message p { font-size: 11px; line-height: 1.8; }.mondra-message-icon svg { width: 17px; }
+  .mondra-controls { display: none; }
+  .mondra-sidebar { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mondra-companion-card { padding: 12px; }
+  .mondra-card-heading .mondra-eyebrow { font-size: 8px; letter-spacing: .5px; }
+  .mondra-companion-art { height: 110px; margin-top: 8px; }
+  .mondra-companion-art .mondra-sprite { width: 130px; height: 130px; }
+  .mondra-orbit-one { width: 104px; height: 104px; }.mondra-orbit-two { width: 80px; height: 80px; }
+  .mondra-art-no { font-size: 7px; bottom: 1px; }.mondra-art-spark { right: 7px; top: 15px; font-size: 12px; }
+  .mondra-companion-name h2 { font-size: 19px; }.mondra-companion-name > span { font-size: 9px; padding: 3px 4px; }
+  .mondra-outline { font-size: 10px !important; padding: 9px 7px; gap: 5px; }
+  .mondra-quest { padding: 13px; }.mondra-quest .mondra-eyebrow { font-size: 8px; letter-spacing: .7px; }
+  .mondra-quest-icon { top: 9px; right: 8px; }.mondra-quest-icon svg { width: 15px; }
+  .mondra-quest h3 { font-size: 13px; margin-top: 14px; }.mondra-quest p { font-size: 10px; line-height: 1.8; }
+  .mondra-quest-bottom { font-size: 8px; }.mondra-quest-progress { margin-top: 14px; }
+  .mondra-pocket > div { padding-left: 9px; grid-template-columns: 18px auto; gap: 0 5px; }
+  .mondra-pocket .mondra-orb { width: 17px; height: 17px; }.mondra-pocket div > span:last-child { font-size: 8px; }.mondra-pocket b { font-size: 14px; }
+  .mondra-footer { font-size: 9px; }.mondra-footer > span:last-child { display: none; }
+  .mondra-battle-heading { top: 12px; left: 13px; right: 13px; }.mondra-battle-heading .mondra-eyebrow { font-size: 7px; letter-spacing: .7px; }.mondra-battle-tag { font-size: 7px; padding: 3px 5px; }
+  .mondra-foe-stats, .mondra-player-stats { min-width: 0; width: 37%; padding: 8px 10px; }
+  .mondra-foe-stats { top: 20%; left: 4%; }.mondra-player-stats { right: 4%; bottom: 5%; }
+  .mondra-foe-stats h3, .mondra-player-stats h3 { font-size: 12px; }.mondra-foe-stats > div > span, .mondra-player-stats > div > span { font-size: 8px; }
+  .mondra-foe-stats .mondra-type { font-size: 8px; padding: 0 4px; margin: 2px 0 5px; }.mondra-player-stats .mondra-health { margin-top: 7px; }
+  .mondra-battle .mondra-health-track { height: 4px; }.mondra-battle .mondra-health > span { font-size: 8px; margin-top: 4px; }
+  .mondra-battle-actions { padding: 10px; gap: 7px; }.mondra-battle-actions > button { padding: 9px; font-size: 11px; }.mondra-battle-actions small { font-size: 7px; }
+  .mondra-win-label { font-size: 12px; letter-spacing: 1px; padding: 8px 13px; }
+  .mondra-modal-content { padding: 21px 17px; }.mondra-modal h2 { font-size: 22px; }.mondra-modal .mondra-eyebrow { font-size: 8px; }.mondra-modal header p { font-size: 12px; }
+  .mondra-journal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }.mondra-journal-grid article { padding: 11px; }
+  .mondra-journal-grid h3 { font-size: 15px; }.mondra-journal-grid p { font-size: 11px; }
+  .mondra-team-list .mondra-sprite { width: 68px; height: 68px; }.mondra-team-list > button { gap: 8px; padding-right: 10px; }.mondra-team-list h3 { font-size: 14px; }
+  .mondra-bag-list article { gap: 12px; flex-wrap: wrap; }.mondra-bag-list article > button { margin-left: auto; }.mondra-bag-list h3 { font-size: 14px; }
+}
+@media (pointer: coarse) and (min-width: 851px) { .mondra-touch-controls { display: flex; gap: 10px; padding-top: 16px; }.mondra-dpad { display: flex; gap: 8px; }.mondra-dpad button, .mondra-touch-interact { background: #30452f; border: 1px solid #5c7350; color: #d0e5b6; padding: 12px; border-radius: 6px; touch-action: none; }.mondra-dir-up svg { transform: rotate(-90deg); }.mondra-dir-down svg { transform: rotate(90deg); }.mondra-dir-left svg { transform: rotate(180deg); } }
+@media (prefers-reduced-motion: reduce) { .mondra *, .mondra *::before, .mondra *::after { animation: none !important; transition: none !important; }.mondra .mondra-idle, .mondra .mondra-hit, .mondra .mondra-lunge, .mondra .mondra-foe, .mondra .mondra-player, .mondra .mondra-thrown-orb { animation: none !important; } }
