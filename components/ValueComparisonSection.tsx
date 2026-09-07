@@ -18,10 +18,19 @@ const challengeBenefits = [
 export function ValueComparisonSection() {
   return (
     <section
-      className="bg-warm-texture py-14 text-white md:py-20 lg:py-24"
+      className="bg-warm-texture-reverse relative overflow-hidden pb-14 pt-20 text-white md:pb-20 md:pt-24 lg:pb-24 lg:pt-28"
       aria-labelledby="comparison-title"
     >
-      <div className={sectionContainer}>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-10 w-px -translate-x-1/2 bg-gradient-to-b from-[#ff6418] via-[#ff6418]/70 to-transparent"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-9 size-1.5 -translate-x-1/2 rounded-full bg-[#ff6418] shadow-[0_0_12px_rgba(255,100,24,0.85)]"
+      />
+
+      <div className={`${sectionContainer} relative`}>
         <p className={displayTitle + " text-center text-sm tracking-[0.16em] text-[#ff6418] md:text-base"}>
           COMPARE O INVESTIMENTO
         </p>
