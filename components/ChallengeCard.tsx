@@ -73,11 +73,16 @@ export function ChallengeCard({
         <TrackedLink
           className={`${primaryButton} mt-4 min-h-[3.25rem] min-w-0 text-[clamp(0.92rem,3.9vw,1rem)]`}
           href={CHECKOUT_URL}
-          eventName="challenge_cta_clicked"
+          eventName="checkout_started"
           eventProperties={{
             challenge_id: id,
             challenge_title: title,
+            placement: "challenge_card",
+            cta_id: "challenge_card_primary",
+            intent: "purchase",
             destination: "checkout",
+            offer_price: 99.9,
+            currency: "BRL",
           }}
         >
           QUERO MEU BUMBUM NA NUCA

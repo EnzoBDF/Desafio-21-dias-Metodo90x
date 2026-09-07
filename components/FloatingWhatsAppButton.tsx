@@ -11,9 +11,11 @@ export function FloatingWhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Tirar dúvidas sobre o Bumbum na Nuca pelo WhatsApp"
-      eventName="whatsapp_floating_clicked"
+      eventName="support_contact_started"
       eventProperties={{
-        location: "floating_button",
+        placement: "floating_button",
+        channel: "whatsapp",
+        intent: "support",
       }}
     >
       <svg

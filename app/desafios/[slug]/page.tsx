@@ -185,12 +185,16 @@ export default async function ChallengeDetailPage({
             <TrackedLink
               className={primaryButton}
               href={CHECKOUT_URL}
-              eventName="challenge_detail_cta_clicked"
+              eventName="checkout_started"
               eventProperties={{
                 challenge_id: challenge.id,
                 challenge_title: challenge.title,
-                cta: "hero_buy",
+                placement: "challenge_detail_hero",
+                cta_id: "challenge_detail_hero_primary",
+                intent: "purchase",
                 destination: "checkout",
+                offer_price: 99.9,
+                currency: "BRL",
               }}
             >
               EU QUERO COMEÇAR
@@ -198,11 +202,14 @@ export default async function ChallengeDetailPage({
             <TrackedLink
               className={`${secondaryButton} md:min-w-56`}
               href="/#challenges-title"
-              eventName="challenge_detail_back_clicked"
+              eventName="content_navigation_clicked"
               eventProperties={{
                 challenge_id: challenge.id,
                 challenge_title: challenge.title,
-                destination: "home_challenges",
+                placement: "challenge_detail_hero",
+                cta_id: "back_to_challenges",
+                intent: "navigation",
+                target_section: "home_challenges",
               }}
             >
               VER DESAFIOS
@@ -386,14 +393,17 @@ export default async function ChallengeDetailPage({
             <TrackedLink
               className={`${primaryButton} mt-8 max-w-[20rem]`}
               href={CHECKOUT_URL}
-              eventName="challenge_detail_cta_clicked"
+              eventName="checkout_started"
               eventProperties={{
                 challenge_id: challenge.id,
                 challenge_title: challenge.title,
-                cta: "offer_buy",
+                placement: "challenge_detail_offer",
+                cta_id: "challenge_detail_offer_primary",
+                intent: "purchase",
                 destination: "checkout",
-                price: "99,90",
-                original_price: "199,90",
+                offer_price: 99.9,
+                original_price: 199.9,
+                currency: "BRL",
               }}
             >
               QUERO MEU BUMBUM NA NUCA

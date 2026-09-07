@@ -118,12 +118,15 @@ export function PricingSection() {
         <TrackedLink
           className={`${primaryButton} mt-8 max-w-[18rem]`}
           href={CHECKOUT_URL}
-          eventName="pricing_cta_clicked"
+          eventName="checkout_started"
           eventProperties={{
-            cta: "choose_start",
+            placement: "pricing",
+            cta_id: "pricing_primary",
+            intent: "purchase",
             destination: "checkout",
-            price: "99,90",
-            original_price: "199,90",
+            offer_price: 99.9,
+            original_price: 199.9,
+            currency: "BRL",
           }}
         >
           QUERO MEU BUMBUM NA NUCA

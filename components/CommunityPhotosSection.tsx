@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { CHECKOUT_URL } from "@/lib/links";
+import { trackEvent } from "@/lib/analytics";
 import { TrackedLink } from "./TrackedActions";
 import { displayTitle, glow, primaryButton, sectionContainer } from "./styles";
 
@@ -32,6 +33,7 @@ const communityPhotos = [
 export function CommunityPhotosSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const resumeTimerRef = useRef<number | null>(null);
+  const trackedInteractionsRef = useRef(new Set<string>());
   const [isInteracting, setIsInteracting] = useState(false);
 
   const pauseSlideshow = () => {
@@ -50,6 +52,19 @@ export function CommunityPhotosSection() {
     resumeTimerRef.current = window.setTimeout(() => {
       setIsInteracting(false);
     }, 2200);
+  };
+
+  const trackInteraction = (interactionType: "drag" | "wheel") => {
+    if (trackedInteractionsRef.current.has(interactionType)) {
+      return;
+    }
+
+    trackedInteractionsRef.current.add(interactionType);
+    trackEvent("gallery_interacted", {
+      gallery_id: "community",
+      interaction_type: interactionType,
+      item_count: communityPhotos.length,
+    });
   };
 
   useEffect(() => {
@@ -76,7 +91,8 @@ export function CommunityPhotosSection() {
     let frame = 0;
     let previousTime = performance.now();
     let position = track.scrollLeft;
-    const pixelsPerSecond = 14;
+    let velocity = 0;
+    const pixelsPerSecond = 10;
     let direction = position >= track.scrollWidth - track.clientWidth - 1 ? -1 : 1;
 
     const animate = (time: number) => {
@@ -85,7 +101,11 @@ export function CommunityPhotosSection() {
 
       if (!isInteracting && track.scrollWidth > track.clientWidth) {
         const maxScroll = track.scrollWidth - track.clientWidth;
-        position += direction * (pixelsPerSecond * elapsed) / 1000;
+        const targetVelocity = direction * pixelsPerSecond;
+        const easing = 1 - Math.exp(-elapsed / 520);
+
+        velocity += (targetVelocity - velocity) * easing;
+        position += (velocity * elapsed) / 1000;
 
         if (position >= maxScroll) {
           position = maxScroll;
@@ -98,6 +118,7 @@ export function CommunityPhotosSection() {
         track.scrollLeft = position;
       } else {
         position = track.scrollLeft;
+        velocity = 0;
       }
 
       frame = window.requestAnimationFrame(animate);
@@ -132,11 +153,15 @@ export function CommunityPhotosSection() {
         ref={trackRef}
         className="scrollbar-none mt-10 flex touch-pan-x gap-4 overflow-x-auto overscroll-x-contain px-6 pb-5 pt-4 md:mx-auto md:max-w-6xl md:cursor-grab md:gap-6 md:px-8 md:active:cursor-grabbing lg:mt-14 lg:px-10"
         aria-label="Fotos da comunidade Bumbum na Nuca"
-        onPointerDown={pauseSlideshow}
+        onPointerDown={() => {
+          trackInteraction("drag");
+          pauseSlideshow();
+        }}
         onPointerCancel={resumeSlideshow}
         onPointerLeave={resumeSlideshow}
         onPointerUp={resumeSlideshow}
         onWheel={() => {
+          trackInteraction("wheel");
           pauseSlideshow();
           resumeSlideshow();
         }}
@@ -162,10 +187,14 @@ export function CommunityPhotosSection() {
         <TrackedLink
           className={`${primaryButton} max-w-[20rem]`}
           href={CHECKOUT_URL}
-          eventName="community_cta_clicked"
+          eventName="checkout_started"
           eventProperties={{
-            cta: "join_community",
+            placement: "community",
+            cta_id: "community_primary",
+            intent: "purchase",
             destination: "checkout",
+            offer_price: 99.9,
+            currency: "BRL",
           }}
         >
           QUERO FAZER PARTE

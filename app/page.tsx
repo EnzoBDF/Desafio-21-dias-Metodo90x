@@ -5,6 +5,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { HeroSection } from "@/components/HeroSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { IncludedFeatures } from "@/components/IncludedFeatures";
+import { LandingAnalytics } from "@/components/LandingAnalytics";
 import { MessageSection } from "@/components/MessageSection";
 import { PricingSection } from "@/components/PricingSection";
 import { SectionRevealController } from "@/components/SectionRevealController";
@@ -18,6 +19,7 @@ export default function Home() {
       data-section-reveal
     >
       <SectionRevealController />
+      <LandingAnalytics />
       <HeroSection />
       <ChallengeCarousel />
       <MessageSection />

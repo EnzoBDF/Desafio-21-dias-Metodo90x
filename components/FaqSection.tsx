@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { displayTitle, sectionContainer } from "./styles";
 
 const questions = [
@@ -44,6 +45,17 @@ const questions = [
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const toggleQuestion = (index: number) => {
+    const willOpen = openIndex !== index;
+
+    setOpenIndex(willOpen ? index : null);
+    trackEvent("faq_item_toggled", {
+      question_id: `faq_${index + 1}`,
+      question_position: index + 1,
+      action: willOpen ? "opened" : "closed",
+    });
+  };
+
   return (
     <section
       className="bg-warm-texture-reverse py-14 text-white md:py-20 lg:py-24"
@@ -77,9 +89,7 @@ export function FaqSection() {
                 className="flex min-h-16 w-full cursor-pointer items-center justify-between gap-5 px-5 py-4 text-left md:min-h-20 md:px-7"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
-                onClick={() =>
-                  setOpenIndex((current) => (current === index ? null : index))
-                }
+                onClick={() => toggleQuestion(index)}
               >
                 <span className={`${displayTitle} text-lg text-white md:text-xl`}>
                   {item.question}

@@ -81,10 +81,14 @@ export function HeroSection() {
           <TrackedLink
             className={primaryButton}
             href={CHECKOUT_URL}
-            eventName="hero_cta_clicked"
+            eventName="checkout_started"
             eventProperties={{
-              cta: "start_21_days",
+              placement: "hero",
+              cta_id: "hero_primary",
+              intent: "purchase",
               destination: "checkout",
+              offer_price: 99.9,
+              currency: "BRL",
             }}
           >
             QUERO MEU BUMBUM NA NUCA
@@ -92,10 +96,12 @@ export function HeroSection() {
           <TrackedLink
             className={secondaryButton}
             href="#video"
-            eventName="hero_cta_clicked"
+            eventName="content_navigation_clicked"
             eventProperties={{
-              cta: "watch_video",
-              destination: "video",
+              placement: "hero",
+              cta_id: "hero_watch_video",
+              intent: "learn_more",
+              target_section: "video",
             }}
           >
             ASSISTIR AO VÍDEO

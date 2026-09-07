@@ -49,17 +49,17 @@ export function MessageSection() {
             className="h-full w-full object-cover"
             controls
             playsInline
-            poster="/capavideo.jpeg"
+            poster="/Capa%20Video.png"
             preload="metadata"
             aria-label="Vídeo do desafio Bumbum na Nuca"
-            eventName="video_play_clicked"
+            eventName="video_started"
             eventProperties={{
-              location: "message_section",
-              video: "whatsapp_video_2026_08_14",
+              placement: "video_section",
+              video_id: "video_bumbum_na_nuca",
             }}
           >
             <source
-              src="/WhatsApp%20Video%202026-08-14%20at%2009.03.34.mp4"
+              src="/Video%20-%20Bumbum%20na%20nuca.mp4"
               type="video/mp4"
             />
             Seu navegador não suporta a reprodução deste vídeo.
@@ -70,10 +70,14 @@ export function MessageSection() {
           <TrackedLink
             className={`${primaryButton} max-w-[20rem]`}
             href={CHECKOUT_URL}
-            eventName="video_cta_clicked"
+            eventName="checkout_started"
             eventProperties={{
-              cta: "start_after_video",
+              placement: "video_section",
+              cta_id: "video_primary",
+              intent: "purchase",
               destination: "checkout",
+              offer_price: 99.9,
+              currency: "BRL",
             }}
           >
             QUERO COMEÇAR AGORA

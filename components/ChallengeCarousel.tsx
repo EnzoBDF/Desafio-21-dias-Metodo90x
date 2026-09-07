@@ -14,10 +14,11 @@ export function ChallengeCarousel() {
     const challenge = challenges[index];
 
     setActiveIndex(index);
-    trackEvent("challenge_card_focused", {
+    trackEvent("challenge_card_selected", {
       challenge_id: challenge.id,
       challenge_title: challenge.title,
-      interaction,
+      interaction_type: interaction,
+      placement: "challenge_selector",
     });
   }, []);
 
