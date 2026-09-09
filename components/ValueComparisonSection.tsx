@@ -1,5 +1,7 @@
+import { CHECKOUT_URL } from "@/lib/links";
 import { Icon } from "./Icon";
-import { displayTitle, glow, sectionContainer } from "./styles";
+import { TrackedLink } from "./TrackedActions";
+import { displayTitle, glow, primaryButton, sectionContainer } from "./styles";
 
 const separateServices = [
   "Profissionais contratados separadamente",
@@ -52,10 +54,23 @@ export function ValueComparisonSection() {
                 NUTRICIONISTA + PERSONAL
               </h3>
             </div>
-            <p className={displayTitle + " mt-7 text-2xl text-white/65 md:text-3xl"}>
-              INVESTIMENTO VARIÁVEL
+            <p className={displayTitle + " mt-7 text-sm tracking-[0.12em] text-white/55 md:text-base"}>
+              SIMULAÇÃO MENSAL*
             </p>
-            <ul className="mt-6 grid gap-4 text-sm font-semibold leading-[1.4] md:text-base">
+            <p
+              className={displayTitle + " mt-2 flex flex-wrap items-baseline gap-x-2 text-white/75"}
+              aria-label="Faixa estimada de 770 a 1.400 reais por mês"
+            >
+              <span className="text-lg text-white/55">R$</span>
+              <span className="text-4xl leading-none md:text-5xl">770</span>
+              <span className="text-xl text-white/45">A</span>
+              <span className="text-4xl leading-none md:text-5xl">1.400</span>
+              <span className="text-sm text-white/45">/MÊS</span>
+            </p>
+            <p className="mt-3 text-xs font-semibold leading-relaxed text-white/45 md:text-sm">
+              1 consulta nutricional + 2 aulas semanais de personal
+            </p>
+            <ul className="mt-5 grid gap-4 text-sm font-semibold leading-[1.4] md:text-base">
               {separateServices.map((item) => (
                 <li className="grid grid-cols-[1.25rem_1fr] gap-3" key={item}>
                   <span className="text-center text-white/35" aria-hidden="true">—</span>
@@ -77,10 +92,23 @@ export function ValueComparisonSection() {
                 DESAFIO 21
               </h3>
             </div>
-            <p className={displayTitle + " mt-7 flex items-baseline text-white"}>
+            <p className={displayTitle + " mt-7 text-base leading-none text-white/85 md:text-lg"}>
+              De{" "}
+              <span className="text-[1.12em] text-white/60 line-through decoration-[#ff6418] decoration-2">
+                R$ 199,90
+              </span>{" "}
+              por apenas
+            </p>
+            <p
+              className={displayTitle + " mt-2 flex items-baseline text-white"}
+              aria-label="Preço promocional 99 reais e 90 centavos, de 199 reais e 90 centavos"
+            >
               <span className="mr-2 text-xl text-white/75">R$</span>
               <span className="text-6xl leading-none md:text-7xl">99</span>
               <span className="ml-1 text-3xl leading-none">,90</span>
+            </p>
+            <p className="mt-3 text-xs font-bold uppercase tracking-[0.1em] text-[#ff6418] md:text-sm">
+              Pagamento único pelos 21 dias
             </p>
             <ul className="mt-6 grid gap-4 text-sm font-semibold leading-[1.4] md:text-base">
               {challengeBenefits.map((item) => (
@@ -98,6 +126,30 @@ export function ValueComparisonSection() {
           integrada. Ele não substitui acompanhamento clínico ou nutricional
           individual quando necessário.
         </p>
+        <p className="mx-auto mt-2 max-w-3xl text-center text-[0.68rem] leading-relaxed text-white/40 md:text-xs">
+          *Simulação ilustrativa com uma consulta nutricional e oito aulas de
+          personal. Valores variam por cidade e profissional. Referências:
+          tabela FNN 2026 e levantamento FitLocal 2026.
+        </p>
+
+        <div className="mt-8 flex justify-center md:mt-10">
+          <TrackedLink
+            className={`${primaryButton} max-w-[20rem]`}
+            href={CHECKOUT_URL}
+            eventName="checkout_started"
+            eventProperties={{
+              placement: "value_comparison",
+              cta_id: "value_comparison_primary",
+              intent: "purchase",
+              destination: "checkout",
+              offer_price: 99.9,
+              original_price: 199.9,
+              currency: "BRL",
+            }}
+          >
+            QUERO MEU BUMBUM NA NUCA
+          </TrackedLink>
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import { ChallengeCarousel } from "@/components/ChallengeCarousel";
 import { CommunityPhotosSection } from "@/components/CommunityPhotosSection";
 import { FloatingWhatsAppButton } from "@/components/FloatingWhatsAppButton";
 import { FaqSection } from "@/components/FaqSection";
+import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { IncludedFeatures } from "@/components/IncludedFeatures";
@@ -30,6 +31,7 @@ export default function Home() {
       <ValueComparisonSection />
       <PricingSection />
       <FaqSection />
+      <Footer />
       <FloatingWhatsAppButton />
     </main>
   );

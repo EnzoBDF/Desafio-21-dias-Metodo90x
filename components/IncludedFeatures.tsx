@@ -1,8 +1,10 @@
 "use client";
 
 import { type CSSProperties, useEffect, useRef, useState } from "react";
+import { CHECKOUT_URL } from "@/lib/links";
 import { Icon } from "./Icon";
-import { displayTitle, glow, sectionContainer } from "./styles";
+import { TrackedLink } from "./TrackedActions";
+import { displayTitle, glow, primaryButton, sectionContainer } from "./styles";
 
 const features = [
   {
@@ -124,6 +126,9 @@ export function IncludedFeatures() {
           <p className="mt-7 text-center text-xs font-bold uppercase tracking-[0.24em] text-white/60">
             E muito mais
           </p>
+          <div className="mt-8 flex justify-center">
+            <IncludedFeaturesCta />
+          </div>
         </div>
       </section>
     );
@@ -191,6 +196,9 @@ export function IncludedFeatures() {
               />
             ))}
           </div>
+          <div className="mt-5 flex justify-center">
+            <IncludedFeaturesCta />
+          </div>
         </div>
       </div>
 
@@ -202,6 +210,26 @@ export function IncludedFeatures() {
         ))}
       </ul>
     </section>
+  );
+}
+
+function IncludedFeaturesCta() {
+  return (
+    <TrackedLink
+      className={`${primaryButton} max-w-[20rem]`}
+      href={CHECKOUT_URL}
+      eventName="checkout_started"
+      eventProperties={{
+        placement: "included_features",
+        cta_id: "included_features_primary",
+        intent: "purchase",
+        destination: "checkout",
+        offer_price: 99.9,
+        currency: "BRL",
+      }}
+    >
+      QUERO MEU BUMBUM NA NUCA
+    </TrackedLink>
   );
 }
 

@@ -1,12 +1,20 @@
 import Image from "next/image";
 import { CHECKOUT_URL } from "@/lib/links";
-import { displayTitle, primaryButton, secondaryButton } from "./styles";
+import { displayTitle, font, primaryButton } from "./styles";
+import { Icon } from "./Icon";
 import { TrackedLink } from "./TrackedActions";
+
+const heroHighlights = [
+  "Treinos adaptados",
+  "Suporte especializado",
+  "Casa ou academia",
+  "Para iniciantes e avançadas",
+];
 
 export function HeroSection() {
   return (
     <section
-      className="bg-page-texture relative z-20 isolate min-h-[42rem] w-[100svw] max-w-none overflow-hidden text-white sm:min-h-[45rem] md:min-h-[48rem] lg:min-h-svh xl:min-h-[52rem]"
+      className="bg-page-texture relative z-20 isolate min-h-[42rem] w-full overflow-hidden text-white sm:min-h-[45rem] md:min-h-[48rem] lg:min-h-svh xl:min-h-[52rem]"
       aria-labelledby="hero-title"
     >
       <div
@@ -19,13 +27,12 @@ export function HeroSection() {
       />
 
       <div
-        className="absolute inset-x-0 top-0 -z-20 h-[33rem] w-[100svw] max-w-none overflow-hidden bg-[#111] sm:h-[35rem] md:h-[40rem] lg:h-full"
-        aria-hidden="true"
+        className="absolute inset-x-0 top-0 -z-20 h-[33rem] w-full overflow-hidden bg-[#111] sm:h-[35rem] md:h-[40rem] lg:h-full"
       >
         <Image
           className="object-cover object-[50%_0]"
           src="/images/Bumbum.png"
-          alt=""
+          alt="Aluna do Desafio 21 Dias mostrando o resultado do treino de glúteos"
           fill
           priority
           sizes="100vw"
@@ -56,9 +63,9 @@ export function HeroSection() {
         </div>
 
         <p
-          className={`${displayTitle} mt-4 flex w-full flex-col text-[clamp(1.2rem,6.2vw,1.65rem)] leading-[1.04] text-[#ff6418] md:max-w-[32rem] md:text-[clamp(1.45rem,3vw,1.75rem)] lg:max-w-[42rem] lg:text-[clamp(1.6rem,2.2vw,2.2rem)]`}
+          className={`${displayTitle} mt-3 w-full text-[clamp(1rem,4.4vw,1.25rem)] leading-[1.1] tracking-[0.04em] text-white/70 md:max-w-[32rem] md:text-[1.35rem] lg:max-w-[42rem]`}
         >
-          <span>Você só precisa começar.</span>
+          Você só precisa começar.
         </p>
 
         <p className="mt-4 w-full text-left text-[clamp(0.88rem,3.5vw,1rem)] font-semibold leading-[1.65] text-white/95 md:max-w-[31rem] md:text-base lg:text-left">
@@ -66,35 +73,56 @@ export function HeroSection() {
           progressão e acompanhamento durante 21 dias.
         </p>
 
-        <div className="mt-5 flex w-full flex-wrap items-center gap-x-2 gap-y-1 border-y border-white/15 py-3 text-[0.72rem] font-bold uppercase leading-[1.35] text-white/80 md:max-w-[36rem] md:text-sm">
-          <span>Treinos adaptados</span>
-          <span className="text-[#ff6418]" aria-hidden="true">•</span>
-          <span>Suporte especializado</span>
-          <span className="text-[#ff6418]" aria-hidden="true">•</span>
-          <span>Casa ou academia</span>
-          <span className="text-[#ff6418]" aria-hidden="true">•</span>
-          <span>Para iniciantes e avançadas</span>
+        {/* Separador como ::before do proprio item: na quebra de linha ele
+            acompanha o texto seguinte em vez de ficar orfao no fim da linha. */}
+        <ul className="mt-5 flex w-full flex-wrap items-center gap-x-2 gap-y-1 border-y border-white/15 py-3 text-[0.72rem] font-bold uppercase leading-[1.35] text-white/80 md:max-w-[36rem] md:text-sm">
+          {heroHighlights.map((highlight, index) => (
+            <li
+              className={
+                index === 0
+                  ? ""
+                  : "before:mr-2 before:text-[#ff6418] before:content-['•']"
+              }
+              key={highlight}
+            >
+              {highlight}
+            </li>
+          ))}
+        </ul>
 
-        </div>
+        <div className="mt-6 flex w-full flex-col items-start gap-4 pb-8 md:max-w-none md:flex-row md:items-center md:gap-7 md:pb-0">
+          <div className="flex w-full flex-col items-start gap-1.5 md:w-auto">
+            <TrackedLink
+              className={primaryButton}
+              href={CHECKOUT_URL}
+              eventName="checkout_started"
+              eventProperties={{
+                placement: "hero",
+                cta_id: "hero_primary",
+                intent: "purchase",
+                destination: "checkout",
+                offer_price: 99.9,
+                original_price: 199.9,
+                currency: "BRL",
+              }}
+            >
+              QUERO MEU BUMBUM NA NUCA
+            </TrackedLink>
+            <p className="flex w-full flex-wrap items-center justify-center gap-x-1.5 text-[0.78rem] font-semibold text-white/65 md:text-sm">
+              <span className="text-white/45 line-through">R$ 199,90</span>
+              <span className="font-bold text-white/90">R$ 99,90 à vista</span>
+              <span className="text-[#ff6418]" aria-hidden="true">
+                ·
+              </span>
+              <span>7 dias de garantia</span>
+            </p>
+          </div>
 
-        <div className="mt-6 flex w-full flex-col gap-3.5 md:max-w-none md:flex-row md:justify-center lg:justify-start">
+          {/* globals.css aplica `a { color: inherit; text-decoration: none }`
+              fora de camada, entao utilitarios de cor e sublinhado no proprio
+              <a> nao pegam. A aparencia fica nos spans internos. */}
           <TrackedLink
-            className={primaryButton}
-            href={CHECKOUT_URL}
-            eventName="checkout_started"
-            eventProperties={{
-              placement: "hero",
-              cta_id: "hero_primary",
-              intent: "purchase",
-              destination: "checkout",
-              offer_price: 99.9,
-              currency: "BRL",
-            }}
-          >
-            QUERO MEU BUMBUM NA NUCA
-          </TrackedLink>
-          <TrackedLink
-            className={secondaryButton}
+            className="group inline-flex min-h-14 w-full items-center justify-center gap-2.5 border-2 border-white/80 px-5 transition-colors hover:border-[#ff6418] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6418] md:w-auto md:min-w-72"
             href="#video"
             eventName="content_navigation_clicked"
             eventProperties={{
@@ -104,7 +132,14 @@ export function HeroSection() {
               target_section: "video",
             }}
           >
-            ASSISTIR AO VÍDEO
+            <span className="grid size-7 shrink-0 place-items-center rounded-full border-2 border-current text-white transition-colors group-hover:text-[#ff6418]">
+              <Icon name="play" className="size-3.5" />
+            </span>
+            <span
+              className={`${font.oswald} text-[clamp(1rem,3.2vw,1.15rem)] font-black uppercase leading-none text-white transition-colors group-hover:text-[#ff6418]`}
+            >
+              ASSISTIR AO VÍDEO
+            </span>
           </TrackedLink>
         </div>
       </div>

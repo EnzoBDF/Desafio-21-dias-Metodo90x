@@ -1,5 +1,7 @@
-import { displayTitle, glow } from "./styles";
+import { CHECKOUT_URL } from "@/lib/links";
+import { displayTitle, glow, primaryButton } from "./styles";
 import { StepCard } from "./StepCard";
+import { TrackedLink } from "./TrackedActions";
 
 const steps = [
   {
@@ -59,6 +61,24 @@ export function HowItWorks() {
           {steps.map((step) => (
             <StepCard key={step.number} {...step} />
           ))}
+        </div>
+
+        <div className="mx-auto mt-10 flex w-full justify-center px-6 lg:mt-14">
+          <TrackedLink
+            className={`${primaryButton} max-w-[20rem]`}
+            href={CHECKOUT_URL}
+            eventName="checkout_started"
+            eventProperties={{
+              placement: "how_it_works",
+              cta_id: "how_it_works_primary",
+              intent: "purchase",
+              destination: "checkout",
+              offer_price: 99.9,
+              currency: "BRL",
+            }}
+          >
+            QUERO MEU BUMBUM NA NUCA
+          </TrackedLink>
         </div>
       </div>
     </section>

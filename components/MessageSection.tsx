@@ -49,7 +49,7 @@ export function MessageSection() {
             className="h-full w-full object-cover"
             controls
             playsInline
-            poster="/Capa%20Video.png"
+            poster="/Capa%20Video.webp"
             preload="metadata"
             aria-label="Vídeo do desafio Bumbum na Nuca"
             eventName="video_started"

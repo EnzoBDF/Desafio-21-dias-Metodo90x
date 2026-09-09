@@ -1,12 +1,36 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { WHATSAPP_URL } from "@/lib/links";
 import { TrackedLink } from "./TrackedActions";
 
-const WHATSAPP_URL =
-  "https://wa.me/5548992112149?text=Ol%C3%A1%21%20Conheci%20o%20Bumbum%20na%20Nuca%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20o%20desafio.";
-
 export function FloatingWhatsAppButton() {
+  // O hero ja tem os proprios CTAs e o botao flutuante cobria o de video no
+  // mobile. Ele so entra depois que o hero sai da tela.
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      setIsVisible(window.scrollY > window.innerHeight * 0.85);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   return (
     <TrackedLink
-      className="fixed bottom-4 right-4 z-10 grid size-12 place-items-center rounded-full bg-[#25d366] text-white shadow-[0_0_1rem_rgba(37,211,102,0.55),0_0.75rem_1.5rem_rgba(0,0,0,0.42)] hover:bg-[#2be371] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25d366] md:bottom-7 md:right-7 md:size-16"
+      className={`fixed bottom-4 right-4 z-10 grid size-12 place-items-center rounded-full bg-[#25d366] text-white shadow-[0_0_1rem_rgba(37,211,102,0.55),0_0.75rem_1.5rem_rgba(0,0,0,0.42)] transition-opacity duration-300 hover:bg-[#2be371] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25d366] md:bottom-7 md:right-7 md:size-16 ${
+        isVisible ? "opacity-100" : "pointer-events-none opacity-0"
+      }`}
+      aria-hidden={!isVisible}
+      tabIndex={isVisible ? undefined : -1}
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
