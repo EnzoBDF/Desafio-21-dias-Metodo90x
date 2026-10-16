@@ -101,16 +101,17 @@ export function HeroSection() {
                 cta_id: "hero_primary",
                 intent: "purchase",
                 destination: "checkout",
-                offer_price: 99.9,
-                original_price: 199.9,
+                offer_price: 97,
+                original_price: 397,
                 currency: "BRL",
               }}
             >
               QUERO MEU BUMBUM NA NUCA
             </TrackedLink>
             <p className="flex w-full flex-wrap items-center justify-center gap-x-1.5 text-[0.78rem] font-semibold text-white/65 md:text-sm">
-              <span className="text-white/45 line-through">R$ 199,90</span>
-              <span className="font-bold text-white/90">R$ 99,90 à vista</span>
+              <span className="text-white/45">De</span>
+              <span className="text-white/45 line-through">R$ 397</span>
+              <span className="font-bold text-white/90">por R$ 97 à vista</span>
               <span className="text-[#ff6418]" aria-hidden="true">
                 ·
               </span>

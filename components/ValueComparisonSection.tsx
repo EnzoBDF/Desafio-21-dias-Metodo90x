@@ -95,17 +95,16 @@ export function ValueComparisonSection() {
             <p className={displayTitle + " mt-7 text-base leading-none text-white/85 md:text-lg"}>
               De{" "}
               <span className="text-[1.12em] text-white/60 line-through decoration-[#ff6418] decoration-2">
-                R$ 199,90
+                R$ 397
               </span>{" "}
               por apenas
             </p>
             <p
               className={displayTitle + " mt-2 flex items-baseline text-white"}
-              aria-label="Preço promocional 99 reais e 90 centavos, de 199 reais e 90 centavos"
+              aria-label="De 397 reais por 97 reais"
             >
               <span className="mr-2 text-xl text-white/75">R$</span>
-              <span className="text-6xl leading-none md:text-7xl">99</span>
-              <span className="ml-1 text-3xl leading-none">,90</span>
+              <span className="text-6xl leading-none md:text-7xl">97</span>
             </p>
             <p className="mt-3 text-xs font-bold uppercase tracking-[0.1em] text-[#ff6418] md:text-sm">
               Pagamento único pelos 21 dias
@@ -142,8 +141,8 @@ export function ValueComparisonSection() {
               cta_id: "value_comparison_primary",
               intent: "purchase",
               destination: "checkout",
-              offer_price: 99.9,
-              original_price: 199.9,
+              offer_price: 97,
+              original_price: 397,
               currency: "BRL",
             }}
           >

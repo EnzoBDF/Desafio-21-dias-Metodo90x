@@ -185,7 +185,7 @@ export function SocialProofSlider() {
             cta_id: "social_proof_primary",
             intent: "purchase",
             destination: "checkout",
-            offer_price: 99.9,
+            offer_price: 97,
             currency: "BRL",
           }}
         >

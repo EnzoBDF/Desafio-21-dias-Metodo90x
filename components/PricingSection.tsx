@@ -75,23 +75,20 @@ export function PricingSection() {
         >
           De{" "}
           <span className="text-[1.12em] text-white/65 line-through decoration-[#ff6418] decoration-2">
-            R$ 199,90
+            R$ 397
           </span>{" "}
           por apenas
         </p>
 
         <p
           className={`${displayTitle} mt-2 flex items-baseline justify-center text-white`}
-          aria-label="Preço promocional 99 reais e 90 centavos, de 199 reais e 90 centavos"
+          aria-label="De 397 reais por 97 reais"
         >
           <span className="mr-2 text-[clamp(1.4rem,6vw,2rem)] leading-none text-white/80">
             R$
           </span>
           <span className="text-[clamp(4.4rem,20vw,5.25rem)] leading-none">
-            99
-          </span>
-          <span className="ml-2 text-[clamp(2.15rem,9vw,2.65rem)] leading-none">
-            ,90
+            97
           </span>
         </p>
 
@@ -124,8 +121,8 @@ export function PricingSection() {
             cta_id: "pricing_primary",
             intent: "purchase",
             destination: "checkout",
-            offer_price: 99.9,
-            original_price: 199.9,
+            offer_price: 97,
+            original_price: 397,
             currency: "BRL",
           }}
         >

@@ -193,7 +193,7 @@ export function CommunityPhotosSection() {
             cta_id: "community_primary",
             intent: "purchase",
             destination: "checkout",
-            offer_price: 99.9,
+            offer_price: 97,
             currency: "BRL",
           }}
         >
