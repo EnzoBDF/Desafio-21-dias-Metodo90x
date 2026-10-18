@@ -1,5 +1,12 @@
 # Verificação da cópia
 
+## Atualização de 18/10/2026 — checkout
+
+- Checkout dos oito CTAs de inscrição atualizado para `https://payfast.greenn.com.br/195687/offer/EZNgz9`, sem os parâmetros do link anterior.
+- Botão flutuante de WhatsApp e landing original do Desafio 21 preservados.
+- Build de produção com TypeScript passou. Teste `node projeto-verao/tests/checkout-links.cjs` confere todos os destinos no HTML gerado; teste de preços e seções também passou.
+- Nenhuma compra realizada; publicação na Vercel depende do processamento do push pela integração Git.
+
 ## Atualização de 15/10/2026 — vídeo e preços
 
 - Seção e componente de vídeo removidos do Projeto Verão. Menu aponta para a oferta em vez de uma seção de apresentação inexistente. Sete registros e navegação do slider preservados.

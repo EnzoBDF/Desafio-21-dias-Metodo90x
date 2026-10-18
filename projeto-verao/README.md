@@ -55,7 +55,7 @@ Teste de lógica do slider (sem simular um navegador real): `node tests/evidence
 
 Para atualizar uma versão de produção local, gere o build novamente e reinicie o servidor. No modo de desenvolvimento, as alterações aparecem automaticamente.
 
-Todos os CTAs de inscrição abrem o checkout informado: `https://payfast.greenn.com.br/5juz3g3/offer/EZNgz9?ch_id=144371`. A única exceção é o botão flutuante no canto inferior direito, com símbolo do WhatsApp, que abre `https://chat.whatsapp.com/DsGosxOC3WTLmz5tUBKzXI`. Menu, FAQ e links de navegação continuam com suas funções. Os destinos estão centralizados em `lib/links.ts`. Não há preços inventados, promessas de prazo nem depoimentos reaproveitados.
+Todos os CTAs de inscrição abrem o checkout informado: `https://payfast.greenn.com.br/195687/offer/EZNgz9`. A única exceção é o botão flutuante no canto inferior direito, com símbolo do WhatsApp, que abre `https://chat.whatsapp.com/DsGosxOC3WTLmz5tUBKzXI`. Menu, FAQ e links de navegação continuam com suas funções. Os destinos estão centralizados em `lib/links.ts`. Não há preços inventados, promessas de prazo nem depoimentos reaproveitados.
 
 ## Analytics opcional
 
