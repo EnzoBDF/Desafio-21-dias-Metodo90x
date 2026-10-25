@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Cormorant_Garamond } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
+import "./quiz.css";
 
 const sans = DM_Sans({
   subsets: ["latin"],
@@ -17,9 +18,9 @@ const editorial = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Projeto Verão | Magra e Definida",
+  title: "Seu próximo passo | Quiz Projeto Verão",
   description:
-    "Seu verão, seu ritmo. Conheça o Projeto Verão: Magra e Definida e dê o primeiro passo para uma rotina com mais movimento, confiança e bem-estar.",
+    "Responda a seis perguntas sobre seu objetivo e sua rotina e conheça o Projeto Verão: Magra e Definida. Seu verão, seu ritmo.",
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
   openGraph: {
     title: "Projeto Verão: Magra e Definida",

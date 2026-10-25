@@ -6,7 +6,7 @@ const workspace = path.resolve(__dirname, "..");
 const pages = [
   ["Desafio 21", ".next/server/app/index.html"],
   ["Detalhes Bumbum na Nuca", ".next/server/app/desafios/bumbum-na-nuca.html"],
-  ["Projeto Verão", "projeto-verao/.next/server/app/index.html"],
+  ["Projeto Verão", "projeto-verao/.next/server/app/oferta.html"],
 ];
 
 for (const [name, file] of pages) {
@@ -20,15 +20,32 @@ for (const [name, file] of pages) {
   assert.doesNotMatch(text, /R\$\s*(?:199,90|99,90|497\b|197\b)/, `${name}: sem preços antigos`);
   if (name === "Projeto Verão") {
     assert.doesNotMatch(html, /<video\b|id="apresentacao"|href="#apresentacao"/);
-    assert.equal((html.match(/aria-roledescription="slide"/g) || []).length, 7);
-    assert.match(html, /href="#participar"/);
-    assert.match(text, /Economize R\$ 300/);
+    assert.equal((html.match(/class="pcard result-card"/g) || []).length, 7);
+    assert.match(html, /href="#investimento"/);
+    assert.match(html, /id="investimento"/);
+    assert.equal((html.match(/<details class="acc"/g) || []).length, 6);
+    assert.match(html, /id="checkout"/);
   } else if (name === "Desafio 21") {
     assert.match(html, /<video\b/); // Only Projeto Verão loses its video section.
     assert.match(html, /aria-label="De 397 reais por 97 reais"/);
   }
   console.log(`PASS: ${name}: De R$ 397 por R$ 97`);
 }
+
+const quizHtml = fs.readFileSync(path.join(workspace, "projeto-verao/.next/server/app/index.html"), "utf8")
+  .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ");
+assert.equal((quizHtml.match(/<h1\b/g) || []).length, 1, "Quiz: uma pergunta visível");
+assert.equal((quizHtml.match(/type="radio"/g) || []).length, 4, "Quiz: quatro opções iniciais");
+assert.match(quizHtml, /href="\/oferta"/);
+assert.doesNotMatch(quizHtml, /href="https:\/\/payfast/);
+console.log("PASS: quiz inicial separado da oferta, sem checkout antecipado.");
+
+const analysisHtml = fs.readFileSync(path.join(workspace, "projeto-verao/.next/server/app/analise.html"), "utf8")
+  .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ");
+assert.match(analysisHtml, /href="\/oferta"/);
+assert.doesNotMatch(analysisHtml, /href="https:\/\/payfast/);
+assert.match(analysisHtml, /noindex/);
+console.log("PASS: análise intermediária gerada, com saída para a oferta e sem checkout antecipado.");
 
 const rootSourceFiles = [
   "app/desafios/[slug]/page.tsx",
@@ -41,4 +58,4 @@ for (const file of rootSourceFiles) {
     /(?:offer_price:\s*99\.9|original_price:\s*199\.9)/,
     `${file}: preço antigo nos eventos`);
 }
-console.log("PASS: video removed only from Projeto Verão; seven records, offer navigation, savings and event prices verified.");
+console.log("PASS: Projeto Verão: seven records, six FAQ items, offer navigation and event prices verified.");

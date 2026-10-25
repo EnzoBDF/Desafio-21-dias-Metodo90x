@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --ocean: #073e44;
-  --ocean-soft: #28616a;
-  --turquoise: #a9e5e2;
-  --seafoam: #eaf6f3;
-  --sun: #ffe36e;
-  --coral: #f58268;
-  --white: #fffef9;
-  --line: #c6d9d6;
+  --ink: #21364B;
+  --ink-soft: #536276;
+  --sand: #FFF6EA;
+  --peach: #F8D9C8;
+  --sand-soft: #FBEBDD;
+  --coral-wash: #FCE5DB;
+  --coral-deep: #B45F4D;
+  --ocean: var(--ink);
+  --ocean-soft: var(--ink-soft);
+  --turquoise: var(--peach);
+  --seafoam: var(--sand-soft);
+  --sun: #F6D577;
+  --coral: #E98673;
+  --white: #FFFCF7;
+  --line: #E5D6C8;
 }
 
 * {
@@ -217,16 +224,16 @@ svg {
   background: var(--coral);
 }
 .cta--primary:hover {
-  background: #fb967f;
-  box-shadow: 0 8px 24px #073e4418;
+  background: #E27A66;
+  box-shadow: 0 8px 24px #21364B18;
   transform: translateY(-2px);
 }
 .cta--dark {
-  color: var(--white);
-  background: var(--ocean);
+  color: var(--ink);
+  background: var(--coral);
 }
 .cta--dark:hover {
-  background: #18575e;
+  background: #E27A66;
   transform: translateY(-2px);
 }
 .cta--light {
@@ -234,7 +241,7 @@ svg {
   background: var(--sun);
 }
 .cta--light:hover {
-  background: #ffec96;
+  background: #FAE3A3;
   transform: translateY(-2px);
 }
 .cta--floating {
@@ -249,8 +256,8 @@ svg {
   border-radius: 50%;
   background: var(--whatsapp);
   color: #fff;
-  border: 1px solid #fffef944;
-  box-shadow: 0 4px 18px #073e4424;
+  border: 1px solid #FFFCF744;
+  box-shadow: 0 4px 18px #21364B24;
 }
 .cta--floating:hover {
   --whatsapp: #0f756a;
@@ -362,7 +369,7 @@ svg {
   background: var(--sun);
   border-radius: 50%;
   border: 1px solid var(--line);
-  box-shadow: 0 8px 26px #073e440a;
+  box-shadow: 0 8px 26px #21364B0a;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -480,13 +487,13 @@ svg {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(ellipse at 50% 100%, #28616a55, transparent 70%), var(--ocean);
+  background: radial-gradient(ellipse at 50% 100%, #53627655, transparent 70%), var(--ocean);
 }
 .film-placeholder::after {
   content: "";
   position: absolute;
   inset: 18px;
-  border: 1px solid #ffe36e38;
+  border: 1px solid #F6D57738;
   border-radius: 2px;
   pointer-events: none;
 }
@@ -682,7 +689,7 @@ svg {
   background: var(--turquoise);
 }
 .evidence-placeholder:nth-child(3) {
-  background: #f9cabb;
+  background: #F8D9C8;
 }
 .evidence-number {
   position: absolute;
@@ -731,7 +738,7 @@ svg {
   padding-bottom: 5px;
 }
 .program .section-heading > p {
-  color: #c2dedb;
+  color: #E9DDCF;
 }
 .program h2 em {
   color: var(--turquoise);
@@ -763,7 +770,7 @@ svg {
 }
 .benefit-top > span {
   font-size: 11px;
-  color: #a9cfcb;
+  color: #E2D0BE;
   letter-spacing: 0.06em;
 }
 .benefit h3 {
@@ -774,7 +781,7 @@ svg {
 }
 .benefit p {
   font-size: 13px;
-  color: #c2dedb;
+  color: #E9DDCF;
   max-width: 320px;
 }
 .program-footer {
@@ -788,7 +795,7 @@ svg {
 }
 .program-footer > p {
   font-size: 13px;
-  color: #c2dedb;
+  color: #E9DDCF;
 }
 
 .manifesto {
@@ -869,7 +876,7 @@ svg {
 }
 
 .enrollment {
-  background: #f9cabb;
+  background: #F8D9C8;
   color: var(--ocean);
 }
 .enrollment-copy .eyebrow {
@@ -901,7 +908,7 @@ svg {
   border: 1px solid var(--line);
   border-radius: 4px;
   position: relative;
-  box-shadow: 0 18px 50px #073e440d;
+  box-shadow: 0 18px 50px #21364B0d;
 }
 .enrollment-card .eyebrow {
   display: block;
@@ -1080,7 +1087,7 @@ svg {
 }
 .footer-top > p {
   font-size: 13px;
-  color: #c2dedb;
+  color: #E9DDCF;
 }
 .footer-top > a:not(.brand) {
   display: flex;
@@ -1099,7 +1106,7 @@ svg {
 }
 .footer-bottom p {
   font-size: 10px;
-  color: #c2dedb;
+  color: #E9DDCF;
 }
 
 /* Content remains readable without JS. Reveal never hides or captures scrolling. */
@@ -1242,7 +1249,7 @@ svg {
     border: 1px solid var(--line);
     z-index: 20;
     border-radius: 8px;
-    box-shadow: 0 8px 24px #073e4414;
+    box-shadow: 0 8px 24px #21364B14;
   }
   .navigation--open {
     display: flex;

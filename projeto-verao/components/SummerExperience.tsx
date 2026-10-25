@@ -25,7 +25,47 @@ export function SummerExperience() {
       { threshold: 0.18 },
     );
     sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+
+    // Reveal individual blocks so even a long photo gallery enters naturally.
+    // Without JavaScript, or with reduced motion, all content stays visible.
+    const offer = document.querySelector<HTMLElement>(".reference-offer");
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const targets = offer ? Array.from(offer.querySelectorAll<HTMLElement>(
+      ".sec .sh, .sec .pcard, .sec .card, .sec .callout, .sec .prose, .sec .act, .sec .trainer-photo, .sec .campaign-photo, .sec .acc",
+    )) : [];
+    let revealObserver: IntersectionObserver | undefined;
+    const showAll = () => {
+      targets.forEach((target) => { target.dataset.offerReveal = "visible"; });
+      revealObserver?.disconnect();
+    };
+    if (targets.length && !motion.matches) {
+      revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          (entry.target as HTMLElement).dataset.offerReveal = "visible";
+          revealObserver?.unobserve(entry.target);
+        });
+      }, { threshold: 0, rootMargin: "0px 0px -24px 0px" });
+      targets.forEach((target) => {
+        const belowViewport = target.getBoundingClientRect().top >= window.innerHeight;
+        target.dataset.offerReveal = belowViewport ? "pending" : "visible";
+        if (belowViewport) revealObserver?.observe(target);
+      });
+    }
+    const onMotionChange = () => { if (motion.matches) showAll(); };
+    const onFocus = (event: FocusEvent) => {
+      if (!(event.target instanceof HTMLElement)) return;
+      const target = event.target.closest<HTMLElement>("[data-offer-reveal]");
+      if (target) target.dataset.offerReveal = "visible";
+    };
+    motion.addEventListener("change", onMotionChange);
+    offer?.addEventListener("focusin", onFocus);
+    return () => {
+      observer.disconnect();
+      showAll();
+      motion.removeEventListener("change", onMotionChange);
+      offer?.removeEventListener("focusin", onFocus);
+    };
   }, []);
   return null;
 }

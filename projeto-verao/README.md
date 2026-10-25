@@ -1,6 +1,6 @@
 # Projeto Verão: Magra e Definida
 
-Cópia independente da base Next.js do Desafio 21 Dias, com uma landing completamente redesenhada. Os arquivos da landing original não foram alterados. Esta pasta tem configurações, dependências, imagens e execução próprias; também pode ser movida para outro local ou repositório.
+Cópia independente da base Next.js do Desafio 21 Dias, com um quiz e uma página de oferta próprios. Os arquivos da landing original não foram alterados. Esta pasta tem configurações, dependências, imagens e execução próprias; também pode ser movida para outro local ou repositório.
 
 ## Abrir o projeto
 
@@ -22,22 +22,56 @@ npm start
 
 Para revisar o código: `npm run lint`.
 
-## Identidade
+## Oferta adaptada à referência — 25/10/2026
 
-- Paleta original restaurada: turquesa `#a9e5e2`; azul-oceano `#073e44`.
-- Amarelo-sol: `#ffe36e`; coral: `#f58268`; branco: `#fffef9`.
+Refinamento visual aprovado: abertura em duas colunas no desktop com a foto de praia existente, marca maior e composição empilhada no celular. A foto foi movida dos benefícios para a abertura. Galeria com proporções naturais, três colunas no desktop, duas no tablet e uma no celular; dimensões originais registradas em `lib/media.ts`. Título encurtado para “Resultados de alunas”. Cartão de oferta com preço anterior tachado, R$ 97 em destaque, parcelas, cinco benefícios e garantia junto à inscrição. Textos móveis ampliados e espaçamento superior reduzido. WhatsApp passa para o cabeçalho nas telas pequenas, liberando os textos. Evidências em `reference/refinements/`.
+
+Atualização de identidade: a estrutura da referência agora usa novamente DM Sans e Cormorant Garamond, paleta coral/areia/pêssego e textos azul profundo. A abertura tem entrada em sequência; 49 blocos aparecem uma única vez ao entrar na tela. Botões, fotos de comunidade e FAQ têm transições suaves. Sem bibliotecas extras, parallax ou rolagem controlada por JavaScript. O conteúdo é visível sem JavaScript; a preferência por movimento reduzido desativa os efeitos. Esta atualização substitui as cores e fontes da referência descritas no histórico abaixo.
+
+A rota `/oferta` segue a estrutura de https://rebueno.com.br/analisepaginabatista/: fundo preto, Inter e Plus Jakarta Sans, títulos centralizados, botões com borda em degradê, provas sociais, público, método, apresentação, benefícios e bônus, preço, garantia, FAQ e fechamento. Esta revisão substitui o layout anterior da oferta descrito abaixo; quiz e análise mantêm a identidade coral/areia.
+
+O conteúdo fica em `components/SummerReferenceOffer.tsx`. Os estilos da referência estão isolados em `app/oferta/offer.css`; os ajustes para a marca e as imagens existentes ficam em `app/oferta/adaptations.css`. Os sete registros aparecem inteiros, em grade, sem slider. As quatro fotos de comunidade já existentes no repositório foram copiadas para `public/images/comunidade/`. A praia continua identificada como imagem de campanha. Não foram criados vídeos, depoimentos, números de alunas ou dados profissionais fictícios para preencher os marcadores da referência.
+
+Os sete botões de inscrição usam o checkout centralizado em `lib/links.ts`; WhatsApp, Instagram e reinício do quiz permanecem disponíveis. A oferta usa a chamada fixa da referência. As respostas do quiz continuam disponíveis na análise, mas não personalizam mais o título da oferta.
+
+Validação: build/TypeScript, ESLint de `app`, `components`, `lib` e script de preparação; testes de checkout, quiz e paleta. Conferência no navegador em 320, 390, 768 e 1440 px, FAQ, links e imagens. Evidências e comparação visual em `reference/`; relatório em `design-qa.md`. `npm run lint` ainda acusa o uso de CommonJS nos testes `.cjs` preexistentes.
+
+## Identidade anterior e quiz
+
+- Paleta coral + areia: coral `#E98673`, areia `#FFF6EA`, azul profundo `#21364B` e amarelo suave `#F6D577`.
+- Superfícies em pêssego e branco quente; texto secundário azul acinzentado. WhatsApp mantém o verde de identificação.
 - DM Sans para leitura e títulos; Cormorant Garamond em itálico para os destaques editoriais.
-- Estrutura editorial preservada: tipografia com serifas no hero, bordas finas e composição fotográfica assimétrica, agora com as cores originais de verão.
-- Hero com fotografia de praia, cinco benefícios em grade, registros reais, manifesto de bem-estar, passos de participação, oferta de R$ 397 por R$ 97 e FAQ. Seção de vídeo removida.
-- Rolagem livre; animações sutis respeitam a preferência de movimento reduzido. Conteúdo permanece visível sem JavaScript.
+- Estrutura editorial preservada: tipografia com serifas no hero, bordas finas e composição fotográfica assimétrica, agora com a identidade solar coral + areia.
+- Refinamento premium: tipografia editorial, moldura fotográfica, cantos suaves e sombras discretas. Quiz com ícones, seis segmentos de progresso, destaque coral da resposta e feedback curto por etapa. Privacidade disponível em um painel expansível, sem alterar o fluxo.
+- Teste `node tests/palette.cjs`: valida as cores, sintaxe dos estilos, contraste dos principais textos e botões, seleção e favicon. Nomes antigos de variáveis de cor são mantidos como aliases para compatibilidade dos estilos compartilhados.
+- Entrada `/`: quiz com seis perguntas, uma por vez, seleção única, progresso, avanço explícito e retorno com respostas preservadas.
+- Ao concluir, navega para `/analise`: apresentação animada de 5 segundos, seguida do resumo das seis escolhas em foco, ritmo e apoio. O visitante pode pular com “Ver resumo agora”. Os textos indicam organização das respostas, não processamento por IA, diagnóstico, prescrição ou pontuação de saúde.
+- Da análise, segue para `/oferta`: hero contextualizado, sete registros reais no slider e checkout de R$ 397 por R$ 97 com os cinco benefícios.
+- A oferta também aceita acesso direto, com chamada genérica. Vídeo e seções longas da antiga landing não fazem parte do novo fluxo.
+- Rolagem livre; animações respeitam movimento reduzido. O quiz precisa de JavaScript; sem ele, há um link para a oferta, cujo conteúdo principal é renderizado no servidor.
+- Usabilidade no celular: entrada diretamente na pergunta, textos mais curtos, opções e ações maiores, progresso visível ao avançar e retorno com a escolha anterior preservada. No desktop, a composição editorial continua presente.
+- “Ver investimento” e “Ver o que está incluído” levam ao cartão com preço, benefícios e inscrição. “Refazer o quiz” limpa o resultado concluído anterior antes de reiniciar.
+
+## Fluxo do quiz
+
+As perguntas abordam objetivo, momento atual, local de treino, frequência desejada, dificuldade de rotina e prioridade de apoio. Não são solicitados nome, contato, peso ou informações clínicas. Não há diagnóstico, plano calculado, promessa de resultado ou carregamento fictício.
+
+As respostas completas e validadas ficam em `sessionStorage`, na chave versionada `projeto-verao:quiz:v1`, para compor o resumo e contextualizar o hero nesta aba. Não são incluídas na URL nem enviadas ao checkout. Sem respostas válidas ou com armazenamento bloqueado, a análise oferece saídas para responder ao quiz ou conhecer a oferta genérica. A proposta comercial e o programa não mudam com as respostas.
+
+As escolhas em andamento são preservadas ao usar Voltar dentro do formulário, não ao recarregar a página. Não há salvamento de rascunho. A revisão visual atual percorreu as seis perguntas e a oferta em navegador, com teclado e telas de 320, 390 e 1440 px; gesto físico de toque e compra não foram testados.
+
+Testes de lógica e componentes com hooks simulados (não substituem teste em navegador): `node tests/quiz.cjs`. Após `npm run build`, execute `node tests/checkout-links.cjs` para conferir os três links de compra e o WhatsApp no HTML da oferta.
 
 ## Onde editar
 
-- Textos, seções e pilares: `app/page.tsx`.
-- Cores, fontes aplicadas e responsividade: `app/globals.css`.
+- Entrada do quiz: `app/page.tsx`; perguntas e transições: `lib/quiz.ts`; formulário: `components/SummerQuiz.tsx`.
+- Página de oferta e benefícios: `app/oferta/page.tsx`; resumo: `components/SummerOfferIntro.tsx`.
+- Análise intermediária: `app/analise/page.tsx`, `app/analise/analysis.css`, `components/SummerQuizAnalysis.tsx`; leitura compartilhada das respostas: `lib/useQuizAnswers.ts`.
+- Abertura animada: `components/SummerAnalysisLoading.tsx`; duração e mensagens: `lib/analysisPresentation.ts`. Animações decorativas são desativadas com preferência de movimento reduzido; foco vai ao título quando o resumo é revelado. Temporizadores são cancelados ao sair ou pular.
+- Cores e estilos compartilhados: `app/globals.css`; quiz e ajustes da oferta: `app/quiz.css`.
 - Importação das fontes e informações para buscadores: `app/layout.tsx`.
 - Checkout e convite do grupo de WhatsApp: `lib/links.ts`.
-- Perguntas frequentes e menu: `components/SummerExperience.tsx`.
+- Observação das seções da oferta: `components/SummerExperience.tsx`.
 - Foto otimizada: `public/images/verao-praia.webp`.
 - Marca/favicon: `public/icon.svg`.
 - Fotos reais: `lib/media.ts`.
@@ -55,7 +89,7 @@ Teste de lógica do slider (sem simular um navegador real): `node tests/evidence
 
 Para atualizar uma versão de produção local, gere o build novamente e reinicie o servidor. No modo de desenvolvimento, as alterações aparecem automaticamente.
 
-Todos os CTAs de inscrição abrem o checkout informado: `https://payfast.greenn.com.br/195687/offer/EZNgz9`. A única exceção é o botão flutuante no canto inferior direito, com símbolo do WhatsApp, que abre `https://chat.whatsapp.com/DsGosxOC3WTLmz5tUBKzXI`. Menu, FAQ e links de navegação continuam com suas funções. Os destinos estão centralizados em `lib/links.ts`. Não há preços inventados, promessas de prazo nem depoimentos reaproveitados.
+Os três CTAs de inscrição da oferta abrem `https://payfast.greenn.com.br/195687/offer/1Zhmro?ch_id=144371`. O botão flutuante da oferta abre `https://chat.whatsapp.com/DsGosxOC3WTLmz5tUBKzXI`. No quiz, Continuar avança e o último botão leva à análise. O botão da análise leva à oferta, não ao checkout. Os destinos externos estão centralizados em `lib/links.ts`.
 
 ## Analytics opcional
 
@@ -67,6 +101,6 @@ A foto é ilustrativa, gerada com a skill `imagegen` e a ferramenta integrada de
 
 ## Validação e publicação
 
-Build, lint e revisão de tamanhos de tela fazem parte da entrega. A cópia não foi publicada e não altera qualquer domínio ou hospedagem existente. A versão do Next.js foi atualizada apenas nesta pasta para corrigir alertas herdados da base.
+Execute os testes e a compilação antes de publicar. O projeto Vercel do Projeto Verão usa Root Directory `projeto-verao`; a landing Desafio 21 permanece na raiz. Alterações locais não são publicadas sem commit/push ou nova publicação. Veja `VALIDACAO.md` para os testes efetivamente realizados e seus limites.
 
 Na auditoria de dependências, o alerta crítico de runtime foi corrigido na cópia. Permanecem cinco alertas altos na cadeia de ferramentas de lint (`braces` → `micromatch` → `fast-glob` → plugin/config do ESLint). O reparo automático sugerido faz downgrade incompatível do ESLint do Next.js; por isso não foi forçado. As dependências da landing original não foram atualizadas.

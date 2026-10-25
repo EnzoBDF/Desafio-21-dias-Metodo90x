@@ -1,0 +1,279 @@
+/* Original summer identity applied to the reference's section structure. */
+.reference-offer {
+  --s-type-family-body: var(--font-sans), sans-serif;
+  --s-type-family-title: var(--font-editorial), Georgia, serif;
+  --s-color-surface-page: var(--sand);
+  --s-color-surface-card: var(--white);
+  --s-color-text-primary: var(--ink);
+  --s-color-text-muted: var(--ink-soft);
+  --s-support-text-color: var(--ink-soft);
+  --s-color-marker-list: var(--coral-deep);
+  --s-color-marker-fill: var(--coral-deep);
+  --s-color-line-checkbox: var(--line);
+  --s-gradient-brand: linear-gradient(90deg, var(--coral), var(--sun));
+  --s-gradient-label: linear-gradient(90deg, var(--coral-deep), var(--ink));
+  --s-link-color: var(--ink);
+  --s-link-color-hover: var(--coral-deep);
+  --s-type-weight-title: 500;
+  --c-nav-bg: #fff6eaed;
+  --c-nav-border-color: var(--line);
+  --c-card-bg: var(--white);
+  --c-card-title-color: var(--ink);
+  --c-card-title-weight: 500;
+  --c-card-text-color: var(--ink-soft);
+  --c-callout-bg: var(--white);
+  --c-callout-text-color: var(--ink-soft);
+  --c-audience-callout-title-color: var(--ink);
+  --c-proof-mosaic-card-bg: var(--white);
+  --c-proof-mosaic-caption-color: var(--ink-soft);
+  --c-proof-mosaic-note-color: var(--ink-soft);
+  --c-proof-mosaic-print-label-color: var(--ink-soft);
+  --c-section-marker-gradient: var(--s-gradient-brand);
+  --c-button-primary-bg: var(--coral);
+  --c-button-primary-text-color: var(--ink);
+  --c-button-primary-arrow-hover-color: var(--ink);
+  --c-button-primary-focus-color: var(--ink);
+  --c-button-primary-shadow: 0 4px 14px #21364b0a;
+  --c-button-primary-shadow-hover: 0 10px 24px #21364b18;
+  --c-accordion-item-bg: var(--white);
+  --c-accordion-item-bg-hover: var(--coral-wash);
+  --c-accordion-trigger-color: var(--ink);
+  --c-accordion-panel-color: var(--ink-soft);
+  --c-button-primary-font-family: var(--s-type-family-body);
+  --c-card-title-family: var(--s-type-family-title);
+  --c-audience-callout-title-family: var(--s-type-family-title);
+  min-height: 100vh;
+  color-scheme: light;
+}
+.reference-offer p { line-height: inherit; }
+.reference-offer .hero { background: var(--sand); }
+.reference-offer .hero h1 {
+  font-family: var(--s-type-family-title);
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -.035em;
+}
+.reference-offer .hero h1 em { color: var(--coral-deep); font-size: 1em; line-height: inherit; letter-spacing: inherit; }
+.reference-offer .sec:nth-of-type(3n) { background: var(--sand-soft); }
+.reference-offer .card, .reference-offer .pcard, .reference-offer .callout, .reference-offer .acc { border: 1px solid var(--line); }
+.reference-offer .card h3, .reference-offer .callout .ct { font-size: 32px; }
+.reference-offer .price { background: var(--peach); border-color: #b45f4d40; }
+.reference-offer .kicker, .reference-offer .lead, .reference-offer .intro { line-height: 1.45; }
+.reference-offer .cap, .reference-offer .note, .reference-offer .pcap { line-height: 1.45; }
+.reference-offer .brand > svg { width: 22px; height: 22px; color: var(--ink); }
+.reference-offer .brand > span { font-size: 18px; letter-spacing: -.04em; }
+.reference-offer .brand em { font-family: var(--font-editorial), Georgia, serif; font-style: italic; font-size: 24px; font-weight: 600; }
+.reference-offer .brand small { display: none; }
+.reference-offer .btn { letter-spacing: normal; background: var(--coral); border-color: transparent; transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease; }
+.reference-offer .btn:active { transform: translateY(0) scale(.98); }
+.reference-offer .btn > svg, .reference-offer .lnk > svg, .reference-offer .acc .ar { width: 16px; height: 16px; }
+.reference-offer .btn:hover > span { color: var(--ink); }
+.reference-offer .btn:hover > svg { color: var(--ink); transform: translateX(3px); }
+.reference-offer figure { margin: 0; }
+.reference-offer .result-image { position: relative; width: 100%; aspect-ratio: 1.6; overflow: hidden; border-radius: 16px; background: var(--sand); }
+.reference-offer .result-image img { object-fit: contain; }
+.reference-offer .single-record { max-width: 600px; }
+.reference-offer .community-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.reference-offer .community-grid .pcard { padding: 12px; }
+.reference-offer .community-image { position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; }
+.reference-offer .community-image img { object-fit: cover; }
+.reference-offer .trainer-photo { max-width: 520px; margin: 0 auto 32px; }
+.reference-offer .trainer-photo img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.reference-offer .team-names { font-family: var(--font-editorial), Georgia, serif; font-size: 34px; font-weight: 500; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 20px; text-align: center; }
+.reference-offer .ig { margin-top: 24px; }
+.reference-offer .campaign-photo img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.reference-offer .footer-brand { margin-bottom: 24px; }
+.reference-offer .foot { background: var(--ink); }
+.reference-offer .foot p { color: #f8d9c8; }
+.reference-offer .foot .brand { color: var(--sand); }
+.reference-offer .foot .brand > svg { color: var(--sand); }
+.reference-offer .footer-links { display: flex; flex-wrap: wrap; gap: 16px 24px; margin: 24px auto; font-size: 14px; color: var(--sand); }
+.reference-offer .offer-restart { margin: 0; font-size: inherit; min-height: auto; }
+.reference-offer .skip-link { background: var(--sun); color: var(--ink); }
+
+/* Approved refinements: photo-led opening, natural image ratios and clear offer. */
+.reference-offer .hero { padding: 76px 0 80px; }
+.reference-offer .summer-hero-layout { max-width: 1288px; display: grid; grid-template-columns: 1.12fr 1fr; gap: 64px; align-items: center; }
+.reference-offer .hero-message { text-align: left; min-width: 0; }
+.reference-offer .hero-message h1 { font-size: clamp(48px, 4.2vw, 62px); margin: 0; }
+.reference-offer .hero-message .kicker { font-size: 17px; margin: 0 0 20px; max-width: 470px; }
+.reference-offer .hero-message .lead { font-size: 18px; margin: 24px 0 0; max-width: 520px; }
+.reference-offer .hero-message .act { justify-content: flex-start; margin-top: 28px; }
+.reference-offer .hero-message .cap { font-size: 14px; line-height: 1.55; margin: 18px 0 0; max-width: 510px; }
+.reference-offer .summer-hero-visual { min-width: 0; }
+.reference-offer .summer-hero-photo { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 220px 220px 24px 24px; background: var(--peach); }
+.reference-offer .summer-hero-photo img { object-fit: cover; object-position: 72% center; }
+.reference-offer .summer-hero-visual figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; font-size: 13px; color: var(--ink); margin-top: 14px; }
+.reference-offer .summer-hero-visual figcaption span { color: var(--ink-soft); font-size: 12px; }
+.reference-offer .results-grid { columns: 3; column-gap: 24px; }
+.reference-offer .results-grid .result-card { display: inline-flex; vertical-align: top; break-inside: avoid; width: 100%; margin: 0 0 24px; }
+.reference-offer .result-card { padding: 12px; gap: 12px; }
+.reference-offer .result-card .pair-n { font-size: 11px; padding: 3px 3px 0; }
+.reference-offer .result-card .pcap { padding: 0 3px 3px; font-size: 13px; }
+.reference-offer .result-image { aspect-ratio: auto; background: transparent; }
+.reference-offer .result-image img { display: block; width: 100%; height: auto; }
+.reference-offer .single-record { max-width: 500px; }
+.reference-offer .price { padding: 48px 56px; }
+.reference-offer .investment-label { font-size: 12px; letter-spacing: .16em; font-weight: 600; }
+.reference-offer .investment-title { font-family: var(--font-editorial), Georgia, serif; font-size: 48px; line-height: 1.02; letter-spacing: -.035em; margin: 20px 0 28px; }
+.reference-offer .investment-title em { color: var(--coral-deep); font-size: 1em; }
+.reference-offer .card .investment-original { font-size: 16px; color: var(--ink-soft); }
+.reference-offer .card .investment-value { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: center; color: var(--ink); margin: 4px 0 0; line-height: 1; }
+.reference-offer .investment-value > span:first-child { font-size: 28px; }
+.reference-offer .investment-value > strong { font-family: var(--font-sans), sans-serif; font-size: 112px; font-weight: 600; letter-spacing: -.08em; line-height: 1; }
+.reference-offer .investment-value > span:last-child { font-size: 15px; margin-left: 5px; }
+.reference-offer .card .investment-installments { font-size: 17px; margin: 12px 0 0; }
+.reference-offer .investment-inclusions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; border-block: 1px solid #b45f4d40; padding: 26px 0; margin: 28px 0 0; text-align: left; list-style: none; }
+.reference-offer .investment-inclusions li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; line-height: 1.5; }
+.reference-offer .investment-inclusions svg, .reference-offer .investment-guarantee svg { width: 18px; height: 18px; flex: none; margin-top: 2px; }
+.reference-offer .price .act { margin-top: 28px; }
+.reference-offer .price .btn { width: 100%; min-height: 54px; }
+.reference-offer .card .investment-guarantee { display: flex; align-items: flex-start; justify-content: center; gap: 8px; margin: 18px 0 0; font-size: 14px; color: var(--ink); }
+.reference-offer .price .note { margin-top: 16px; font-size: 13px; }
+@media (max-width: 1000px) {
+  .reference-offer .summer-hero-layout { gap: 36px; }
+  .reference-offer .results-grid { columns: 2; }
+}
+@media (max-width: 850px) {
+  .reference-offer .summer-hero-layout { grid-template-columns: 1fr; max-width: 680px; gap: 32px; }
+  .reference-offer .hero-message { text-align: center; }
+  .reference-offer .hero-message .kicker, .reference-offer .hero-message .lead, .reference-offer .hero-message .cap { margin-left: auto; margin-right: auto; }
+  .reference-offer .hero-message .act { justify-content: center; }
+  .reference-offer .summer-hero-visual { width: min(100%, 520px); margin-inline: auto; }
+  .reference-offer .summer-hero-photo { aspect-ratio: 3 / 2; border-radius: 100px 24px 24px 24px; }
+}
+@media (max-width: 734px) {
+  .reference-offer .hero { position: relative; isolation: isolate; padding: 28px 0 74px; }
+  .reference-offer .hero .summer-hero-layout { display: block; }
+  .reference-offer .hero-message { position: relative; z-index: 1; }
+  .reference-offer .hero-message .kicker, .reference-offer .hero-message .lead, .reference-offer .hero-message .cap { color: var(--ink); }
+  .reference-offer .hero .summer-hero-visual { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; z-index: 0; animation: none; pointer-events: none; }
+  .reference-offer .hero .summer-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; }
+  .reference-offer .hero .summer-hero-photo img { object-position: 72% center; }
+  .reference-offer .hero .summer-hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #fff6eade 0%, #fff6eabf 42%, #fff6eadb 78%, var(--sand) 100%); }
+  .reference-offer .hero .summer-hero-visual figcaption { position: absolute; bottom: 18px; left: 24px; right: 24px; z-index: 1; justify-content: center; margin: 0; font-size: 0; }
+  .reference-offer .hero .summer-hero-visual figcaption span { color: var(--ink-soft); font-size: 11px; }
+  .reference-offer .hero h1 { font-size: 42px; }
+  .reference-offer .hero-message .kicker { font-size: 15px; line-height: 1.5; margin-bottom: 16px; }
+  .reference-offer .hero-message .lead { font-size: 17px; line-height: 1.5; margin-top: 20px; }
+  .reference-offer .hero-message .cap { font-size: 14px; margin-top: 16px; }
+  .reference-offer .cap, .reference-offer .note, .reference-offer .pcap { font-size: 14px; }
+  .reference-offer .sec { padding: 60px 0; }
+  .reference-offer .sh { margin-bottom: 32px; }
+  .reference-offer .hd.t1 { font-size: 38px; }
+  .reference-offer .card h3, .reference-offer .callout .ct { font-size: 28px; }
+  .reference-offer .community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reference-offer .community-grid .pcard { padding: 8px; }
+  .reference-offer .result-image { aspect-ratio: auto; border-radius: 12px; }
+  .reference-offer .trainer-photo { max-width: 100%; }
+  .reference-offer .cta--floating { width: 44px; height: 44px; min-height: 44px; padding: 10px; top: auto; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); }
+  .reference-offer .price { padding: 32px 24px; }
+  .reference-offer .investment-title { font-size: 40px; }
+  .reference-offer .investment-value > strong { font-size: 96px; }
+  .reference-offer .investment-inclusions { grid-template-columns: 1fr; gap: 12px; padding-block: 22px; }
+  .reference-offer .price .btn { padding-inline: 16px; font-size: 14px; }
+  .reference-offer .card .investment-guarantee { text-align: left; }
+  .reference-offer .price .note { font-size: 14px; }
+}
+@media (max-width: 599px) {
+  .reference-offer .results-grid { columns: 1; max-width: 390px; margin-inline: auto; }
+}
+
+/* Numbered method, featured team and individual bonus cards. */
+.reference-offer .method-grid { padding: 0; margin: 0; list-style: none; }
+.reference-offer .method-card-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 22px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
+.reference-offer .method-step-number { font-family: var(--font-sans), sans-serif; font-size: 42px; font-weight: 500; line-height: 1; letter-spacing: -.06em; color: var(--coral-deep); }
+.reference-offer .detail-icon { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; flex: none; border-radius: 14px; color: var(--ink); background: var(--coral-wash); }
+.reference-offer .detail-icon svg { width: 23px; height: 23px; stroke-width: 1.5; }
+.reference-offer .sec.team-section { --s-color-text-primary: var(--sand); --s-support-text-color: var(--peach); --s-link-color: var(--sand); --s-link-color-hover: var(--sun); background: var(--ink); color: var(--sand); padding-block: 96px; }
+.reference-offer .team-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.reference-offer .team-layout .trainer-photo { width: 100%; max-width: none; margin: 0; }
+.reference-offer .team-layout .trainer-photo img { border-radius: 24px; border: 1px solid #fff6ea24; }
+.reference-offer .team-layout .team-names { color: var(--sand); font-size: 44px; text-align: left; margin-bottom: 24px; }
+.reference-offer .team-copy { min-width: 0; }
+.reference-offer .team-copy .ig { color: var(--peach); text-align: left; font-size: 14px; line-height: 1.6; }
+.reference-offer .team-copy .lnk { margin-top: 8px; }
+.reference-offer .team-section a:focus-visible { outline-color: var(--sun); }
+.reference-offer .card .program-label, .reference-offer .bonus-heading .program-label { color: var(--coral-deep); font-size: 11px; font-weight: 600; line-height: 1.5; letter-spacing: .12em; margin: 0 0 22px; }
+.reference-offer .bonus-section { margin-top: 64px; }
+.reference-offer .bonus-heading { text-align: center; max-width: 692px; margin: 0 auto 32px; }
+.reference-offer .bonus-heading .program-label { margin-bottom: 14px; }
+.reference-offer .bonus-heading h3 { font-family: var(--font-editorial), Georgia, serif; font-weight: 500; font-size: 42px; line-height: 1.1; letter-spacing: -.025em; margin: 0 0 16px; }
+.reference-offer .bonus-heading > p:last-child { color: var(--ink-soft); font-size: 17px; }
+.reference-offer .bonus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; list-style: none; padding: 0; margin: 0; }
+.reference-offer .bonus-card { padding: 32px; }
+.reference-offer .bonus-card-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+.reference-offer .bonus-label { color: var(--coral-deep); font-size: 11px; font-weight: 600; letter-spacing: .12em; }
+.reference-offer .bonus-card h4 { font-family: var(--font-editorial), Georgia, serif; font-size: 30px; font-weight: 500; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 14px; }
+.reference-offer .bonus-card p { font-size: 16px; }
+@media (max-width: 900px) {
+  .reference-offer .team-layout { gap: 32px; }
+}
+@media (max-width: 734px) {
+  .reference-offer .sec.team-section { padding-block: 60px; }
+  .reference-offer .team-layout { grid-template-columns: 1fr; gap: 28px; }
+  .reference-offer .team-layout .team-names { font-size: 36px; }
+  .reference-offer .team-layout .team-names br { display: none; }
+  .reference-offer .method-card-top { padding-bottom: 18px; margin-bottom: 20px; }
+  .reference-offer .method-step-number { font-size: 36px; }
+  .reference-offer .bonus-section { margin-top: 48px; }
+  .reference-offer .bonus-heading h3 { font-size: 36px; }
+  .reference-offer .bonus-grid { grid-template-columns: 1fr; gap: 16px; }
+  .reference-offer .bonus-card { padding: 24px; }
+  .reference-offer .bonus-card h4 { font-size: 28px; }
+}
+
+/* Elements remain visible until JavaScript can observe each reveal target. */
+@media (prefers-reduced-motion: no-preference) {
+  .reference-offer [data-offer-reveal] {
+    transition: opacity 650ms ease, transform 650ms cubic-bezier(.2,.65,.3,1);
+  }
+  .reference-offer [data-offer-reveal="pending"] {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  .reference-offer [data-offer-reveal="visible"] {
+    opacity: 1;
+    transform: none;
+  }
+  .reference-offer .hero .hc > * {
+    animation: summer-offer-enter 700ms cubic-bezier(.2,.65,.3,1) both;
+  }
+  .reference-offer .hero h1 { animation-delay: 70ms; }
+  .reference-offer .hero .lead { animation-delay: 140ms; }
+  .reference-offer .hero .act { animation-delay: 210ms; }
+  .reference-offer .hero .cap { animation-delay: 280ms; }
+  .reference-offer .summer-hero-visual { animation: summer-offer-enter 850ms 140ms cubic-bezier(.2,.65,.3,1) both; }
+  .reference-offer .acc[open] .acc-a { animation: summer-offer-enter 260ms ease both; }
+  .reference-offer .community-image img { transition: transform 700ms cubic-bezier(.2,.65,.3,1); }
+  .reference-offer .btn::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 2px solid var(--coral-deep);
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    animation: summer-cta-pulse 4.8s ease-out 1.1s infinite;
+  }
+  .reference-offer .btn:is(:hover, :focus-visible, :active)::before { animation: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .reference-offer .btn:hover { transform: translateY(-3px); background: #e27a66; }
+    .reference-offer .community-image:hover img { transform: scale(1.025); }
+  }
+}
+@keyframes summer-offer-enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes summer-cta-pulse {
+  0%, 25% { opacity: 0; transform: scale(1); }
+  28% { opacity: .45; transform: scale(1); }
+  46%, 100% { opacity: 0; transform: scale(1.035, 1.18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.reference-offer) { scroll-behavior: auto; }
+  .reference-offer [data-offer-reveal] { opacity: 1; transform: none; }
+  .reference-offer .btn:active { transform: none; }
+}
