@@ -11,7 +11,7 @@
 .analysis-intro h1 em, .analysis-empty h1 em { color: var(--coral-deep); }
 .analysis-intro > p:last-child { max-width: 550px; margin: 18px auto 0; font-size: 14px; color: var(--ink-soft); line-height: 1.8; }
 .analysis-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.analysis-card { min-width: 0; padding: 25px; background: var(--white); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 12px 35px -25px #21364B38; }
+.analysis-card { min-width: 0; padding: 25px; background: var(--white); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 12px 35px -25px #083E4538; }
 .analysis-card-icon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--coral-wash); margin-bottom: 22px; }
 .analysis-card-icon svg { width: 21px; height: 21px; }
 .analysis-label { font-size: 10px; font-weight: 600; letter-spacing: .08em; line-height: 1.6; color: var(--ink-soft); }
@@ -33,15 +33,15 @@
 .analysis-empty .offer-inclusions-link { justify-content: center; }
 .analysis-content { scroll-margin-top: 16px; }
 #analysis-title { outline: none; }
-.analysis-loading { max-width: 650px; margin: 0 auto; padding: 26px 36px 18px; text-align: center; background: var(--white); border: 1px solid var(--line); border-radius: 28px; box-shadow: 0 25px 70px -45px #21364B40; }
+.analysis-loading { max-width: 650px; margin: 0 auto; padding: 26px 36px 18px; text-align: center; background: var(--white); border: 1px solid var(--line); border-radius: 28px; box-shadow: 0 25px 70px -45px #083E4540; }
 .analysis-loading-eyebrow { font-size: 10px; letter-spacing: .13em; font-weight: 600; color: var(--ink-soft); }
 .analysis-loading-orbit { position: relative; width: 180px; height: 180px; margin: 18px auto 20px; }
 .analysis-orbit-ring { position: absolute; border-radius: 50%; border: 1px solid var(--line); }
 .analysis-orbit-ring--outer { inset: 3px; border-top: 2px solid var(--coral-deep); border-right-color: transparent; }
 .analysis-orbit-ring--inner { inset: 25px; border-bottom: 2px solid var(--sun); border-left-color: transparent; }
-.analysis-orbit-sun { position: absolute; inset: 46px; display: grid; place-items: center; background: radial-gradient(circle at 30% 30%, #FFF6EA, var(--sun)); border: 7px solid var(--sand-soft); border-radius: 50%; box-shadow: 0 0 0 10px #F6D5771a, 0 9px 35px #E9867326; }
+.analysis-orbit-sun { position: absolute; inset: 46px; display: grid; place-items: center; background: radial-gradient(circle at 30% 30%, #FFFFFF, var(--sun)); border: 7px solid var(--sand-soft); border-radius: 50%; box-shadow: 0 0 0 10px #FFD44F1a, 0 9px 35px #FF6A1326; }
 .analysis-orbit-sun svg { width: 42px; height: 42px; stroke-width: 1.2; }
-.analysis-orbit-token { position: absolute; display: grid; place-items: center; width: 34px; height: 34px; background: var(--white); border: 1px solid var(--line); border-radius: 11px; box-shadow: 0 5px 15px #21364B0d; }
+.analysis-orbit-token { position: absolute; display: grid; place-items: center; width: 34px; height: 34px; background: var(--white); border: 1px solid var(--line); border-radius: 11px; box-shadow: 0 5px 15px #083E450d; }
 .analysis-orbit-token svg { width: 18px; height: 18px; }
 .analysis-orbit-token--heart { top: 8px; right: 9px; background: var(--coral-wash); }
 .analysis-orbit-token--leaf { bottom: 8px; left: 9px; background: var(--sand-soft); }

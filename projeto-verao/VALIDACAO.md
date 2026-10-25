@@ -1,5 +1,35 @@
 # Verificação da cópia
 
+## Preço anterior em destaque — 25/10/2026
+
+- “R$ 397” ampliado de 16px para 32px, peso 600, riscado de 2px e laranja `#FF6A13` solicitado pelo usuário. “De” e preço atual mantidos. Build/TypeScript passou; navegador confirmou tamanho, cor idêntica ao botão, risco e ausência de rolagem horizontal. Captura `reference/original-price/updated.png`. Sem push.
+
+## Fundo preto dos profissionais — 25/10/2026
+
+- Apenas o fundo de `.team-section` alterado para `#000000`, mantendo texto branco, foto, conteúdo e disposição. Build/TypeScript passou. Navegador confirmou fundo RGB(0,0,0), texto RGB(255,255,255) e ausência de rolagem horizontal. Captura: `reference/team-black/section.png`. Prévia local atualizada, sem push.
+
+## Retorno ao turquesa com laranja FF6A13 — 25/10/2026
+
+- Restaurada a paleta anterior de turquesa, verde-água, amarelo-sol e superfícies claras. Acento principal passa a `#FF6A13`, incluindo botões e halo de pulso; variantes claras, de hover e de texto seguem o mesmo laranja. Quiz, análise e ícone acompanham o retorno.
+- Texto dos botões em `#052F34` garante contraste de 5,01:1 sobre a cor solicitada. Dez combinações da paleta passam o mínimo de 4,5:1. Build/TypeScript e teste de paleta passaram.
+- Navegador em 1280px e 390px confirma botão RGB(255,106,19), comunidade turquesa, profissionais verde-mar e cartão de investimento amarelo claro. Sem rolagem horizontal ou erros/avisos no console. Evidências em `reference/turquoise-orange/`. Sem commit/push.
+
+## Teste de paleta laranja e branca — 25/10/2026
+
+- Paleta anterior substituída por branco `#FFFFFF`, laranja `#FF8A3D`, faixas em laranja `#FF9B54`, destaque escuro `#AD3E0D` e texto `#38251C`. Tons de apoio em laranja claro, sem verde/turquesa na identidade; WhatsApp e imagens preservam suas cores próprias.
+- Cartão de investimento branco sobre fundo laranja. Profissionais e rodapé em laranja escuro com texto claro. Quiz, análise e ícone acompanham a mudança; fontes, estrutura, conteúdo e animações mantidos.
+- Build/TypeScript, testes de contraste/paleta, sete links de checkout e verificação de espaçamento passaram. Dez combinações com pelo menos 4,5:1; botão 6,18:1 e branco sobre laranja escuro 6,05:1.
+- Oferta inspecionada em 1280px e 390px, sem rolagem horizontal. Foco do botão de inscrição visível e console sem erros/avisos. Capturas em `reference/orange-white/hero.png`, `mobile-hero.png`, `mobile-team.png` e `mobile-investment.png`.
+- Prévia local atualizada. Sem commit ou push desta revisão.
+
+## Paleta viva de verão — 25/10/2026
+
+- Nova identidade em turquesa `#17CDB8`, coral `#FF8066` e amarelo-sol `#FFD44F`, com texto verde-petróleo `#083E45`, superfícies claras e destaque verde-mar `#007B75` para os profissionais.
+- Oferta, quiz, análise e ícone atualizados. Comunidade e investimento ganham faixas turquesa; método e bônus usam tons claros de água, coral e sol. Fontes, imagens, conteúdo, animações e destinos preservados.
+- Build/TypeScript, ESLint de app/components/lib, testes de quiz/checkout/paleta e verificação compartilhada das ofertas passaram. Dez pares de cores conferidos com contraste mínimo de 4,5:1; botões coral 4,78:1, texto sobre turquesa 5,86:1 e texto branco sobre verde-mar 5,13:1.
+- Oferta inspecionada no navegador em 1280px e 390px, sem rolagem horizontal. FAQ abre e fecha; sete CTAs preservados; nenhum bloco pendente após percorrer a página e console sem erros/avisos. Quiz inicial e estado vazio da análise também conferidos.
+- Capturas em `reference/summer-palette/`. Prévia de produção local na porta 3002; esta revisão ainda não foi enviada ao repositório.
+
 ## Etapas, profissionais e bônus — 25/10/2026
 
 - Método com três cartões numerados e ícones existentes; profissionais sobre fundo azul-marinho, foto e apresentação lado a lado no computador; quatro bônus em cartões individuais, separados do programa principal.

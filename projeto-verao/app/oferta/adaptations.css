@@ -1,4 +1,4 @@
-/* Original summer identity applied to the reference's section structure. */
+/* Coastal summer with vivid orange accents, preserving the approved structure. */
 .reference-offer {
   --s-type-family-body: var(--font-sans), sans-serif;
   --s-type-family-title: var(--font-editorial), Georgia, serif;
@@ -10,12 +10,12 @@
   --s-color-marker-list: var(--coral-deep);
   --s-color-marker-fill: var(--coral-deep);
   --s-color-line-checkbox: var(--line);
-  --s-gradient-brand: linear-gradient(90deg, var(--coral), var(--sun));
-  --s-gradient-label: linear-gradient(90deg, var(--coral-deep), var(--ink));
+  --s-gradient-brand: linear-gradient(90deg, var(--turquoise), var(--sun), var(--coral));
+  --s-gradient-label: linear-gradient(90deg, var(--teal-deep), var(--ink));
   --s-link-color: var(--ink);
   --s-link-color-hover: var(--coral-deep);
   --s-type-weight-title: 500;
-  --c-nav-bg: #fff6eaed;
+  --c-nav-bg: #FFFFFFed;
   --c-nav-border-color: var(--line);
   --c-card-bg: var(--white);
   --c-card-title-color: var(--ink);
@@ -30,11 +30,11 @@
   --c-proof-mosaic-print-label-color: var(--ink-soft);
   --c-section-marker-gradient: var(--s-gradient-brand);
   --c-button-primary-bg: var(--coral);
-  --c-button-primary-text-color: var(--ink);
-  --c-button-primary-arrow-hover-color: var(--ink);
+  --c-button-primary-text-color: var(--cta-ink);
+  --c-button-primary-arrow-hover-color: var(--cta-ink);
   --c-button-primary-focus-color: var(--ink);
-  --c-button-primary-shadow: 0 4px 14px #21364b0a;
-  --c-button-primary-shadow-hover: 0 10px 24px #21364b18;
+  --c-button-primary-shadow: 0 4px 14px #083E450a;
+  --c-button-primary-shadow-hover: 0 10px 24px #083E4518;
   --c-accordion-item-bg: var(--white);
   --c-accordion-item-bg-hover: var(--coral-wash);
   --c-accordion-trigger-color: var(--ink);
@@ -46,7 +46,7 @@
   color-scheme: light;
 }
 .reference-offer p { line-height: inherit; }
-.reference-offer .hero { background: var(--sand); }
+.reference-offer .hero { background: linear-gradient(125deg, var(--seafoam), var(--sand) 72%); }
 .reference-offer .hero h1 {
   font-family: var(--s-type-family-title);
   font-size: 64px;
@@ -54,11 +54,15 @@
   line-height: 1.04;
   letter-spacing: -.035em;
 }
-.reference-offer .hero h1 em { color: var(--coral-deep); font-size: 1em; line-height: inherit; letter-spacing: inherit; }
-.reference-offer .sec:nth-of-type(3n) { background: var(--sand-soft); }
+.reference-offer .hero h1 em { color: var(--teal-deep); font-size: 1em; line-height: inherit; letter-spacing: inherit; }
+.reference-offer .sec[data-section="comunidade"] { --s-support-text-color: var(--ink); --s-color-text-muted: var(--ink); background: var(--turquoise); }
+.reference-offer .sec[data-section="metodo"] { background: var(--seafoam); }
+.reference-offer .sec[data-section="historia_real"], .reference-offer .sec[data-section="garantia"] { background: var(--coral-wash); }
+.reference-offer .sec[data-section="investimento"] { background: var(--turquoise); }
+.reference-offer .sec[data-section="encerramento"] { background: var(--sand-soft); }
 .reference-offer .card, .reference-offer .pcard, .reference-offer .callout, .reference-offer .acc { border: 1px solid var(--line); }
 .reference-offer .card h3, .reference-offer .callout .ct { font-size: 32px; }
-.reference-offer .price { background: var(--peach); border-color: #b45f4d40; }
+.reference-offer .price { background: var(--sand-soft); border-color: var(--sun); }
 .reference-offer .kicker, .reference-offer .lead, .reference-offer .intro { line-height: 1.45; }
 .reference-offer .cap, .reference-offer .note, .reference-offer .pcap { line-height: 1.45; }
 .reference-offer .brand > svg { width: 22px; height: 22px; color: var(--ink); }
@@ -68,8 +72,9 @@
 .reference-offer .btn { letter-spacing: normal; background: var(--coral); border-color: transparent; transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease; }
 .reference-offer .btn:active { transform: translateY(0) scale(.98); }
 .reference-offer .btn > svg, .reference-offer .lnk > svg, .reference-offer .acc .ar { width: 16px; height: 16px; }
-.reference-offer .btn:hover > span { color: var(--ink); }
-.reference-offer .btn:hover > svg { color: var(--ink); transform: translateX(3px); }
+.reference-offer .btn:hover > span { color: var(--cta-ink); }
+.reference-offer .btn:hover .btn-t { background: none; color: var(--cta-ink); }
+.reference-offer .btn:hover > svg { color: var(--cta-ink); transform: translateX(3px); }
 .reference-offer figure { margin: 0; }
 .reference-offer .result-image { position: relative; width: 100%; aspect-ratio: 1.6; overflow: hidden; border-radius: 16px; background: var(--sand); }
 .reference-offer .result-image img { object-fit: contain; }
@@ -85,7 +90,7 @@
 .reference-offer .campaign-photo img { display: block; width: 100%; height: auto; border-radius: 16px; }
 .reference-offer .footer-brand { margin-bottom: 24px; }
 .reference-offer .foot { background: var(--ink); }
-.reference-offer .foot p { color: #f8d9c8; }
+.reference-offer .foot p { color: var(--seafoam); }
 .reference-offer .foot .brand { color: var(--sand); }
 .reference-offer .foot .brand > svg { color: var(--sand); }
 .reference-offer .footer-links { display: flex; flex-wrap: wrap; gap: 16px 24px; margin: 24px auto; font-size: 14px; color: var(--sand); }
@@ -117,14 +122,15 @@
 .reference-offer .price { padding: 48px 56px; }
 .reference-offer .investment-label { font-size: 12px; letter-spacing: .16em; font-weight: 600; }
 .reference-offer .investment-title { font-family: var(--font-editorial), Georgia, serif; font-size: 48px; line-height: 1.02; letter-spacing: -.035em; margin: 20px 0 28px; }
-.reference-offer .investment-title em { color: var(--coral-deep); font-size: 1em; }
+.reference-offer .investment-title em { color: var(--teal-deep); font-size: 1em; }
 .reference-offer .card .investment-original { font-size: 16px; color: var(--ink-soft); }
+.reference-offer .investment-original del { color: var(--coral); font-size: 32px; font-weight: 600; line-height: 1.2; text-decoration-thickness: 2px; }
 .reference-offer .card .investment-value { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: center; color: var(--ink); margin: 4px 0 0; line-height: 1; }
 .reference-offer .investment-value > span:first-child { font-size: 28px; }
 .reference-offer .investment-value > strong { font-family: var(--font-sans), sans-serif; font-size: 112px; font-weight: 600; letter-spacing: -.08em; line-height: 1; }
 .reference-offer .investment-value > span:last-child { font-size: 15px; margin-left: 5px; }
 .reference-offer .card .investment-installments { font-size: 17px; margin: 12px 0 0; }
-.reference-offer .investment-inclusions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; border-block: 1px solid #b45f4d40; padding: 26px 0; margin: 28px 0 0; text-align: left; list-style: none; }
+.reference-offer .investment-inclusions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; border-block: 1px solid var(--line); padding: 26px 0; margin: 28px 0 0; text-align: left; list-style: none; }
 .reference-offer .investment-inclusions li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; line-height: 1.5; }
 .reference-offer .investment-inclusions svg, .reference-offer .investment-guarantee svg { width: 18px; height: 18px; flex: none; margin-top: 2px; }
 .reference-offer .price .act { margin-top: 28px; }
@@ -151,7 +157,7 @@
   .reference-offer .hero .summer-hero-visual { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; z-index: 0; animation: none; pointer-events: none; }
   .reference-offer .hero .summer-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; }
   .reference-offer .hero .summer-hero-photo img { object-position: 72% center; }
-  .reference-offer .hero .summer-hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #fff6eade 0%, #fff6eabf 42%, #fff6eadb 78%, var(--sand) 100%); }
+  .reference-offer .hero .summer-hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #c8f5e9ed 0%, #fffcf2d9 42%, #fffcf2db 78%, var(--sand) 100%); }
   .reference-offer .hero .summer-hero-visual figcaption { position: absolute; bottom: 18px; left: 24px; right: 24px; z-index: 1; justify-content: center; margin: 0; font-size: 0; }
   .reference-offer .hero .summer-hero-visual figcaption span { color: var(--ink-soft); font-size: 11px; }
   .reference-offer .hero h1 { font-size: 42px; }
@@ -183,16 +189,19 @@
 /* Numbered method, featured team and individual bonus cards. */
 .reference-offer .method-grid { padding: 0; margin: 0; list-style: none; }
 .reference-offer .method-card-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 22px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
-.reference-offer .method-step-number { font-family: var(--font-sans), sans-serif; font-size: 42px; font-weight: 500; line-height: 1; letter-spacing: -.06em; color: var(--coral-deep); }
-.reference-offer .detail-icon { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; flex: none; border-radius: 14px; color: var(--ink); background: var(--coral-wash); }
+.reference-offer .method-step-number { font-family: var(--font-sans), sans-serif; font-size: 42px; font-weight: 500; line-height: 1; letter-spacing: -.06em; color: var(--teal-deep); }
+.reference-offer .detail-icon { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; flex: none; border-radius: 14px; color: var(--ink); background: var(--sun); }
 .reference-offer .detail-icon svg { width: 23px; height: 23px; stroke-width: 1.5; }
-.reference-offer .sec.team-section { --s-color-text-primary: var(--sand); --s-support-text-color: var(--peach); --s-link-color: var(--sand); --s-link-color-hover: var(--sun); background: var(--ink); color: var(--sand); padding-block: 96px; }
+.reference-offer .bonus-card:nth-child(1), .reference-offer .bonus-card:nth-child(4) { background: var(--coral-wash); }
+.reference-offer .bonus-card:nth-child(2) { background: var(--sand-soft); }
+.reference-offer .bonus-card:nth-child(3) { background: var(--seafoam); }
+.reference-offer .sec.team-section { --s-color-text-primary: var(--white); --s-support-text-color: var(--white); --s-link-color: var(--white); --s-link-color-hover: var(--sun); background: #000000; color: var(--white); padding-block: 96px; }
 .reference-offer .team-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .reference-offer .team-layout .trainer-photo { width: 100%; max-width: none; margin: 0; }
-.reference-offer .team-layout .trainer-photo img { border-radius: 24px; border: 1px solid #fff6ea24; }
+.reference-offer .team-layout .trainer-photo img { border-radius: 24px; border: 1px solid #FFFFFF24; }
 .reference-offer .team-layout .team-names { color: var(--sand); font-size: 44px; text-align: left; margin-bottom: 24px; }
 .reference-offer .team-copy { min-width: 0; }
-.reference-offer .team-copy .ig { color: var(--peach); text-align: left; font-size: 14px; line-height: 1.6; }
+.reference-offer .team-copy .ig { color: var(--white); text-align: left; font-size: 14px; line-height: 1.6; }
 .reference-offer .team-copy .lnk { margin-top: 8px; }
 .reference-offer .team-section a:focus-visible { outline-color: var(--sun); }
 .reference-offer .card .program-label, .reference-offer .bonus-heading .program-label { color: var(--coral-deep); font-size: 11px; font-weight: 600; line-height: 1.5; letter-spacing: .12em; margin: 0 0 22px; }
@@ -251,7 +260,7 @@
     content: "";
     position: absolute;
     inset: -1px;
-    border: 2px solid var(--coral-deep);
+    border: 2px solid var(--coral);
     border-radius: inherit;
     opacity: 0;
     pointer-events: none;
@@ -259,7 +268,7 @@
   }
   .reference-offer .btn:is(:hover, :focus-visible, :active)::before { animation: none; }
   @media (hover: hover) and (pointer: fine) {
-    .reference-offer .btn:hover { transform: translateY(-3px); background: #e27a66; }
+    .reference-offer .btn:hover { transform: translateY(-3px); background: #FF823C; }
     .reference-offer .community-image:hover img { transform: scale(1.025); }
   }
 }

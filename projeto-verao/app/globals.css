@@ -1,21 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #21364B;
-  --ink-soft: #536276;
-  --sand: #FFF6EA;
-  --peach: #F8D9C8;
-  --sand-soft: #FBEBDD;
-  --coral-wash: #FCE5DB;
-  --coral-deep: #B45F4D;
+  --ink: #083E45;
+  --cta-ink: #052F34;
+  --ink-soft: #345F62;
+  --sand: #FFFCF2;
+  --peach: #FFE2CF;
+  --sand-soft: #FFF0B8;
+  --coral-wash: #FFF0E6;
+  --coral-deep: #AC3A00;
+  --coral-hover: #FF823C;
   --ocean: var(--ink);
   --ocean-soft: var(--ink-soft);
-  --turquoise: var(--peach);
-  --seafoam: var(--sand-soft);
-  --sun: #F6D577;
-  --coral: #E98673;
-  --white: #FFFCF7;
-  --line: #E5D6C8;
+  --turquoise: #17CDB8;
+  --seafoam: #C8F5E9;
+  --teal-deep: #007B75;
+  --sun: #FFD44F;
+  --coral: #FF6A13;
+  --white: #FFFFFF;
+  --line: #BFDAD3;
 }
 
 * {
@@ -220,20 +223,20 @@ svg {
   transform: translateX(4px);
 }
 .cta--primary {
-  color: var(--ocean);
+  color: var(--cta-ink);
   background: var(--coral);
 }
 .cta--primary:hover {
-  background: #E27A66;
-  box-shadow: 0 8px 24px #21364B18;
+  background: #FF823C;
+  box-shadow: 0 8px 24px #083E4518;
   transform: translateY(-2px);
 }
 .cta--dark {
-  color: var(--ink);
+  color: var(--cta-ink);
   background: var(--coral);
 }
 .cta--dark:hover {
-  background: #E27A66;
+  background: #FF823C;
   transform: translateY(-2px);
 }
 .cta--light {
@@ -256,8 +259,8 @@ svg {
   border-radius: 50%;
   background: var(--whatsapp);
   color: #fff;
-  border: 1px solid #FFFCF744;
-  box-shadow: 0 4px 18px #21364B24;
+  border: 1px solid #FFFFFF44;
+  box-shadow: 0 4px 18px #083E4524;
 }
 .cta--floating:hover {
   --whatsapp: #0f756a;
@@ -369,7 +372,7 @@ svg {
   background: var(--sun);
   border-radius: 50%;
   border: 1px solid var(--line);
-  box-shadow: 0 8px 26px #21364B0a;
+  box-shadow: 0 8px 26px #083E450a;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -487,13 +490,13 @@ svg {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(ellipse at 50% 100%, #53627655, transparent 70%), var(--ocean);
+  background: radial-gradient(ellipse at 50% 100%, #345F6255, transparent 70%), var(--ocean);
 }
 .film-placeholder::after {
   content: "";
   position: absolute;
   inset: 18px;
-  border: 1px solid #F6D57738;
+  border: 1px solid #FFD44F38;
   border-radius: 2px;
   pointer-events: none;
 }
@@ -689,7 +692,7 @@ svg {
   background: var(--turquoise);
 }
 .evidence-placeholder:nth-child(3) {
-  background: #F8D9C8;
+  background: #FFE2CF;
 }
 .evidence-number {
   position: absolute;
@@ -876,7 +879,7 @@ svg {
 }
 
 .enrollment {
-  background: #F8D9C8;
+  background: #FFE2CF;
   color: var(--ocean);
 }
 .enrollment-copy .eyebrow {
@@ -908,7 +911,7 @@ svg {
   border: 1px solid var(--line);
   border-radius: 4px;
   position: relative;
-  box-shadow: 0 18px 50px #21364B0d;
+  box-shadow: 0 18px 50px #083E450d;
 }
 .enrollment-card .eyebrow {
   display: block;
@@ -1249,7 +1252,7 @@ svg {
     border: 1px solid var(--line);
     z-index: 20;
     border-radius: 8px;
-    box-shadow: 0 8px 24px #21364B14;
+    box-shadow: 0 8px 24px #083E4514;
   }
   .navigation--open {
     display: flex;

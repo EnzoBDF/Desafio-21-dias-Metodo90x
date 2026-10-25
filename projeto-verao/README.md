@@ -38,8 +38,8 @@ Validação: build/TypeScript, ESLint de `app`, `components`, `lib` e script de 
 
 ## Identidade anterior e quiz
 
-- Paleta coral + areia: coral `#E98673`, areia `#FFF6EA`, azul profundo `#21364B` e amarelo suave `#F6D577`.
-- Superfícies em pêssego e branco quente; texto secundário azul acinzentado. WhatsApp mantém o verde de identificação.
+- Paleta atual: turquesa `#17CDB8`, laranja `#FF6A13`, amarelo-sol `#FFD44F` e texto verde-petróleo `#083E45`.
+- Superfícies claras e verde-água; profissionais sobre preto `#000000`, combinando com a foto. Botões usam texto mais escuro `#052F34` para contraste sobre o laranja. Oferta, quiz e análise compartilham a identidade. WhatsApp mantém o verde de identificação. Esta paleta substitui as cores descritas no histórico acima.
 - DM Sans para leitura e títulos; Cormorant Garamond em itálico para os destaques editoriais.
 - Estrutura editorial preservada: tipografia com serifas no hero, bordas finas e composição fotográfica assimétrica, agora com a identidade solar coral + areia.
 - Refinamento premium: tipografia editorial, moldura fotográfica, cantos suaves e sombras discretas. Quiz com ícones, seis segmentos de progresso, destaque coral da resposta e feedback curto por etapa. Privacidade disponível em um painel expansível, sem alterar o fluxo.
