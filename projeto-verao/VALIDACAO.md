@@ -1,5 +1,20 @@
 # Verificação da cópia
 
+## Cinco prints reais de depoimentos — 25/10/2026
+
+- Copiados os cinco anexos para `public/images/depoimentos/depoimento-01.png` a `05.png`, sem edição ou corte; SHA-256 de cada cópia igual ao respectivo anexo. Dimensões originais registradas e conferidas pelo teste de renderização.
+- Seção de texto mostra apenas os cinco prints. Removidos os espaços sobrando e o título/grade vazios do grupo. Duas colunas no desktop e uma no celular, imagens inteiras com altura natural. Slots de vídeo preservados.
+- Build/TypeScript, lint dos arquivos alterados e teste de depoimentos passaram. Teste também verifica omissão de espaços sem conteúdo e mantém a cobertura de vídeo, legendas e texto escapado.
+- Navegador em 1280px e 390px: cinco imagens carregadas, zero placeholders na seção de texto, nenhum grupo vazio, sem rolagem horizontal e console sem erros/avisos. Proporções de renderização conferidas; capturas em `reference/testimonial-prints/`. Sem push.
+
+## Estrutura de depoimentos em vídeo e texto — 25/10/2026
+
+- Duas seções após os resultados: cinco vídeos verticais; seis mensagens e quatro registros do grupo, seguindo os blocos `depoimentosVideo` e `socialProof` do HTML de referência salvo. Sem faixa de contagem de alunas, pois nenhum número foi fornecido. Fotos atuais mantidas em suas próprias seções.
+- Sem arquivos/relatos reais disponíveis: espaços “em breve”, sem player quebrado, imagem ausente, depoimento, nome ou avaliação inventada. Configuração em `lib/testimonials.ts`; vídeo com controles, `playsInline`, `preload="none"`, capa e legendas; texto direto ou print em proporção natural. Documentação em `DEPOIMENTOS.md`.
+- Build/TypeScript, ESLint de app/components/lib, renderização dos espaços e dos três tipos de conteúdo com fixtures, teste de paleta, nove links de checkout e verificação compartilhada das ofertas passaram. Fixtures de mídia não carregam arquivos: reprodução e legendas reais aguardam os materiais.
+- Navegador em 1280px: cinco vídeos, três colunas de mensagens, quatro de grupo; em 390px: duas colunas; em 320px: uma. Sem rolagem horizontal, nenhuma imagem carregada quebrada, zero players sem fonte e console sem erros/avisos. Capturas em `reference/testimonials/`.
+- Revisão React: novos componentes no servidor, chaves estáveis, nenhuma dependência/estado/efeito novo, controles nativos, dimensões reservadas, texto escapado e revelação progressiva existente preservada. Prévia local atualizada; sem push.
+
 ## Preço anterior em destaque — 25/10/2026
 
 - “R$ 397” ampliado de 16px para 32px, peso 600, riscado de 2px e laranja `#FF6A13` solicitado pelo usuário. “De” e preço atual mantidos. Build/TypeScript passou; navegador confirmou tamanho, cor idêntica ao botão, risco e ausência de rolagem horizontal. Captura `reference/original-price/updated.png`. Sem push.

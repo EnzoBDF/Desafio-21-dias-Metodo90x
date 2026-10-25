@@ -6,6 +6,7 @@ import { SummerCTA } from "./SummerCTA";
 import { SummerExperience } from "./SummerExperience";
 import { SummerIcon, type IconName } from "./SummerIcon";
 import { SummerRestartQuiz } from "./SummerOfferIntro";
+import { SummerTextTestimonials, SummerVideoTestimonials } from "./SummerTestimonials";
 import { EVIDENCE_PHOTOS, type EvidencePhoto } from "../lib/media";
 import { INSTAGRAM_URL } from "../lib/links";
 import "../app/oferta/offer.css";
@@ -64,6 +65,18 @@ export function SummerReferenceOffer() {
           <div className="results-grid">{EVIDENCE_PHOTOS.slice(0, 6).map((photo, i) => <Record key={photo.src} photo={photo} number={i + 1} />)}</div>
           <p className="note">Cada aluna tem seu ponto de partida. Os registros são de períodos diferentes e não comprovam resultados em 30 dias. Resultados individuais variam.</p>
           <Action placement="resultados">quero secar 7cm de cintura</Action>
+        </div></section>
+
+        <section className="sec proofsec testimonial-section" id="depoimentos-video" data-section="depoimentos_video"><div className="box">
+          <Heading intro="Histórias contadas por quem vive o Método 90X.">Ouça de quem já fez</Heading>
+          <SummerVideoTestimonials />
+          <Action placement="depoimentos_video">Quero começar meu Projeto Verão</Action>
+        </div></section>
+
+        <section className="sec proofsec testimonial-section" id="depoimentos-texto" data-section="depoimentos_texto"><div className="box">
+          <Heading intro="Relatos por escrito e mensagens da comunidade.">O que elas dizem do método</Heading>
+          <SummerTextTestimonials />
+          <Action placement="depoimentos_texto">Quero fazer parte</Action>
         </div></section>
 
         <section className="sec proofsec" data-section="comunidade"><div className="box">

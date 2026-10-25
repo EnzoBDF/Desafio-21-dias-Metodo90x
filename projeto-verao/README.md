@@ -24,6 +24,8 @@ Para revisar o código: `npm run lint`.
 
 ## Oferta adaptada à referência — 25/10/2026
 
+Depoimentos: `/oferta#depoimentos-video` mantém cinco espaços verticais aguardando arquivos; `/oferta#depoimentos-texto` contém os cinco prints fornecidos, inteiros, em duas colunas no desktop e uma no celular. Espaços de texto sem conteúdo e o grupo vazio são omitidos. Conteúdo centralizado em `lib/testimonials.ts`, renderização em `components/SummerTestimonials.tsx`, com suporte a vídeo com capa/legendas, relato escrito ou print. Veja `DEPOIMENTOS.md` para preencher. As fotos existentes permanecem nas seções próprias.
+
 Refinamento visual aprovado: abertura em duas colunas no desktop com a foto de praia existente, marca maior e composição empilhada no celular. A foto foi movida dos benefícios para a abertura. Galeria com proporções naturais, três colunas no desktop, duas no tablet e uma no celular; dimensões originais registradas em `lib/media.ts`. Título encurtado para “Resultados de alunas”. Cartão de oferta com preço anterior tachado, R$ 97 em destaque, parcelas, cinco benefícios e garantia junto à inscrição. Textos móveis ampliados e espaçamento superior reduzido. WhatsApp passa para o cabeçalho nas telas pequenas, liberando os textos. Evidências em `reference/refinements/`.
 
 Atualização de identidade: a estrutura da referência agora usa novamente DM Sans e Cormorant Garamond, paleta coral/areia/pêssego e textos azul profundo. A abertura tem entrada em sequência; 49 blocos aparecem uma única vez ao entrar na tela. Botões, fotos de comunidade e FAQ têm transições suaves. Sem bibliotecas extras, parallax ou rolagem controlada por JavaScript. O conteúdo é visível sem JavaScript; a preferência por movimento reduzido desativa os efeitos. Esta atualização substitui as cores e fontes da referência descritas no histórico abaixo.
@@ -32,7 +34,7 @@ A rota `/oferta` segue a estrutura de https://rebueno.com.br/analisepaginabatist
 
 O conteúdo fica em `components/SummerReferenceOffer.tsx`. Os estilos da referência estão isolados em `app/oferta/offer.css`; os ajustes para a marca e as imagens existentes ficam em `app/oferta/adaptations.css`. Os sete registros aparecem inteiros, em grade, sem slider. As quatro fotos de comunidade já existentes no repositório foram copiadas para `public/images/comunidade/`. A praia continua identificada como imagem de campanha. Não foram criados vídeos, depoimentos, números de alunas ou dados profissionais fictícios para preencher os marcadores da referência.
 
-Os sete botões de inscrição usam o checkout centralizado em `lib/links.ts`; WhatsApp, Instagram e reinício do quiz permanecem disponíveis. A oferta usa a chamada fixa da referência. As respostas do quiz continuam disponíveis na análise, mas não personalizam mais o título da oferta.
+Os nove botões de inscrição, incluindo os dois blocos de depoimentos, usam o checkout centralizado em `lib/links.ts`; WhatsApp, Instagram e reinício do quiz permanecem disponíveis. A oferta usa a chamada fixa da referência. As respostas do quiz continuam disponíveis na análise, mas não personalizam mais o título da oferta.
 
 Validação: build/TypeScript, ESLint de `app`, `components`, `lib` e script de preparação; testes de checkout, quiz e paleta. Conferência no navegador em 320, 390, 768 e 1440 px, FAQ, links e imagens. Evidências e comparação visual em `reference/`; relatório em `design-qa.md`. `npm run lint` ainda acusa o uso de CommonJS nos testes `.cjs` preexistentes.
 

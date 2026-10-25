@@ -8,7 +8,7 @@ const html = fs.readFileSync(
 );
 const checkoutHrefs = [...html.matchAll(/href="(https:\/\/payfast\.greenn\.com\.br\/[^\"]+)"/g)]
   .map((match) => match[1]);
-assert.equal(checkoutHrefs.length, 7, "Os sete CTAs da nova estrutura devem estar presentes");
+assert.equal(checkoutHrefs.length, 9, "Os nove CTAs, incluindo os dois blocos de depoimentos, devem estar presentes");
 for (const href of checkoutHrefs) {
   assert.equal(href, "https://payfast.greenn.com.br/195687/offer/1Zhmro?ch_id=144371");
 }
@@ -20,4 +20,4 @@ assert.equal(
   1,
   "O botão flutuante de WhatsApp deve ser preservado",
 );
-console.log("PASS: sete CTAs da oferta com o checkout correto e WhatsApp preservado.");
+console.log("PASS: nove CTAs da oferta com o checkout correto e WhatsApp preservado.");

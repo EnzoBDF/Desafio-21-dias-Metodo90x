@@ -233,6 +233,45 @@
   .reference-offer .bonus-card h4 { font-size: 28px; }
 }
 
+/* Testimonial slots follow the reference: five vertical videos, six messages and four group records. */
+.reference-offer .sec[data-section="depoimentos_video"] { background: var(--seafoam); }
+.reference-offer .testimonial-videos { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.reference-offer .testimonial-card { padding: 12px; gap: 12px; margin: 0; }
+.reference-offer .testimonial-card figcaption { color: var(--ink-soft); font-size: 12px; line-height: 1.5; padding: 0 4px 4px; }
+.reference-offer .testimonial-video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 14px; background: #000; object-fit: contain; }
+.reference-offer .testimonial-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 20px 12px; border-radius: 14px; background: linear-gradient(155deg, var(--sand), var(--seafoam)); border: 1px dashed var(--line); text-align: center; }
+.reference-offer .testimonial-placeholder--video { aspect-ratio: 9 / 16; }
+.reference-offer .testimonial-placeholder--text { aspect-ratio: 4 / 5; background: var(--sand); }
+.reference-offer .testimonial-placeholder-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; color: var(--coral-deep); background: var(--coral-wash); }
+.reference-offer .testimonial-placeholder-icon svg { width: 24px; height: 24px; }
+.reference-offer .testimonial-coming-soon { color: var(--ink-soft); font-size: 14px; line-height: 1.5; }
+.reference-offer .testimonial-group-heading { margin: 48px 0 24px; text-align: center; }
+.reference-offer .testimonial-group-heading h3 { font-family: var(--font-editorial), Georgia, serif; color: var(--ink); font-weight: 500; font-size: 32px; line-height: 1.15; letter-spacing: -.025em; }
+.reference-offer .testimonial-print { display: block; width: 100%; height: auto; border-radius: 12px; }
+.reference-offer .testimonial-messages--filled { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.reference-offer .testimonial-quote { margin: 0; padding: 12px; }
+.reference-offer .testimonial-quote > svg { width: 26px; height: 26px; color: var(--coral-deep); margin-bottom: 20px; }
+.reference-offer .testimonial-quote p { color: var(--ink); font-size: 17px; line-height: 1.65; white-space: pre-line; }
+.reference-offer .testimonial-quote footer { color: var(--ink-soft); font-size: 13px; margin-top: 20px; }
+@media (max-width: 1000px) {
+  .reference-offer .testimonial-videos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 734px) {
+  .reference-offer .testimonial-videos, .reference-offer .testimonial-messages, .reference-offer .testimonial-group { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .reference-offer .testimonial-card { padding: 8px; gap: 10px; }
+  .reference-offer .testimonial-placeholder { padding: 16px 8px; gap: 12px; }
+  .reference-offer .testimonial-placeholder-icon { width: 44px; height: 44px; }
+  .reference-offer .testimonial-quote { padding: 8px; }
+  .reference-offer .testimonial-quote p { font-size: 15px; }
+  .reference-offer .text-testimonial:has(.testimonial-quote) { grid-column: 1 / -1; }
+  .reference-offer .testimonial-messages--filled { grid-template-columns: 1fr; }
+  .reference-offer .testimonial-group-heading { margin-top: 36px; }
+  .reference-offer .testimonial-group-heading h3 { font-size: 28px; }
+}
+@media (max-width: 359px) {
+  .reference-offer .testimonial-videos, .reference-offer .testimonial-messages, .reference-offer .testimonial-group { grid-template-columns: 1fr; max-width: 270px; margin-inline: auto; }
+}
+
 /* Elements remain visible until JavaScript can observe each reveal target. */
 @media (prefers-reduced-motion: no-preference) {
   .reference-offer [data-offer-reveal] {

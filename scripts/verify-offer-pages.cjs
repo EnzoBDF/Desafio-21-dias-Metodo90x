@@ -19,7 +19,9 @@ for (const [name, file] of pages) {
   assert.match(text, /(?:R\$\s*97|por\s+97)/, `${name}: preço promocional`);
   assert.doesNotMatch(text, /R\$\s*(?:199,90|99,90|497\b|197\b)/, `${name}: sem preços antigos`);
   if (name === "Projeto Verão") {
-    assert.doesNotMatch(html, /<video\b|id="apresentacao"|href="#apresentacao"/);
+    assert.doesNotMatch(html, /id="apresentacao"|href="#apresentacao"/);
+    assert.match(html, /id="depoimentos-video"/);
+    assert.match(html, /id="depoimentos-texto"/);
     assert.equal((html.match(/class="pcard result-card"/g) || []).length, 7);
     assert.match(html, /href="#investimento"/);
     assert.match(html, /id="investimento"/);

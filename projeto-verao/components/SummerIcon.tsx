@@ -10,6 +10,7 @@ export type IconName =
   | "spark"
   | "check"
   | "image"
+  | "video"
   | "whatsapp"
   | "chat";
 
@@ -57,6 +58,12 @@ export function SummerIcon({
       <>
         <path d="M21 11.5a9 9 0 0 1-13.5 7.8L3 21l1.7-4.5A9 9 0 1 1 21 11.5Z" />
         <path d="M8 10h8m-8 4h5" />
+      </>
+    ),
+    video: (
+      <>
+        <rect x="3" y="5" width="12" height="14" rx="3" />
+        <path d="m15 10 6-4v12l-6-4" />
       </>
     ),
     whatsapp: (
