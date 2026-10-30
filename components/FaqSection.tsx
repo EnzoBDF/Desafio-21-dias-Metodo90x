@@ -2,45 +2,10 @@
 
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { challengeFaq } from "@/lib/challengeOffer";
 import { displayTitle, sectionContainer } from "./styles";
 
-const questions = [
-  {
-    question: "O que é o desafio Bumbum na Nuca?",
-    answer:
-      "É uma jornada de 21 dias com treinos direcionados para glúteos, estratégia alimentar e acompanhamento da equipe Método 90X. A proposta é tirar o improviso da rotina e colocar firmeza, volume e definição no centro do seu treino.",
-  },
-  {
-    question: "Posso fazer os treinos em casa?",
-    answer:
-      "Sim. O desafio atende quem treina em casa ou na academia. Após a avaliação inicial, você recebe uma rotina compatível com sua realidade e com os recursos disponíveis.",
-  },
-  {
-    question: "O desafio serve para iniciantes?",
-    answer:
-      "Sim. Iniciantes e mulheres que já treinam podem participar. A avaliação inicial ajuda a equipe a entender seu nível e orientar a execução e a intensidade dos exercícios.",
-  },
-  {
-    question: "Quanto tempo preciso reservar para treinar?",
-    answer:
-      "O tempo varia conforme o treino e o seu nível. Todas as sessões ficam organizadas no aplicativo para você visualizar a sequência e encaixá-la na rotina com mais facilidade.",
-  },
-  {
-    question: "Vou receber orientação alimentar?",
-    answer:
-      "Sim. O desafio inclui uma estratégia alimentar alinhada ao objetivo de desenvolver os glúteos e adaptada às informações compartilhadas na sua avaliação.",
-  },
-  {
-    question: "Como funciona o acompanhamento?",
-    answer:
-      "Durante os 21 dias, você conta com suporte da equipe pelo WhatsApp, acesso ao grupo exclusivo e lives sobre treino, ativação, hipertrofia e recuperação dos glúteos.",
-  },
-  {
-    question: "Quando recebo o acesso?",
-    answer:
-      "Depois da inscrição, você recebe as orientações para responder à avaliação inicial e acessar o aplicativo e os canais de suporte do Bumbum na Nuca.",
-  },
-] as const;
+const questions = challengeFaq;
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -85,6 +50,7 @@ export function FaqSection() {
               key={item.question}
             >
               <button
+                id={`faq-question-${index}`}
                 type="button"
                 className="flex min-h-16 w-full cursor-pointer items-center justify-between gap-5 px-5 py-4 text-left md:min-h-20 md:px-7"
                 aria-expanded={openIndex === index}
@@ -104,6 +70,9 @@ export function FaqSection() {
               </button>
               <div
                 id={`faq-answer-${index}`}
+                role="region"
+                aria-labelledby={`faq-question-${index}`}
+                aria-hidden={openIndex !== index}
                 className="faq-answer"
                 data-open={openIndex === index}
               >

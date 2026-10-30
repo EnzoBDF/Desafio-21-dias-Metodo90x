@@ -145,14 +145,14 @@ export function CommunityPhotosSection() {
           <span>MÉTODO 90X</span>
         </h2>
         <p className="mx-auto mt-5 max-w-[24rem] text-center text-[clamp(0.95rem,3.8vw,1.08rem)] font-semibold leading-[1.55] text-white/88 md:max-w-[34rem] lg:text-lg">
-          Participe de uma comunidade com pessoas alinhadas a um objetivo em comum: Alcançar resultados incríveis, com constância e dedicação.
+          Tem dia em que aparece uma dúvida, é preciso adaptar a rotina ou compartilhar uma pequena evolução. O grupo é um espaço para trocar experiências e caminhar ao lado de mulheres com o mesmo objetivo.
         </p>
       </div>
 
       <div
         ref={trackRef}
         className="scrollbar-none mt-10 flex touch-pan-x gap-4 overflow-x-auto overscroll-x-contain px-6 pb-5 pt-4 md:mx-auto md:max-w-6xl md:cursor-grab md:gap-6 md:px-8 md:active:cursor-grabbing lg:mt-14 lg:px-10"
-        aria-label="Fotos da comunidade Bumbum na Nuca"
+        aria-label="Fotos da comunidade Método 90X"
         onPointerDown={() => {
           trackInteraction("drag");
           pauseSlideshow();

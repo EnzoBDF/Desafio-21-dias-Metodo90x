@@ -6,26 +6,26 @@ import { TrackedLink } from "./TrackedActions";
 const steps = [
   {
     number: "01",
-    title: "FAÇA SUA INSCRIÇÃO",
-    description: "Garanta sua vaga no Bumbum na Nuca",
+    title: "ENTENDA SEU PONTO DE PARTIDA",
+    description: "Após a inscrição, responda à avaliação inicial: seu nível, objetivos e estrutura da academia.",
     align: "right" as const,
   },
   {
     number: "02",
-    title: "RESPONDA À AVALIAÇÃO",
-    description: "Conte seu objetivo e mostre o ponto de partida dos seus glúteos",
+    title: "SAIBA O QUE FAZER",
+    description: "Receba uma rotina de academia com foco em glúteos, organizada no aplicativo.",
     align: "left" as const,
   },
   {
     number: "03",
-    title: "RECEBA SEUS ACESSOS",
-    description: "Acesse os treinos de glúteos e os canais de suporte",
+    title: "APRENDA A EVOLUIR",
+    description: "Consulte as orientações de execução e progressão e conte com o suporte para tirar dúvidas.",
     align: "right" as const,
   },
   {
     number: "04",
-    title: "COMECE SUA MISSÃO",
-    description: "Treine com foco, progressão e acompanhamento durante 21 dias",
+    title: "SIGA SUA SEQUÊNCIA",
+    description: "Durante 30 dias, você tem uma sequência para seguir e pessoas a quem recorrer.",
     align: "left" as const,
   },
 ];

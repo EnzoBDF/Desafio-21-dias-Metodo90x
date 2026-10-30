@@ -12,6 +12,7 @@ import { PricingSection } from "@/components/PricingSection";
 import { SectionRevealController } from "@/components/SectionRevealController";
 import { SocialProofSlider } from "@/components/SocialProofSlider";
 import { ValueComparisonSection } from "@/components/ValueComparisonSection";
+import { ChallengePainSection, ChallengeRoutineSection, ChallengeSupportSection, ChallengeGuaranteeSection, ChallengeClosingSection } from "@/components/ChallengeContentSections";
 
 export default function Home() {
   return (
@@ -22,15 +23,20 @@ export default function Home() {
       <SectionRevealController />
       <LandingAnalytics />
       <HeroSection />
-      <ChallengeCarousel />
-      <MessageSection />
       <SocialProofSlider />
-      <CommunityPhotosSection />
-      <IncludedFeatures />
+      <ChallengePainSection />
+      <ChallengeCarousel />
       <HowItWorks />
+      <MessageSection />
+      <IncludedFeatures />
+      <ChallengeRoutineSection />
+      <ChallengeSupportSection />
+      <CommunityPhotosSection />
       <ValueComparisonSection />
       <PricingSection />
+      <ChallengeGuaranteeSection />
       <FaqSection />
+      <ChallengeClosingSection />
       <Footer />
       <FloatingWhatsAppButton />
     </main>

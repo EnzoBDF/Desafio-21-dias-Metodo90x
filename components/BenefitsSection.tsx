@@ -4,7 +4,7 @@ import { displayTitle, sectionContainer } from "./styles";
 const benefits = [
   {
     icon: "calendar" as const,
-    title: "21 DIAS",
+    title: "30 DIAS",
     description: "Com foco total em glúteos",
   },
   {

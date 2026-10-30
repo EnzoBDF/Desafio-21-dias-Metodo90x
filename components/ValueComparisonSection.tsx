@@ -12,7 +12,7 @@ const separateServices = [
 
 const challengeBenefits = [
   "Treinos de glúteos organizados no aplicativo",
-  "Estratégia integrada para os 21 dias",
+  "Treino e direcionamento para os 30 dias",
   "Suporte e comunidade com o mesmo objetivo",
   "Um único acesso para acompanhar toda a missão",
 ];
@@ -89,7 +89,7 @@ export function ValueComparisonSection() {
                 <Icon name="target" className="size-6" />
               </span>
               <h3 className={displayTitle + " text-2xl leading-none md:text-3xl"}>
-                DESAFIO 21
+                DESAFIO 30 DIAS
               </h3>
             </div>
             <p className={displayTitle + " mt-7 text-base leading-none text-white/85 md:text-lg"}>
@@ -107,7 +107,7 @@ export function ValueComparisonSection() {
               <span className="text-6xl leading-none md:text-7xl">97</span>
             </p>
             <p className="mt-3 text-xs font-bold uppercase tracking-[0.1em] text-[#ff6418] md:text-sm">
-              Pagamento único pelos 21 dias
+              Pagamento único pelos 30 dias
             </p>
             <ul className="mt-6 grid gap-4 text-sm font-semibold leading-[1.4] md:text-base">
               {challengeBenefits.map((item) => (
@@ -121,7 +121,7 @@ export function ValueComparisonSection() {
         </div>
 
         <p className="mx-auto mt-7 max-w-3xl text-center text-xs font-medium leading-relaxed text-white/55 md:text-sm">
-          O Desafio 21 reúne treino, direcionamento e suporte em uma experiência
+          O Desafio 30 Dias reúne treino, direcionamento e suporte em uma experiência
           integrada. Ele não substitui acompanhamento clínico ou nutricional
           individual quando necessário.
         </p>

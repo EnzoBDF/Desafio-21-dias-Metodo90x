@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CHECKOUT_URL } from "@/lib/links";
+import { challengeInclusions, CHALLENGE_ASSETS } from "@/lib/challengeOffer";
 import {
   displayTitle,
   glow,
@@ -10,15 +11,7 @@ import {
 import { Icon } from "./Icon";
 import { TrackedLink } from "./TrackedActions";
 
-const items = [
-  "Avaliação dos glúteos",
-  "Suporte pelo Whatsapp",
-  "Treinos de glúteos em casa ou na academia",
-  "Treinos organizados no aplicativo",
-  "Lives sobre hipertrofia de glúteos",
-  "Grupo com o mesmo objetivo",
-  "E-book exclusivo Bumbum na Nuca",
-];
+const items = challengeInclusions.map(item => item.title);
 
 export function PricingSection() {
   return (
@@ -44,9 +37,9 @@ export function PricingSection() {
             id="pricing-title"
             className={`${sectionTitle} relative z-10 items-center text-center text-[clamp(2.24rem,9vw,4rem)] lg:text-[4.5rem]`}
           >
-            <span className="text-white">SEU BUMBUM DOS SONHOS</span>
+            <span className="text-white">SEU PRÓXIMO TREINO</span>
             <span className="text-white">
-              COMEÇA <b className="text-[#ff6418]">AQUI</b>
+              PODE TER <b className="text-[#ff6418]">UMA DIREÇÃO CLARA</b>
             </span>
           </h2>
 
@@ -56,7 +49,7 @@ export function PricingSection() {
           >
             <Image
               className="object-contain p-3"
-              src="/images/Desafio21Logo.png"
+              src={CHALLENGE_ASSETS.logo}
               alt=""
               fill
               sizes="(min-width: 64rem) 9.5rem, 8.25rem"
@@ -126,7 +119,7 @@ export function PricingSection() {
             currency: "BRL",
           }}
         >
-          QUERO MEU BUMBUM NA NUCA
+          QUERO COMEÇAR MEU DESAFIO
         </TrackedLink>
 
         <p className="mx-auto mt-4 flex w-full max-w-[18rem] items-center justify-center gap-1.5 text-center text-sm font-semibold leading-snug text-white/70">
@@ -135,8 +128,9 @@ export function PricingSection() {
         </p>
 
         <p className="mx-auto mt-1.5 w-full max-w-[18rem] text-center text-sm font-semibold leading-snug text-white/70">
-          Garantia de 7 dias. Sem risco para você.
+          Pagamento único pelo desafio de 30 dias. Garantia de 7 dias.
         </p>
+        <p className="mx-auto mt-4 max-w-xl text-center text-sm leading-[1.8] text-white/70">Liberação imediata após a confirmação do pagamento. Você recebe as instruções para responder à avaliação inicial e acessar o aplicativo.</p>
       </div>
     </section>
   );

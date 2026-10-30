@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { METODO_90X_URL, SOCIAL_LINKS } from "@/lib/links";
+import { CHALLENGE_ASSETS } from "@/lib/challengeOffer";
 import { Icon } from "./Icon";
 import { displayTitle, sectionContainer } from "./styles";
 import { TrackedLink } from "./TrackedActions";
@@ -17,10 +18,10 @@ export function Footer() {
         <div className="flex flex-col items-center gap-3">
           <Image
             className="size-[4.5rem] object-contain md:size-[5.5rem]"
-            src="/logo.png"
-            alt="Desafio 21 Dias"
-            width={1004}
-            height={1004}
+            src={CHALLENGE_ASSETS.logo}
+            alt="Desafio 30 Dias · Método 90X"
+            width={1254}
+            height={1254}
           />
           <p
             className={`${displayTitle} text-[clamp(1.25rem,5.5vw,1.6rem)] leading-none`}
@@ -56,7 +57,7 @@ export function Footer() {
         )}
 
         <p className="max-w-[20rem] text-balance text-sm font-semibold leading-[1.6] text-white/70 md:max-w-[38rem] md:text-[0.95rem]">
-          O <strong className="font-bold text-white/90">Desafio 21 Dias</strong>{" "}
+          O <strong className="font-bold text-white/90">Desafio 30 Dias</strong>{" "}
           é um programa oficial do{" "}
           <strong className="font-bold text-[#ff6418]">Método 90X</strong>,
           desenvolvido e conduzido pela mesma equipe de treinamento.

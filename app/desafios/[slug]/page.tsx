@@ -13,6 +13,7 @@ import {
 } from "@/components/styles";
 import { challenges, getChallengeBySlug } from "@/lib/challenges";
 import { CHECKOUT_URL } from "@/lib/links";
+import { challengeInclusions } from "@/lib/challengeOffer";
 
 type ChallengePageProps = {
   params: Promise<{ slug: string }>;
@@ -21,7 +22,7 @@ type ChallengePageProps = {
 const quickProof = [
   {
     icon: "calendar" as const,
-    title: "21 dias",
+    title: "30 dias",
     description: "Uma missão inteira dedicada aos seus glúteos.",
   },
   {
@@ -45,7 +46,7 @@ const includedItems = [
   {
     icon: "training" as const,
     title: "Treinos para glúteos",
-    description: "Rotina com ativação, força e progressão para casa ou academia.",
+    description: "Rotina com execução e progressão exclusivamente na academia.",
   },
   {
     icon: "app" as const,
@@ -59,13 +60,7 @@ const includedItems = [
   },
 ];
 
-const offerItems = [
-  "Acesso ao Bumbum na Nuca por 21 dias",
-  "Treinos de glúteos no aplicativo",
-  "Avaliação dos glúteos",
-  "Suporte pelo Whatsapp",
-  "Grupo exclusivo Bumbum na Nuca",
-];
+const offerItems = challengeInclusions.map(item => item.title);
 
 export function generateStaticParams() {
   return challenges.map((challenge) => ({
@@ -86,7 +81,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${challenge.title} | 21 dias com foco em glúteos`,
+    title: `${challenge.title} | 30 dias de treino na academia`,
     description: challenge.heroCopy,
   };
 }
@@ -343,7 +338,7 @@ export default async function ChallengeDetailPage({
               <span className="text-[#ff6418]">AGORA</span>
             </h2>
             <p className="mt-5 max-w-[36rem] text-[clamp(0.98rem,3.8vw,1.1rem)] font-semibold leading-[1.75] text-white/92 lg:text-lg">
-              Coloque seus glúteos como prioridade pelos próximos 21 dias com
+              Coloque seus glúteos como prioridade pelos próximos 30 dias com
               treino direcionado, estratégia alimentar e suporte.
             </p>
           </div>

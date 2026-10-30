@@ -2,47 +2,12 @@
 
 import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { CHECKOUT_URL } from "@/lib/links";
+import { challengeInclusions } from "@/lib/challengeOffer";
 import { Icon } from "./Icon";
 import { TrackedLink } from "./TrackedActions";
 import { displayTitle, glow, primaryButton, sectionContainer } from "./styles";
 
-const features = [
-  {
-    icon: "app",
-    title: "Treinos com foco em glúteos",
-    description:
-      "Acesse pelo aplicativo uma rotina planejada para casa ou academia",
-  },
-  {
-    icon: "analysis",
-    title: "Avaliação dos glúteos",
-    description:
-      "Entenda seu ponto de partida e o que precisa evoluir nos próximos 21 dias",
-  },
-  {
-    icon: "training",
-    title: "Acompanhamento individualizado",
-    description:
-      "Ajuste execução, intensidade e constância com o suporte da equipe",
-  },
-  {
-    icon: "target",
-    title: "Estratégia para ganhar volume",
-    description: "Alimentação alinhada ao objetivo de construir e definir os glúteos",
-  },
-  {
-    icon: "shield",
-    title: "Grupo Exclusivo",
-    description:
-      "Treine ao lado de mulheres com o mesmo objetivo: glúteos em destaque",
-  },
-  {
-    icon: "heart",
-    title: "Lives sobre glúteos",
-    description:
-      "Aprenda sobre ativação, hipertrofia, recuperação e os erros que travam seus resultados",
-  },
-] as const;
+const features = challengeInclusions;
 
 export function IncludedFeatures() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -239,7 +204,7 @@ function IncludedTitle() {
       id="included-title"
       className={`${displayTitle} mx-auto flex max-w-[17rem] flex-col items-center text-center text-[clamp(1.8rem,7.5vw,2.7rem)] leading-[1.1] text-[#ff6418] md:max-w-[28rem] md:text-[clamp(2.8rem,5.4vw,3.5rem)] lg:max-w-[34rem] lg:text-[4.1rem]`}
     >
-      <span className="text-white">NO DESAFIO 21 - BUMBUM NA NUCA</span>
+      <span className="text-white">NO DESAFIO 30 DIAS - BUMBUM NA NUCA</span>
       <span>VOCÊ VAI RECEBER</span>
     </h2>
   );

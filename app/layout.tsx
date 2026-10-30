@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Oswald, Poppins } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
+import { CHALLENGE_ASSETS } from "@/lib/challengeOffer";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -22,13 +23,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bumbum na nuca | Desafio 21 dias - Treino, suporte, nutrição!",
+  title: "Bumbum na Nuca | Desafio 30 Dias · Exclusivo para academia",
   description:
-    "21 dias de treinos com foco em glúteos, estratégia alimentar e acompanhamento para buscar mais firmeza, volume e definição. Tenha o bumbum que você sempre sonhou com o Desafio 21! Treinos, suporte e nutrição para resultados incríveis.",
+    "30 dias de treino de academia com foco em glúteos, avaliação inicial, progressão, aplicativo e suporte pelo WhatsApp. Comece com direção por R$ 97.",
   icons: {
-    icon: [{ url: "/logo.png", type: "image/png" }],
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: [{ url: CHALLENGE_ASSETS.logo, type: "image/jpeg" }],
+    shortcut: CHALLENGE_ASSETS.logo,
+    apple: CHALLENGE_ASSETS.logo,
   },
 };
 

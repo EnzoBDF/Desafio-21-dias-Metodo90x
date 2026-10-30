@@ -4,7 +4,7 @@ const path = require("node:path");
 
 const workspace = path.resolve(__dirname, "..");
 const pages = [
-  ["Desafio 21", ".next/server/app/index.html"],
+  ["Bumbum na Nuca 30 Dias", ".next/server/app/index.html"],
   ["Detalhes Bumbum na Nuca", ".next/server/app/desafios/bumbum-na-nuca.html"],
   ["Projeto Verão", "projeto-verao/.next/server/app/oferta.html"],
 ];
@@ -27,7 +27,7 @@ for (const [name, file] of pages) {
     assert.match(html, /id="investimento"/);
     assert.equal((html.match(/<details class="acc"/g) || []).length, 6);
     assert.match(html, /id="checkout"/);
-  } else if (name === "Desafio 21") {
+  } else if (name === "Bumbum na Nuca 30 Dias") {
     assert.match(html, /<video\b/); // Only Projeto Verão loses its video section.
     assert.match(html, /aria-label="De 397 reais por 97 reais"/);
   }

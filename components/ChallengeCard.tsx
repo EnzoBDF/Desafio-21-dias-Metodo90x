@@ -37,7 +37,7 @@ export function ChallengeCard({
     >
       <div className="relative aspect-[0.94] overflow-hidden bg-[#111] lg:aspect-[0.9]">
         <Image
-          className="object-cover object-[50%_20%]"
+          className="object-contain"
           src={imageSrc}
           alt={imageAlt}
           fill
@@ -64,11 +64,11 @@ export function ChallengeCard({
         <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.78rem] font-semibold uppercase leading-[1.35] text-white/75 lg:text-sm">
           <span>Treinos adaptados</span>
           <span className="text-[#ff6418]" aria-hidden="true">•</span>
-          <span>Casa ou academia</span>
+          <span>Exclusivo para academia</span>
           <span className="text-[#ff6418]" aria-hidden="true">•</span>
-          <span>Suporte diário</span>
+          <span>Suporte 24h</span>
           <span className="text-[#ff6418]" aria-hidden="true">•</span>
-          <span>Resultados visíveis</span>
+          <span>Progressão orientada</span>
         </p>
         <TrackedLink
           className={`${primaryButton} mt-4 min-h-[3.25rem] min-w-0 text-[clamp(0.92rem,3.9vw,1rem)]`}

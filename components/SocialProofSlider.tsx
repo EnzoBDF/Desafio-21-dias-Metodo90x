@@ -11,17 +11,17 @@ const participants = [
   {
     id: 1,
     imageSrc: "/SocialProof/SocialpProof1.jpeg",
-    alt: "Participante do Bumbum na Nuca",
+    alt: "Registro de participante do Método 90X",
   },
   {
     id: 2,
     imageSrc: "/SocialProof/SocialProof2.png",
-    alt: "Participante do Bumbum na Nuca",
+    alt: "Registro de participante do Método 90X",
   },
   {
     id: 3,
     imageSrc: "/SocialProof/SocialProof3.png",
-    alt: "Participante do Bumbum na Nuca",
+    alt: "Registro de participante do Método 90X",
   },
 ];
 
@@ -136,15 +136,17 @@ export function SocialProofSlider() {
           id="social-proof-title"
           className={`${displayTitle} mx-auto flex max-w-[20rem] flex-col items-center text-center text-[clamp(2.15rem,8.5vw,3.2rem)] leading-[0.98] text-[#ff6418] md:max-w-[34rem] lg:text-[4.2rem]`}
         >
-          <span className="text-white">QUEM TREINA COM FOCO</span>
-          <span>FAZ O GLÚTEO RESPONDER</span>
+          <span className="text-white">VEJA A EVOLUÇÃO DE QUEM</span>
+          <span>JÁ TREINOU COM O MÉTODO 90X</span>
         </h2>
+        <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-[1.8] text-white/85">Por trás de cada resultado, existe uma mulher que começou de um ponto diferente, seguiu um plano e construiu sua evolução.</p>
+        <p className="mx-auto mt-3 max-w-3xl text-center text-sm leading-[1.8] text-white/60">Experiências individuais com o Método 90X. Os registros não comprovam resultados em 30 dias nem garantem uma evolução igual para todas.</p>
       </div>
 
       <div
         ref={trackRef}
         className="scrollbar-none mt-10 flex touch-pan-x gap-4 overflow-x-auto overscroll-x-contain px-6 pb-5 pt-4 md:mx-auto md:max-w-6xl md:cursor-grab md:gap-6 md:px-8 md:active:cursor-grabbing lg:mt-14 lg:px-10"
-        aria-label="Resultados de participantes do Bumbum na Nuca"
+        aria-label="Registros de participantes do Método 90X"
         onPointerDown={() => {
           trackInteraction("drag");
           pauseSlideshow();
@@ -165,7 +167,7 @@ export function SocialProofSlider() {
             key={participant.id}
           >
             <Image
-              className="object-cover"
+              className="object-contain"
               src={participant.imageSrc}
               alt={participant.alt}
               fill
@@ -189,7 +191,7 @@ export function SocialProofSlider() {
             currency: "BRL",
           }}
         >
-          QUERO CONQUISTAR MEU RESULTADO
+          QUERO TER BUMBUM NA NUCA
         </TrackedLink>
       </div>
     </section>
