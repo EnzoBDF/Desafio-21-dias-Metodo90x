@@ -18,9 +18,9 @@ const editorial = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Seu próximo passo | Quiz Projeto Verão",
+  title: "Projeto Verão, Magra e Definida | Método 90X",
   description:
-    "Responda a seis perguntas sobre seu objetivo e sua rotina e conheça o Projeto Verão: Magra e Definida. Seu verão, seu ritmo.",
+    "Conheça o Método 90X: 30 dias de treino, alimentação e apoio no Projeto Verão. De R$ 397 por R$ 97 à vista.",
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
   openGraph: {
     title: "Projeto Verão: Magra e Definida",

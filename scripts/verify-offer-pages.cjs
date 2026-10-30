@@ -34,20 +34,23 @@ for (const [name, file] of pages) {
   console.log(`PASS: ${name}: De R$ 397 por R$ 97`);
 }
 
-const quizHtml = fs.readFileSync(path.join(workspace, "projeto-verao/.next/server/app/index.html"), "utf8")
+const landingHtml = fs.readFileSync(path.join(workspace, "projeto-verao/.next/server/app/index.html"), "utf8")
   .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ");
-assert.equal((quizHtml.match(/<h1\b/g) || []).length, 1, "Quiz: uma pergunta visível");
-assert.equal((quizHtml.match(/type="radio"/g) || []).length, 4, "Quiz: quatro opções iniciais");
-assert.match(quizHtml, /href="\/oferta"/);
-assert.doesNotMatch(quizHtml, /href="https:\/\/payfast/);
-console.log("PASS: quiz inicial separado da oferta, sem checkout antecipado.");
+assert.equal((landingHtml.match(/<h1\b/g) || []).length, 1, "Landing: um título principal");
+assert.doesNotMatch(landingHtml, /<form\b|type="radio"|Responder ao quiz|Refazer o quiz|sete perguntas/i);
+assert.match(landingHtml, /id="historias"/);
+assert.match(landingHtml, /id="investimento"/);
+assert.match(landingHtml, /href="https:\/\/payfast/);
+console.log("PASS: página inicial é a landing completa, sem quiz ou análise intermediária.");
 
 const analysisHtml = fs.readFileSync(path.join(workspace, "projeto-verao/.next/server/app/analise.html"), "utf8")
   .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ");
-assert.match(analysisHtml, /href="\/oferta"/);
+const analysisMeta = JSON.parse(fs.readFileSync(path.join(workspace, "projeto-verao/.next/server/app/analise.meta"), "utf8"));
+assert.equal(analysisMeta.status, 308);
+assert.equal(analysisMeta.headers.location, "/");
 assert.doesNotMatch(analysisHtml, /href="https:\/\/payfast/);
-assert.match(analysisHtml, /noindex/);
-console.log("PASS: análise intermediária gerada, com saída para a oferta e sem checkout antecipado.");
+assert.doesNotMatch(analysisHtml, /<form\b|analysis-loading|analysis-cards/);
+console.log("PASS: antiga análise redireciona diretamente à landing.");
 
 const rootSourceFiles = [
   "app/desafios/[slug]/page.tsx",

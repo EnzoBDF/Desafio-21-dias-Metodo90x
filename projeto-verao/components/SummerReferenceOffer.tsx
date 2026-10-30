@@ -1,11 +1,9 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { SummerBrand } from "./SummerBrand";
 import { SummerCTA } from "./SummerCTA";
 import { SummerExperience } from "./SummerExperience";
 import { SummerIcon, type IconName } from "./SummerIcon";
-import { SummerRestartQuiz } from "./SummerOfferIntro";
 import { SummerTextTestimonials, SummerVideoTestimonials } from "./SummerTestimonials";
 import { EVIDENCE_PHOTOS, type EvidencePhoto } from "../lib/media";
 import { INSTAGRAM_URL } from "../lib/links";
@@ -133,7 +131,7 @@ export function SummerReferenceOffer() {
 
         <section className="sec" data-section="encerramento"><div className="box"><Heading>Daqui a 30 dias você vai estar em algum lugar</Heading><div className="read prose"><p>Na segunda-feira de novo, com a mesma frase na cabeça: “Aos 20 isso funcionava.” Ou com um mês de treino feito e um novo passo no cuidado com você.</p><p>A garantia de 7 dias cobre o risco.</p></div><Action placement="encerramento">Quero começar o meu primeiro treino hoje, 12x de R$ 9,90</Action><div className="read prose sup psb"><p>P.S. Elimine até 5 kg e diminua até 7 cm de barriga, em apenas 30 dias, através do Método 90X, por 12x de R$ 9,90 ou R$ 97 à vista. Você tem 7 dias de garantia, sem perguntas. Resultados individuais variam.</p></div></div></section>
       </main>
-      <footer className="foot"><div className="box"><div className="footer-brand"><SummerBrand footer /></div><p>Método 90X · <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">@metodo_90x</a> · Batista, personal trainer</p><p className="legal">Os resultados variam de pessoa para pessoa e dependem de seguir o treino. Os números de até 5 kg e até 7 cm de barriga não valem como resultado igual para todas. Os registros mostram experiências individuais, de períodos diferentes. Antes de iniciar qualquer treino ou dieta, consulte o seu médico.</p><div className="footer-links"><a href="#investimento">Ver investimento</a><Link href="/">Responder ao quiz</Link><SummerRestartQuiz /></div><p>© {new Date().getFullYear()} Projeto Verão · Magra e Definida.</p></div></footer>
+      <footer className="foot"><div className="box"><div className="footer-brand"><SummerBrand footer /></div><p>Método 90X · <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">@metodo_90x</a> · Batista, personal trainer</p><p className="legal">Os resultados variam de pessoa para pessoa e dependem de seguir o treino. Os números de até 5 kg e até 7 cm de barriga não valem como resultado igual para todas. Os registros mostram experiências individuais, de períodos diferentes. Antes de iniciar qualquer treino ou dieta, consulte o seu médico.</p><div className="footer-links"><a href="#investimento">Ver investimento</a><a href="#inicio">Voltar ao início</a></div><p>© {new Date().getFullYear()} Projeto Verão · Magra e Definida.</p></div></footer>
       <SummerCTA placement="floating_whatsapp" variant="floating">WhatsApp</SummerCTA>
       <SummerExperience />
     </div>

@@ -2,8 +2,9 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 
+for (const page of ["index", "oferta"]) {
 const html = fs.readFileSync(
-  path.resolve(__dirname, "../.next/server/app/oferta.html"),
+  path.resolve(__dirname, `../.next/server/app/${page}.html`),
   "utf8",
 );
 const checkoutHrefs = [...html.matchAll(/href="(https:\/\/payfast\.greenn\.com\.br\/[^\"]+)"/g)]
@@ -20,4 +21,6 @@ assert.equal(
   1,
   "O botão flutuante de WhatsApp deve ser preservado",
 );
-console.log("PASS: nove CTAs da oferta com o checkout correto e WhatsApp preservado.");
+assert.doesNotMatch(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ""), /Responder ao quiz|Refazer o quiz|<form\b|type="radio"/i);
+console.log(`PASS: ${page}: nove CTAs com o checkout correto, WhatsApp preservado e sem formulário.`);
+}
