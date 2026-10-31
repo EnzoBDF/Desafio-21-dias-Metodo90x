@@ -9,9 +9,9 @@ const html = fs.readFileSync(
 );
 const checkoutHrefs = [...html.matchAll(/href="(https:\/\/payfast\.greenn\.com\.br\/[^\"]+)"/g)]
   .map((match) => match[1]);
-assert.equal(checkoutHrefs.length, 9, "Os nove CTAs, incluindo os dois blocos de depoimentos, devem estar presentes");
+assert.equal(checkoutHrefs.length, 8, "Os oito CTAs das seções restantes devem estar presentes");
 for (const href of checkoutHrefs) {
-  assert.equal(href, "https://payfast.greenn.com.br/195687/offer/1Zhmro?ch_id=144371");
+  assert.equal(href, "https://payfast.greenn.com.br/redirect/811467");
 }
 assert.doesNotMatch(html, /5juz3g3|EZNgz9/);
 assert.match(html, /href="#investimento"/);
@@ -22,5 +22,5 @@ assert.equal(
   "O botão flutuante de WhatsApp deve ser preservado",
 );
 assert.doesNotMatch(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ""), /Responder ao quiz|Refazer o quiz|<form\b|type="radio"/i);
-console.log(`PASS: ${page}: nove CTAs com o checkout correto, WhatsApp preservado e sem formulário.`);
+console.log(`PASS: ${page}: oito CTAs com o checkout correto, WhatsApp preservado e sem formulário.`);
 }

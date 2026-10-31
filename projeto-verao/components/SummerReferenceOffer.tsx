@@ -4,7 +4,7 @@ import { SummerBrand } from "./SummerBrand";
 import { SummerCTA } from "./SummerCTA";
 import { SummerExperience } from "./SummerExperience";
 import { SummerIcon, type IconName } from "./SummerIcon";
-import { SummerTextTestimonials, SummerVideoTestimonials } from "./SummerTestimonials";
+import { SummerTextTestimonials } from "./SummerTestimonials";
 import { EVIDENCE_PHOTOS, type EvidencePhoto } from "../lib/media";
 import { INSTAGRAM_URL } from "../lib/links";
 import "../app/oferta/offer.css";
@@ -16,8 +16,10 @@ function Heading({ children, intro }: { children: ReactNode; intro?: string }) {
 function Action({ children, placement }: { children: ReactNode; placement: string }) {
   return <div className="act"><SummerCTA placement={placement} className="btn">{children}</SummerCTA></div>;
 }
-function Record({ photo, number, featured = false }: { photo: EvidencePhoto; number: number; featured?: boolean }) {
-  return <figure className="pcard result-card"><span className="pair-n">Registro {String(number).padStart(2, "0")}</span><div className="result-image"><Image src={photo.src} alt={photo.alt} width={photo.width ?? 1000} height={photo.height ?? 1000} sizes={featured ? "(max-width: 599px) calc(100vw - 72px), 474px" : "(max-width: 599px) calc(100vw - 72px), (max-width: 1000px) 45vw, 340px"} /></div><figcaption className="pcap">Registro real · Cada pessoa tem seu próprio processo.</figcaption></figure>;
+function Record({ photo, featured = false }: { photo: EvidencePhoto; featured?: boolean }) {
+  const sizes = featured ? "(max-width: 599px) calc(100vw - 72px), 474px" : "(max-width: 599px) calc(100vw - 72px), (max-width: 1000px) 45vw, 340px";
+  const pairedSizes = "(max-width: 599px) calc((100vw - 80px) / 2), (max-width: 1000px) 22vw, 166px";
+  return <figure className="pcard result-card" data-record={photo.id}><span className="pair-n">Registro {photo.id}</span><div className={`result-image${photo.companion ? " result-image--pair" : ""}`}><Image src={photo.src} alt={photo.alt} width={photo.width ?? 1000} height={photo.height ?? 1000} sizes={photo.companion ? pairedSizes : sizes} />{photo.companion && <Image src={photo.companion.src} alt={photo.companion.alt} width={photo.companion.width} height={photo.companion.height} sizes={pairedSizes} />}</div><figcaption className="pcap">Registro real · Cada pessoa tem seu próprio processo.</figcaption></figure>;
 }
 const faq = [
   ["Eu não tenho tempo.", "O Método 90X traz um passo a passo para estruturar uma rotina simples. Os Treinos Mínimos de 15 Minutos, em vídeo curto, são para o dia corrido."],
@@ -60,15 +62,9 @@ export function SummerReferenceOffer() {
 
         <section className="sec proofsec" id="historias" data-section="evidencias"><div className="box">
           <Heading intro="Mulheres reais, com filhos, trabalho e rotina cheia. Cada registro conta uma história e um processo individual.">Resultados de alunas</Heading>
-          <div className="results-grid">{EVIDENCE_PHOTOS.slice(0, 6).map((photo, i) => <Record key={photo.src} photo={photo} number={i + 1} />)}</div>
+          <div className="results-grid">{EVIDENCE_PHOTOS.filter(photo => photo.id !== "07").map(photo => <Record key={photo.id} photo={photo} />)}</div>
           <p className="note">Cada aluna tem seu ponto de partida. Os registros são de períodos diferentes e não comprovam resultados em 30 dias. Resultados individuais variam.</p>
           <Action placement="resultados">quero secar 7cm de cintura</Action>
-        </div></section>
-
-        <section className="sec proofsec testimonial-section" id="depoimentos-video" data-section="depoimentos_video"><div className="box">
-          <Heading intro="Histórias contadas por quem vive o Método 90X.">Ouça de quem já fez</Heading>
-          <SummerVideoTestimonials />
-          <Action placement="depoimentos_video">Quero começar meu Projeto Verão</Action>
         </div></section>
 
         <section className="sec proofsec testimonial-section" id="depoimentos-texto" data-section="depoimentos_texto"><div className="box">
@@ -85,7 +81,7 @@ export function SummerReferenceOffer() {
 
         <section className="sec proofsec" data-section="historia_real"><div className="box">
           <Heading intro="Cada conquista tem uma história. Mais um registro de quem colocou o cuidado com o corpo na rotina.">Resultados que contam histórias</Heading>
-          <div className="read single-record"><Record photo={EVIDENCE_PHOTOS[6]} number={7} featured /></div>
+          <div className="read single-record">{EVIDENCE_PHOTOS.filter(photo => photo.id === "07").map(photo => <Record key={photo.id} photo={photo} featured />)}</div>
           <p className="note">Registro real, sem promessa de resultado igual para todas.</p>
           <Action placement="historia_real">Quero secar 5kgs</Action>
         </div></section>

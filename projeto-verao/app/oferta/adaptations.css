@@ -118,6 +118,8 @@
 .reference-offer .result-card .pcap { padding: 0 3px 3px; font-size: 13px; }
 .reference-offer .result-image { aspect-ratio: auto; background: transparent; }
 .reference-offer .result-image img { display: block; width: 100%; height: auto; }
+.reference-offer .result-image--pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; align-items: start; }
+.reference-offer .result-image--pair img { min-width: 0; }
 .reference-offer .single-record { max-width: 500px; }
 .reference-offer .price { padding: 48px 56px; }
 .reference-offer .investment-label { font-size: 12px; letter-spacing: .16em; font-weight: 600; }
@@ -234,7 +236,6 @@
 }
 
 /* Testimonial slots follow the reference: five vertical videos, six messages and four group records. */
-.reference-offer .sec[data-section="depoimentos_video"] { background: var(--seafoam); }
 .reference-offer .testimonial-videos { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 .reference-offer .testimonial-card { padding: 12px; gap: 12px; margin: 0; }
 .reference-offer .testimonial-card figcaption { color: var(--ink-soft); font-size: 12px; line-height: 1.5; padding: 0 4px 4px; }

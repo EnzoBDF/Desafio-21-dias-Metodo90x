@@ -20,9 +20,13 @@ for (const [name, file] of pages) {
   assert.doesNotMatch(text, /R\$\s*(?:199,90|99,90|497\b|197\b)/, `${name}: sem preços antigos`);
   if (name === "Projeto Verão") {
     assert.doesNotMatch(html, /id="apresentacao"|href="#apresentacao"/);
-    assert.match(html, /id="depoimentos-video"/);
+    assert.doesNotMatch(html, /id="depoimentos-video"|Ouça de quem já fez/);
     assert.match(html, /id="depoimentos-texto"/);
-    assert.equal((html.match(/class="pcard result-card"/g) || []).length, 7);
+    assert.equal((html.match(/class="pcard result-card"/g) || []).length, 4);
+    assert.doesNotMatch(html, /registro-real-(?:01|03|05|06)\./);
+    assert.match(html, /registro-real-08\.png/);
+    assert.match(html, /registro-real-04-vestido\.png/);
+    assert.match(html, /registro-real-04-academia\.png/);
     assert.match(html, /href="#investimento"/);
     assert.match(html, /id="investimento"/);
     assert.equal((html.match(/<details class="acc"/g) || []).length, 6);
@@ -63,4 +67,4 @@ for (const file of rootSourceFiles) {
     /(?:offer_price:\s*99\.9|original_price:\s*199\.9)/,
     `${file}: preço antigo nos eventos`);
 }
-console.log("PASS: Projeto Verão: seven records, six FAQ items, offer navigation and event prices verified.");
+console.log("PASS: Projeto Verão: four records, paired photos, six FAQ items, offer navigation and event prices verified.");
