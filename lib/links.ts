@@ -1,4 +1,4 @@
-export const CHECKOUT_URL = "https://pay.hotmart.com/U107211430U";
+export const CHECKOUT_URL = "https://payfast.greenn.com.br/rgv6ce5/offer/Y51w9m?ch_id=144903";
 
 export const WHATSAPP_URL =
   "https://wa.me/5548992112149?text=Ol%C3%A1%21%20Conheci%20o%20Bumbum%20na%20Nuca%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20o%20desafio.";

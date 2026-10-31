@@ -22,9 +22,9 @@ for (const image of ["bumbum-na-nuca-campanha-20261025.jpeg", "desafio-30-dias-l
   assert.ok(html.includes(image));
   assert.ok(fs.statSync(path.join(root, "public/images", image)).size > 0);
 }
-const checkout = [...html.matchAll(/href="(https:\/\/pay\.hotmart\.com\/[^\"]+)"/g)].map(match => match[1]);
+const checkout = [...html.matchAll(/href="(https:\/\/(?:pay\.hotmart\.com|payfast\.greenn\.com\.br)\/[^\"]+)"/g)].map(match => match[1]);
 assert.ok(checkout.length >= 10);
-assert.ok(checkout.every(href => href === "https://pay.hotmart.com/U107211430U"), "Checkout destination preserved");
+assert.ok(checkout.every(href => href === "https://payfast.greenn.com.br/rgv6ce5/offer/Y51w9m?ch_id=144903"), "All purchase CTAs use the new checkout");
 for (let index = 0; index < 10; index++) assert.match(html, new RegExp(`id="faq-answer-${index}"`));
 const details = read(".next/server/app/desafios/bumbum-na-nuca.html").replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
 assert.doesNotMatch(details.replace(/<[^>]+>/g, " "), /\b21\s+dias\b|casa ou academia/i);
