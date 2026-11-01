@@ -9,6 +9,7 @@ import { IncludedFeatures } from "@/components/IncludedFeatures";
 import { LandingAnalytics } from "@/components/LandingAnalytics";
 import { MessageSection } from "@/components/MessageSection";
 import { PricingSection } from "@/components/PricingSection";
+import { ProfessionalsSection } from "@/components/ProfessionalsSection";
 import { SectionRevealController } from "@/components/SectionRevealController";
 import { SocialProofSlider } from "@/components/SocialProofSlider";
 import { ValueComparisonSection } from "@/components/ValueComparisonSection";
@@ -30,6 +31,7 @@ export default function Home() {
       <MessageSection />
       <IncludedFeatures />
       <ChallengeRoutineSection />
+      <ProfessionalsSection />
       <ChallengeSupportSection />
       <CommunityPhotosSection />
       <ValueComparisonSection />
