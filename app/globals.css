@@ -127,6 +127,108 @@ a {
   text-decoration: none;
 }
 
+.challenge-hero {
+  isolation: isolate;
+  background: #1f1f1f;
+}
+
+.proof-comparison {
+  position: relative;
+  display: flex;
+  height: 100%;
+  aspect-ratio: 461 / 640;
+  max-width: 100%;
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.proof-comparison-half {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.proof-comparison-photo {
+  object-fit: cover;
+}
+
+.proof-comparison-half--right .proof-comparison-photo { object-position: right center; }
+.proof-comparison-half--left .proof-comparison-photo { object-position: left center; }
+
+.proof-comparison-logo {
+  position: absolute;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.proof-comparison-half--right .proof-comparison-logo { width: 76%; left: 13%; top: -6%; }
+.proof-comparison-half--left .proof-comparison-logo { width: 80%; left: 16.5%; top: 0.5%; }
+
+.challenge-hero-art {
+  position: absolute;
+  inset: 0 0 auto;
+  height: clamp(35rem, 145vw, 46rem);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.challenge-hero-image {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.challenge-hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 8%) 0%, rgb(0 0 0 / 12%) 25%, rgb(31 31 31 / 78%) 52%, #1f1f1f 94%);
+}
+
+.challenge-hero-layout {
+  padding-top: clamp(15rem, 66vw, 22rem);
+  padding-bottom: 2.5rem;
+}
+
+.challenge-hero-content {
+  max-width: 38rem;
+  margin-inline: auto;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 1024px) {
+  .challenge-hero-art {
+    inset: 0 0 0 auto;
+    width: 76%;
+    height: 100%;
+  }
+
+  .challenge-hero-image {
+    object-position: center top;
+  }
+
+  .challenge-hero-art::after {
+    background: linear-gradient(90deg, #1f1f1f 0%, rgb(31 31 31 / 97%) 35%, rgb(31 31 31 / 80%) 52%, transparent 78%), linear-gradient(0deg, #1f1f1f 0%, transparent 28%);
+  }
+
+  .challenge-hero-layout {
+    display: flex;
+    align-items: center;
+    min-height: 52rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .challenge-hero-content {
+    width: 54%;
+    max-width: 40rem;
+    margin-inline: 0;
+    text-align: left;
+  }
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { CHECKOUT_URL } from "@/lib/links";
+import { CHALLENGE_ASSETS } from "@/lib/challengeOffer";
 import { trackEvent } from "@/lib/analytics";
 import { TrackedLink } from "./TrackedActions";
 import { displayTitle, glow, primaryButton, sectionContainer } from "./styles";
@@ -166,13 +167,24 @@ export function SocialProofSlider() {
             className={`relative aspect-[3/4] w-[68vw] min-w-[15rem] max-w-[18rem] shrink-0 snap-center overflow-hidden rounded-xl bg-[#111] md:w-[18rem] ${glow.whiteCard}`}
             key={participant.id}
           >
-            <Image
+            {participant.id === 3 ? (
+              <div className="proof-comparison" role="img" aria-label="Comparativo fotográfico de participante do Método 90X, com as fotos em ordem invertida e o logo atual de 30 dias">
+                {(["right", "left"] as const).map((side) => (
+                  <div className={`proof-comparison-half proof-comparison-half--${side}`} key={side}>
+                    <Image src={participant.imageSrc} alt="" fill sizes="(max-width: 48rem) 68vw, 18rem" className="proof-comparison-photo" />
+                    <div className="proof-comparison-logo">
+                      <Image src={CHALLENGE_ASSETS.logo} alt="" fill sizes="110px" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : <Image
               className="object-contain"
               src={participant.imageSrc}
               alt={participant.alt}
               fill
               sizes="(max-width: 48rem) 68vw, 18rem"
-            />
+            />}
           </article>
         ))}
       </div>

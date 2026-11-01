@@ -1,5 +1,6 @@
 export const CHALLENGE_DAYS = 30;
 export const CHALLENGE_ASSETS = {
+  hero: "/images/bumbum-na-nuca-hero-20261101.png",
   campaign: "/images/bumbum-na-nuca-campanha-20261025.jpeg",
   logo: "/images/desafio-30-dias-logo-20261025.jpeg",
 } as const;
